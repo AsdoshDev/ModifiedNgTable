@@ -1,0 +1,22 @@
+<div *ngIf="columnHeaderInfo.level == 1">
+    <gsr-row class="gsr-row" (click) = "changeTable(columnHeaderInfo.level)" *ngFor="let record of records" [record]  = "record" [columnHeaderInfo] = "columnHeaderInfo"></gsr-row>
+    <div *ngIf="records.length==0" class="noResults">No records found</div>
+</div> 
+
+<div *ngIf="columnHeaderInfo.level == 2">
+    <div class="gsr-row gsr-accordionHeader level-{{columnHeaderInfo.level}}" (click) = "changeTable(columnHeaderInfo.level)">
+        <div  class="gsr-column"><span attr.level="{{columnHeaderInfo.level}}"  class="iconStyle collapse"></span><span>{{dataObj.id}}</span></div>
+    </div>
+    <div class="gsr-row gsr-accordionHeader" (click) = "changeTable(columnHeaderInfo.level,in)" *ngFor="let company of dataObj.companies;let in = index;">
+        <div  class="gsr-column companyColumns"><span attr.level="{{columnHeaderInfo.level}}" attr.index="{{in}}" class="iconStyle expand"></span><span>{{company.company}}</span></div>
+    </div>
+</div> 
+
+
+<div *ngIf="columnHeaderInfo.level == 3">
+    <div class="gsr-row gsr-accordionHeader" (click) = "changeTable(columnHeaderInfo.level)">
+         <div  class="gsr-column"><span attr.level="{{columnHeaderInfo.level}}" class="iconStyle collapse"></span><span>{{dataObj.companies[recIndex].company}}</span></div>
+    </div>
+    <!-- <gsr-row class="gsr-row gsr-record-row" *ngFor="let record of records" [record]  = "record" [columnHeaderInfo] = "columnHeaderInfo"></gsr-row>
+    <div *ngIf="records.length==0" class="noResults">No records found</div> -->
+</div> 

@@ -1,0 +1,47 @@
+<div class="gsr-table" *ngIf="dataObj">
+    <gsr-table-header [dataObj] = "dataObj" (sendFilterRecords) = "records=$event" (sendFilter)="showFilter=$event"    [columnHeaderInfo] = "columnHeaderInfo"></gsr-table-header>
+    
+    <div class="gsr-table-scroller">
+        <gsr-column-header [showFilter] ="showFilter" [dataObj] = "dataObj"  [columnHeaderInfo] = "columnHeaderInfo"> </gsr-column-header>
+        <ng-container *ngIf="columnHeaderInfo.levelDecider">
+         <div *ngIf="columnHeaderInfo.level == 1">
+            <gsr-row class="gsr-row" (click) = "changeTable(columnHeaderInfo.level,'',false,record.cusip)" *ngFor="let record of records;let in = index;" attr.id="{{record.cusip}}" attr.index = "{{in}}" [record]  = "record" [columnHeaderInfo] = "columnHeaderInfo"></gsr-row>
+            <div *ngIf="records.length==0" class="noResults">No records found</div>
+        </div> 
+
+        <div *ngIf="columnHeaderInfo.level == 2">
+            <div class="gsr-row gsr-accordionHeader level-{{columnHeaderInfo.level}}" (click) = "changeTable(columnHeaderInfo.level,'',true)">
+                <div  class="gsr-column"><span attr.level="{{columnHeaderInfo.level}}"  class="iconStyle collapse"></span><span>{{dataObj.id}}</span></div>
+            </div>
+            <div class="gsr-row gsr-accordionHeader" (click) = "changeTable(columnHeaderInfo.level,in,false,columnHeaderInfo.cusip)" *ngFor="let company of dataObj[columnHeaderInfo.cusip];let in = index;">
+                <div  class="gsr-column companyColumns"><span attr.level="{{columnHeaderInfo.level}}" attr.index="{{in}}" class="iconStyle expand"></span><span>{{company.company}}</span></div>
+            </div>
+        </div> 
+         <div *ngIf="columnHeaderInfo.level == 3">
+            <div class="gsr-row gsr-accordionHeader" (click) = "changeTable(columnHeaderInfo.level,'',false,columnHeaderInfo.cusip)">
+                 <div  class="gsr-column"><span attr.level="{{columnHeaderInfo.level}}" class="iconStyle collapse"></span><span>{{dataObj[columnHeaderInfo.cusip][recIndex].company}}</span></div>
+            </div>
+            <gsr-row class="gsr-row gsr-record-row" *ngFor="let record of records" [record]  = "record" [columnHeaderInfo] = "columnHeaderInfo"></gsr-row>
+            <div *ngIf="records.length==0" class="noResults">No records found</div>
+        </div> 
+        </ng-container>
+
+        <ng-container *ngIf="!columnHeaderInfo.levelDecider">
+                <gsr-row class="gsr-row gsr-record-row" *ngFor="let record of records" [record]  = "record" [columnHeaderInfo] = "columnHeaderInfo"></gsr-row>
+                <div *ngIf="records.length==0" class="noResults">No records found</div>
+        </ng-container>
+
+        <!-- <div class="gsr-table-scroller">
+                <gsr-column-header [showFilter] ="showFilter" [dataObj] = "dataObj"  [columnHeaderInfo] = "columnHeaderInfo"> </gsr-column-header>
+                <gsr-table-level-decider *ngIf="columnHeaderInfo.levelDecider" (sendLevel2) = "levelDtls=$event" [showFilter] ="showFilter"  [dataObj] = "dataObj"  [columnHeaderInfo] = "columnHeaderInfo" ></gsr-table-level-decider>
+                <ng-container *ngIf="!columnHeaderInfo.levelDecider">
+                        <gsr-row class="gsr-row gsr-record-row" *ngFor="let record of records" [record]  = "record" [columnHeaderInfo] = "columnHeaderInfo"></gsr-row>
+                        <div *ngIf="records.length==0" class="noResults">No records found</div>
+                </ng-container>
+            </div> -->
+
+
+
+       
+    </div>
+</div>

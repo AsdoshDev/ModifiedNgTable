@@ -1,0 +1,19 @@
+<div class="gsr-row dynamicHeader">
+    <ng-container *ngIf="columnHeaderInfo.levelDecider">
+      <div class="gsr-column" *ngIf="columnHeaderInfo.level == 1"></div> 
+      <div class="gsr-column" *ngIf="columnHeaderInfo.level == 2">{{dataObj.id}}-{{columnHeaderInfo.cusip}} -></div> 
+      <div class="gsr-column" *ngIf="columnHeaderInfo.level == 3">{{dataObj.id}}-{{columnHeaderInfo.cusip}} -> {{dataObj[columnHeaderInfo.cusip][recIndex].company}}</div> 
+    </ng-container>
+    <ng-container *ngIf="!columnHeaderInfo.levelDecider">
+        <div class="gsr-column">{{columnHeaderInfo.tableTitle}}</div> 
+      </ng-container>
+    <div class="gsr-column headerOptions">
+      <span class="gsr-link" *ngIf="columnHeaderInfo.needFilter && !showFilter" (click) = "toggleFilterColumn()">Filter</span>
+      <ng-container  *ngIf="showFilter">
+            <span class="gsr-link" (click) = "filterColumn()">Apply</span>
+            <span class="gsr-link" (click) = "clearInputValues()">Clear</span>
+            <span class="gsr-link" (click) = "toggleFilterColumn()">Close</span>
+      </ng-container>
+      <span class="gsr-link" *ngIf="columnHeaderInfo.needPrint">Print</span>
+    </div> 
+</div>

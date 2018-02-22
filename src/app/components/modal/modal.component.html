@@ -1,0 +1,14 @@
+  <div class="backdrop" ></div>
+  <div id="printableArea" class="gsr-modal-container">
+    <div class="gsr-modal-dialog">
+      <div class="gsr-modal-title">{{account.type}}<span class="gsr-link print-option" (click)="printDiv('printableArea')">Print</span></div>
+      <div  class="gsr-modal-content">
+          <div class="columnWrapper" *ngFor="let rec of generateArray(account.details)">
+            <div class="gsr-modal-content-column column-label">{{rec.key}}</div><div class="gsr-modal-content-column"> {{rec.value}}</div>
+          </div>
+    </div>
+    </div>
+    <div class="gsr-modal-close" aria-label="Close" (click)="onCloseHandled()"><i class="material-icons">close</i></div>
+  </div>
+
+  

@@ -1,0 +1,35 @@
+<ul class="nav nav-tabs">
+  <li *ngFor="let tab of tabs;"  class="{{tab.isClicked}}" (click)="selectTab(tab)">
+    <a href="#" (click) = "selectTab(tab)">{{tab.title}}</a>
+  </li>
+</ul>
+
+<div class="tab-content">
+
+<ng-container *ngIf="tabs[0].isClicked == 'active'">
+  <div class="tab-content"></div>
+ <button (click)="selectTab(tabs[1])">Run Query</button>
+</ng-container>
+
+<ng-container *ngIf="tabs[1].isClicked == 'active'">
+  <div class="details-pane" *ngIf="columnHeaderInfo.level === 1">Level 1 details</div>
+  <div class="details-pane" *ngIf="columnHeaderInfo.level === 2">Level 2 details of {{icData.id}} No. {{columnHeaderInfo.index}} </div>
+  <div class="details-pane" *ngIf="columnHeaderInfo.level === 3">
+    Level 3 details  of Company No {{columnHeaderInfo.index + 1}}
+  </div>
+    <gsr-table *ngIf="!columnHeaderInfo.levelDecider" [dataObj] = "icData" [columnHeaderInfo] = "columnHeaderInfo"></gsr-table>
+
+    <gsr-table *ngIf="columnHeaderInfo.level === 1" (sendLevel)="getLevel(levelDtls=$event)"  [dataObj] = "icData" [columnHeaderInfo] = "columnHeaderInfo"></gsr-table>
+    <gsr-table *ngIf="columnHeaderInfo.level === 2" (sendLevel)="getLevel(levelDtls=$event)"  [dataObj] = "icData" [columnHeaderInfo] = "columnHeaderInfo"></gsr-table>
+    <gsr-table *ngIf="columnHeaderInfo.level === 3" (sendLevel)="getLevel(levelDtls=$event)"  [dataObj] = "icData" [columnHeaderInfo] = "columnHeaderInfo"></gsr-table>
+</ng-container>
+<ng-container *ngIf="tabs[2].isClicked == 'active'">
+  3 is active 
+</ng-container>
+
+</div>
+
+
+
+
+
