@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output } from '@angular/core';
 import { EventEmitter } from '@angular/core';
+import {GsrTableComponent} from '../gsr-table/gsr-table.component';
 
 @Component({
   selector: 'gsr-modal',
@@ -8,9 +9,11 @@ import { EventEmitter } from '@angular/core';
 })
 export class ModalComponent implements OnInit {
 
-  constructor() { }
+  constructor(private table:GsrTableComponent) { }
 
   @Input() account:any; 
+  @Input() columnHeaderInfo:any; 
+  
   @Input() showModal:any;
   @Output() sendValue = new EventEmitter();
  
@@ -28,17 +31,7 @@ export class ModalComponent implements OnInit {
     //document.body.innerHTML = originalContents;
   }
  
-  generateArray(obj) {
-
-    let bla = Object.keys(obj).map((key) => {
-
-      return {
-        key: key, value: obj[key]
-      }
-    });
-    
-    return bla;
-  }
+ 
 
   onCloseHandled(){
     this.showModal = !this.showModal;

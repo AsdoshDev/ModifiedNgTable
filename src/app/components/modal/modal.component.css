@@ -66,15 +66,8 @@ body, html {
 	box-shadow: 1px 1px 3px #000;
 }
 
-.columnWrapper{
-	display: flex;
-	width:50%;
-	
-}
 
-.column-label{
-	font-weight: bold;
-}
+
 
 
 .print-option{
@@ -84,34 +77,17 @@ body, html {
 
 .gsr-modal-close:hover { background: rgb(3, 4, 100); }
 
-.gsr-modal-content{
+/* .gsr-modal-content{
 	display:flex;
 	flex-direction: column;
 	flex-flow:wrap;
-	/* flex-flow: column wrap; */
-}
 
-.gsr-modal-content-column{
-	flex-grow:1;
-	width:0;
-	/* border: 1px solid #dcdcdc; */
-    padding: 5px;
+} */
 
-}
 
 .gsr-modal-close .material-icons{
 	position: relative;
 	top:2px;
 }
-
-
-
-.columnWrapper:nth-child(4n+1),.columnWrapper:nth-child(4n+2) {
-	background-color: #ececec;
-  }
-
-  .columnWrapper:nth-child(4n+3),.columnWrapper:nth-child(4n+4) {
-	background-color: white;
-  }
 
 

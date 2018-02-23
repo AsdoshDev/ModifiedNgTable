@@ -17,7 +17,6 @@
     box-shadow: 0 5px 5px -3px rgba(0, 0, 0, .2), 0 8px 10px 1px rgba(0, 0, 0, .14), 0 3px 14px 2px rgba(0, 0, 0, .12);
     font-size:14px;
   }
-  
 
 .gsr-table-scroller{
     overflow: auto;
@@ -219,9 +218,35 @@ color: white;
 button:active{
   box-shadow:0px 0px 0px 3px #ddd;
 }
+/* modal table details */
+.gsr-modal-content-column{
+	flex-grow:1;
+	width:0;
+ padding: 5px;
 
+}
 
+.columnGroup{
+	display: flex;
+	width:50%;
+	
+}
 
+.column-label{
+	font-weight: bold;
+}
 
+.columnGroup:nth-child(4n+1),.columnGroup:nth-child(4n+2) {
+	background-color: #ececec;
+  }
 
+  .columnGroup:nth-child(4n+3),.columnGroup:nth-child(4n+4) {
+	background-color: white;
+  }
 
+  .columnWrapper{
+    display:flex;
+    flex-direction: column;
+    flex-flow:wrap;
+  }
+  

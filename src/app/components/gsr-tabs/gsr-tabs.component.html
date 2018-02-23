@@ -19,12 +19,10 @@
   </div>
     <gsr-table *ngIf="!columnHeaderInfo.levelDecider" [dataObj] = "icData" [columnHeaderInfo] = "columnHeaderInfo"></gsr-table>
 
-    <gsr-table *ngIf="columnHeaderInfo.level === 1" (sendLevel)="getLevel(levelDtls=$event)"  [dataObj] = "icData" [columnHeaderInfo] = "columnHeaderInfo"></gsr-table>
-    <gsr-table *ngIf="columnHeaderInfo.level === 2" (sendLevel)="getLevel(levelDtls=$event)"  [dataObj] = "icData" [columnHeaderInfo] = "columnHeaderInfo"></gsr-table>
-    <gsr-table *ngIf="columnHeaderInfo.level === 3" (sendLevel)="getLevel(levelDtls=$event)"  [dataObj] = "icData" [columnHeaderInfo] = "columnHeaderInfo"></gsr-table>
+    <gsr-table [level] = 'level' (sendLevel)="getLevel(levelDtls=$event)"  [dataObj] = "icData" [columnHeaderInfo] = "columnHeaderInfo"></gsr-table>
 </ng-container>
 <ng-container *ngIf="tabs[2].isClicked == 'active'">
-  3 is active 
+  <gsr-table [dataObj] = "icData5" [columnHeaderInfo] = "columnHeaderInfo5"></gsr-table>
 </ng-container>
 
 </div>

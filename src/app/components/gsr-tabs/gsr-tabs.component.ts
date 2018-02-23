@@ -1,5 +1,6 @@
-import { Component, OnInit,Input } from '@angular/core';
+import { Component, OnInit,Input, ChangeDetectorRef, NgZone } from '@angular/core';
 import {TableDataService} from './../../services/table-data.service';
+
 @Component({
   selector: 'gsr-tabs',
   templateUrl: './gsr-tabs.component.html',
@@ -10,14 +11,23 @@ export class GsrTabsComponent implements OnInit {
 @Input() tabs;
 columnHeaderInfo:any;
 icData:any;
+icData5:any;
 account:any;
-constructor(private data: TableDataService) { }
+columnHeaderInfo5:any;
+level:number;
+constructor(private data: TableDataService, private ngZone: NgZone) { }
+
+
+
 ngOnInit() {
   //this.tabs.forEach(tab=> tab.isClicked = "disabled");
   this.tabs[0].isClicked = "active";
 
-  this.columnHeaderInfo = this.data.getLevel4Columns();
-  this.icData = this.data.getLevel4();
+  this.columnHeaderInfo = this.data.getLevel3Columns();
+  this.icData = this.data.getLevel3();
+
+  this.columnHeaderInfo5 = this.data.getLevel5Columns();
+  this.icData5 = this.data.getAccount();
 }
 ngAfterViewInit() {
   //console.log("this.el.nativeElement.querySelector('li')");
@@ -43,10 +53,9 @@ getLevel(a){
         levelVar = (a.navigateBack) ? (a.level-1) : (a.level+1);
   }
       
-
   // else
   //     levelVar = 3;
-
+  this.columnHeaderInfo = {columnHeaders: ''};
       if(levelVar == 1){
         this.columnHeaderInfo = this.data.getLevel1Columns();
         this.icData = this.data.getLevel1();
@@ -64,6 +73,13 @@ getLevel(a){
       
       if(a.cusip)
         this.columnHeaderInfo.cusip = a.cusip;
+
+       // this.changeDetectorRef.detectChanges();
+        this.ngZone.run(function() {}) ;
+        this.level = levelVar;
+        var array = this.columnHeaderInfo.columnHeaders;
+        this.columnHeaderInfo.columnHeaders = [];
+        this.columnHeaderInfo.columnHeaders = array
       
 
 }

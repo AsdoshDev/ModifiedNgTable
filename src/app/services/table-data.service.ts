@@ -5,8 +5,8 @@ import { HttpClient } from '@angular/common/http';
 @Injectable()
 export class TableDataService{
 
-
-  columnHeaderInfoLevel4 =  {'tableTitle':"My Table Title",'needFilter' : true,'needPrint' : true, levelDecider : false,'columnHeaders' : [
+  columnHeaderInfoLevel5 =  {tableType:'columnTable',tableTitle:"Account Details",'needFilter' : false,'needPrint' : true, levelDecider : false};
+  columnHeaderInfoLevel4 =  {tableType:'default','tableTitle':"My Table Title",'needFilter' : true,'needPrint' : true, levelDecider : false,'columnHeaders' : [
     { attrName: "id", colName: "Firm", filterBy: 'string', searchIcon: false, inputType: "text",filterValue:"" }, 
     { attrName: "name", colName: "Check", filterBy: 'string', searchIcon: false, inputType: "text",filterValue:"" }, 
     { attrName: "username", colName: "Ending List" , filterBy: 'string', searchIcon: false, inputType: "text",filterValue:"" }, 
@@ -22,7 +22,7 @@ export class TableDataService{
   
   ]};
  
-  columnHeaderInfoLevel3 = {'needFilter' : true,cusip:'1234567','needPrint' : true, levelDecider : true,'level' : 3, 'index':0,'columnHeaders' : [
+  columnHeaderInfoLevel3 = {tableType:'levelDecider','needFilter' : true,cusip:'1234567','needPrint' : true, levelDecider : true,'level' : 3, 'index':0,'columnHeaders' : [
     { attrName: "id", colName: "Account No", filterBy: 'string', searchIcon: 'true', inputType: "text",filterValue:"" },
     { attrName: "name", colName: "Name", filterBy: 'string', inputType: "text",filterValue:"" },
     { attrName: "username", colName: "Username", filterBy: 'string', inputType: "text",filterValue:"" },
@@ -36,11 +36,11 @@ export class TableDataService{
     {attrName:"test5",colName:"Website",filterBy:'string', inputType: "text",filterValue:"" },
   ]};
 
-  columnHeaderInfoLevel2 =  {'needFilter' : false,'needPrint' : false, levelDecider : true,'level' : 2, 'index':0,'columnHeaders' : [
+  columnHeaderInfoLevel2 =  {tableType:'levelDecider','needFilter' : false,'needPrint' : false, levelDecider : true,'level' : 2, 'index':0,'columnHeaders' : [
     { attrName: "firm", colName: "Firm" },
   ]};
 
-  columnHeaderInfoLevel1 =  {'needFilter' : false,'needPrint' : true, levelDecider : true,'level' : 1, 'index':0,'columnHeaders' : [
+  columnHeaderInfoLevel1 =  { tableType:'levelDecider','needFilter' : false,'needPrint' : true, levelDecider : true,'level' : 1, 'index':0,'columnHeaders' : [
     { attrName: "cusip", colName: "CUSIP",searchIcon: 'true',accordion: 'true'},
     { attrName: "isin", colName: "ISIN"},
     { attrName: "sedol", colName: "SEDOL"},
@@ -678,7 +678,7 @@ details :[
     "md" : "Maturity Date",
     "ic" :  "Issue Currency"}]}
 
-account = {type:'Account Details', details : {
+account = {
  "id": "10291287",
  "name": "Ervin Howell",
  "username": "Antonette",
@@ -693,7 +693,7 @@ account = {type:'Account Details', details : {
  "catchPhrase": "Multi-tiered zero tolerance productivity",
  "bs": "transition cutting-edge web services",
  "blockchain" : "propels java"
-}}
+};
 
   rooturl:string = "https://jsonplaceholder.typicode.com/users";
 
@@ -701,6 +701,10 @@ account = {type:'Account Details', details : {
 
   constructor(private http:HttpClient){}
 
+  getLevel5Columns(){
+    return this.columnHeaderInfoLevel5;
+  }
+  
 
   getLevel4Columns(){
     return this.columnHeaderInfoLevel4;
@@ -725,7 +729,7 @@ account = {type:'Account Details', details : {
   getLevel4(){
     return this.dataLevel4;
   } 
-  
+
   getCusipId(){
     return "23456789";
   }
