@@ -1,5 +1,6 @@
-import { Component, OnInit,Input, ChangeDetectorRef, NgZone } from '@angular/core';
+import { Component, OnInit,Input,Output } from '@angular/core';
 import {TableDataService} from './../../services/table-data.service';
+import { EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'gsr-tabs',
@@ -15,29 +16,38 @@ icData5:any;
 account:any;
 columnHeaderInfo5:any;
 level:number;
-constructor(private data: TableDataService, private ngZone: NgZone) { }
+records:any;
+@Output() sendTab = new EventEmitter();
+
+constructor(private data: TableDataService) { }
 
 
 
 ngOnInit() {
-  //this.tabs.forEach(tab=> tab.isClicked = "disabled");
   this.tabs[0].isClicked = "active";
-
   this.columnHeaderInfo = this.data.getLevel3Columns();
+  
   this.icData = this.data.getLevel3();
+  this.records = this.icData[this.columnHeaderInfo.cusip][0]["records"];
+
+  // this.icData = this.data.getLevel1();
+  // this.records = this.icData.details;
 
   this.columnHeaderInfo5 = this.data.getLevel5Columns();
   this.icData5 = this.data.getAccount();
 }
+
 ngAfterViewInit() {
-  //console.log("this.el.nativeElement.querySelector('li')");
-     // console.log(this.el.nativeElement.querySelector('li'));
 }
-selectTab(tab){
+
+selectTab(tab,index){
   if(tab.isClicked !== "active"){
-  this.tabs.forEach(tab=> tab.isClicked = "");
-  tab.isClicked = "active";
+    this.tabs.forEach(tab=> tab.isClicked = "");
+    tab.isClicked = "active";
+    tab.index = index;
+    this.sendTab.emit(tab);
   }
+  
 }
 
 
@@ -46,27 +56,29 @@ getLevel(a){
   if(a.index !== undefined && a.index !== ""){
     indexVar = a.index;
   }
-  
+  debugger;
   if(a.level !==2){
         levelVar = (a.level !== 1) ? (a.level-1) : (a.level+1);
   }else{
         levelVar = (a.navigateBack) ? (a.level-1) : (a.level+1);
   }
-      
-  // else
-  //     levelVar = 3;
-  this.columnHeaderInfo = {columnHeaders: ''};
+
       if(levelVar == 1){
         this.columnHeaderInfo = this.data.getLevel1Columns();
         this.icData = this.data.getLevel1();
+        this.records = this.icData.details;
       }
       else if(levelVar == 2){
         this.columnHeaderInfo = this.data.getLevel2Columns();
         this.icData = this.data.getLevel3();
+        this.records = this.icData[a.cusip];
       }
       else if(levelVar == 3){
         this.columnHeaderInfo = this.data.getLevel3Columns();
         this.icData = this.data.getLevel3();
+        this.records = this.icData[a.cusip][indexVar]["records"];
+        debugger;
+
       }
       this.columnHeaderInfo.index = indexVar;
       this.columnHeaderInfo.level = levelVar;
@@ -74,12 +86,6 @@ getLevel(a){
       if(a.cusip)
         this.columnHeaderInfo.cusip = a.cusip;
 
-       // this.changeDetectorRef.detectChanges();
-        this.ngZone.run(function() {}) ;
-        this.level = levelVar;
-        var array = this.columnHeaderInfo.columnHeaders;
-        this.columnHeaderInfo.columnHeaders = [];
-        this.columnHeaderInfo.columnHeaders = array
       
 
 }

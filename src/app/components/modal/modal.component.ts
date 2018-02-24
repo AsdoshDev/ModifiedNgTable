@@ -13,12 +13,14 @@ export class ModalComponent implements OnInit {
 
   @Input() account:any; 
   @Input() columnHeaderInfo:any; 
+  @Input() chi:any;
   
   @Input() showModal:any;
   @Output() sendValue = new EventEmitter();
  
   ngOnInit() {
-
+    console.log(this.account);
+    console.log(this.columnHeaderInfo);
   }
     printDiv(divName) {
     var printContents = document.getElementById(divName).innerHTML;

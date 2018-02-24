@@ -9,29 +9,29 @@ import { EventEmitter } from '@angular/core';
 export class GsrTableHeaderComponent implements OnInit {
   @Input() showFilter;
   @Input() dataObj;
+  @Input() columns; 
+  @Input() records;
+
   @Input() columnHeaderInfo; //array of objects
   @Output() sendFilter = new EventEmitter();
   @Output() sendFilterRecords = new EventEmitter();
 
   recIndex:any;
-  columns:any;
   tableLevel:any;
-  records:any;
   originalRecords:any;
   constructor() { }
 
   ngOnInit() {
-    this.columns = this.columnHeaderInfo['columnHeaders'];
     this.recIndex = this.columnHeaderInfo['index'];
     this.tableLevel = this.columnHeaderInfo['level'];
     if(this.columnHeaderInfo.levelDecider){
     if(this.tableLevel == 1)
-      this.records = this.originalRecords = this.dataObj.details;
+      this.originalRecords = this.dataObj.details;
       else  if(this.tableLevel == 3){
-        this.records = this.originalRecords = this.dataObj[this.columnHeaderInfo.cusip][this.recIndex]["records"];
+        this.originalRecords = this.dataObj[this.columnHeaderInfo.cusip][this.recIndex]["records"];
       }}
       else{
-        this.records = this.originalRecords = this.dataObj;
+        this.originalRecords = this.dataObj;
       }
 }
 
@@ -43,6 +43,7 @@ export class GsrTableHeaderComponent implements OnInit {
     this.sendFilterRecords.emit(this.records);
   }
   filterColumn() {
+    debugger;
     this.records = this.originalRecords;
     for(let i=0;i<this.columns.length;i++){
       if(this.columns[i].filterValue !== "" && this.columns[i].filterValue !== "Show All"){

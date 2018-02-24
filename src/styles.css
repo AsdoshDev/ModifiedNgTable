@@ -5,7 +5,9 @@
 /* You can add global styles to this file, and also import other style files */
 
 
-
+.level-decider{
+    width:100%;
+}
 
 .gsr-row.filter{
     padding-top:5px;
@@ -22,6 +24,8 @@
     overflow: auto;
     max-height: 800px;
     height:480px;
+    width:100%;
+    
 }
 
   .gsr-row {
@@ -111,6 +115,17 @@
     width:100%;
     border:1px solid #e4e4e4;
   }
+  .noResults{
+    width:100%;
+    text-align:center;
+    padding:10px;
+  }
+  
+  .gsr-icon-column{
+    width:50px;
+  }
+  
+  
   
   .iconStyle { 
     min-height: 20px;
@@ -249,4 +264,33 @@ button:active{
     flex-direction: column;
     flex-flow:wrap;
   }
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   

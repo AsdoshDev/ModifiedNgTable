@@ -1,11 +1,11 @@
-<div  class="gsr-column" attr.colname="{{column.attrName}}" *ngFor="let column of columnHeaderInfo.columnHeaders" >
+<div  class="gsr-column" [ngClass]="(column.accordion) ? 'gsr-icon-column':''"  attr.colname="{{column.attrName}}" *ngFor="let column of columnHeaders" >
       <span *ngIf="!column.accordion">{{record[column.attrName]}}</span>
-      <span *ngIf="column.accordion"><span class="iconStyle expand"></span>{{record[column.attrName]}}</span>
+      <span *ngIf="column.accordion"><span (click) = "changeTable(columnHeaderInfo.level,'',false,record.cusip)" class="iconStyle expand"></span>{{record[column.attrName]}}</span>
       <span class="searchIcon" (click) = "openModal()" *ngIf="column.searchIcon"><i class="material-icons md-18">search</i></span>
      
 </div>
 
-<gsr-modal  [account] = "account" *ngIf="showModal" (sendValue)="showModal=$event"  [showModal] = 'showModal'></gsr-modal>
+<gsr-modal  [chi] = "chi" [account] = "account" *ngIf="showModal" (sendValue)="showModal=$event"  [showModal] = 'showModal'></gsr-modal>
 
 
 

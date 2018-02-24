@@ -1,4 +1,4 @@
-import { Component, OnInit,Input } from '@angular/core';
+import { Component, OnInit,Input,Output,EventEmitter } from '@angular/core';
 import { ModalComponent } from '../../components/modal/modal.component';
 import { TableDataService } from '../../services/table-data.service';
 
@@ -12,14 +12,38 @@ export class GsrRowComponent implements OnInit {
   account:any;
   @Input() record;
   @Input() columnHeaderInfo; //array of objects
-  
-  columns:any;
+  @Input() columnHeaders; 
   public showModal = false;
+  chi:any;
+  @Output() sendLevel = new EventEmitter();
 
+  changeTable(level,index,navigateBack,cusip){
+    
+    // if(this.showFilter)
+    //    this.showFilter = !this.showFilter;
+    let levelInfo ={};
+    if(cusip)
+    levelInfo['cusip'] = cusip;
+    levelInfo['navigateBack'] =navigateBack; 
+    levelInfo['level'] = level;
+    levelInfo['index'] = index;
+
+    this.sendLevel.emit(levelInfo);  
+}
   openModal() {
-    this.showModal = !this.showModal;
-    this.account = this.data.getAccount();
-    this.account.title = "ACCOUNT DETAILS";
+   
+    //opwenModal will receive an argument based on which, 
+    // we would know the service that needs to be hit.
+    // currently hardoded to one service 
+    // this.showModal = !this.showModal;
+    // this.account = this.data.getAccount();
+    // this.chi = this.data.getLevel5Columns();
+
+    let template = "<div>Dynamic data to be inserted here</div>";
+    
+    var win = window.open("", "Global Stock Records", "toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=yes,width=780,height=200,top="+(screen.height-400)+",left="+(screen.width-840));
+    win.document.body.innerHTML = template;
+    win.document.title = "Global Stock Records";
   }
 
   onCloseHandled() {
@@ -28,6 +52,5 @@ export class GsrRowComponent implements OnInit {
 
 
   ngOnInit() {
-    this.columns = this.columnHeaderInfo['columnHeaders'];
   }
 }

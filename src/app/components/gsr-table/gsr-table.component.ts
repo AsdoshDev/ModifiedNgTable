@@ -11,12 +11,12 @@ import {TableDataService} from './../../services/table-data.service';
 export class GsrTableComponent implements OnInit {
   @Input() dataObj;
   @Input() columnHeaderInfo; //array of objects
-  @Input() levelInfo:any;
+  @Input() levelInfo;
+  @Input() columnHeaders;
+  @Input() records;
   @Output() sendLevel = new EventEmitter();
-  records:any;
   originalRecords:any;
   showFilter: boolean;
-  columns:any;
   recIndex:any;
   tableLevel : any;
   cusipId:any;
@@ -27,22 +27,20 @@ export class GsrTableComponent implements OnInit {
     this.sendLevel.emit(levelDtls);
   }
   
-
-
   ngOnInit() {
+
     if(this.columnHeaderInfo.tableType !== "columnTable"){
-      this.columns = this.columnHeaderInfo['columnHeaders'];
       this.recIndex = this.columnHeaderInfo['index'];
       this.tableLevel = this.columnHeaderInfo['level'];
       if(this.columnHeaderInfo.levelDecider){
       if(this.tableLevel == 1)
-        this.records = this.originalRecords = this.dataObj.details;
+        this.originalRecords = this.dataObj.details;
      else  if(this.tableLevel == 3){
-        this.records = this.originalRecords = this.dataObj[this.columnHeaderInfo.cusip][this.recIndex]["records"];
+        this.originalRecords = this.dataObj[this.columnHeaderInfo.cusip][this.recIndex]["records"];
      }
         this.cusipId = this.data.getCusipId();
     }else{
-      this.records = this.originalRecords = this.dataObj;
+      this.originalRecords = this.dataObj;
     }
     }
     

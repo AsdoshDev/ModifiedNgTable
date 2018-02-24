@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
 @Injectable()
 export class TableDataService{
 
-  columnHeaderInfoLevel5 =  {tableType:'columnTable',tableTitle:"Account Details",'needFilter' : false,'needPrint' : true, levelDecider : false};
+  columnHeaderInfoLevel5 =  {tableType:'columnTable',tableTitle:"Account Details",needFilter : false,needPrint : true, levelDecider : false};
   columnHeaderInfoLevel4 =  {tableType:'default','tableTitle':"My Table Title",'needFilter' : true,'needPrint' : true, levelDecider : false,'columnHeaders' : [
     { attrName: "id", colName: "Firm", filterBy: 'string', searchIcon: false, inputType: "text",filterValue:"" }, 
     { attrName: "name", colName: "Check", filterBy: 'string', searchIcon: false, inputType: "text",filterValue:"" }, 
@@ -22,7 +22,7 @@ export class TableDataService{
   
   ]};
  
-  columnHeaderInfoLevel3 = {tableType:'levelDecider','needFilter' : true,cusip:'1234567','needPrint' : true, levelDecider : true,'level' : 3, 'index':0,'columnHeaders' : [
+  columnHeaderInfoLevel3 = {tableType:'levelDecider','needFilter' : true,cusip:'1234567','needPrint' : true, levelDecider : true,'level' : 3, 'index':1,'columnHeaders' : [
     { attrName: "id", colName: "Account No", filterBy: 'string', searchIcon: 'true', inputType: "text",filterValue:"" },
     { attrName: "name", colName: "Name", filterBy: 'string', inputType: "text",filterValue:"" },
     { attrName: "username", colName: "Username", filterBy: 'string', inputType: "text",filterValue:"" },
@@ -41,7 +41,8 @@ export class TableDataService{
   ]};
 
   columnHeaderInfoLevel1 =  { tableType:'levelDecider','needFilter' : false,'needPrint' : true, levelDecider : true,'level' : 1, 'index':0,'columnHeaders' : [
-    { attrName: "cusip", colName: "CUSIP",searchIcon: 'true',accordion: 'true'},
+    { attrName: "accordion", colName: "",accordion: 'true'},
+    { attrName: "cusip", colName: "CUSIP",searchIcon: 'true'},
     { attrName: "isin", colName: "ISIN"},
     { attrName: "sedol", colName: "SEDOL"},
     { attrName: "ssn", colName: "Security Short Name"},

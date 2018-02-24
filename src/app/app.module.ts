@@ -17,6 +17,7 @@ import { GsrTableComponent } from './components/gsr-table/gsr-table.component';
 import { GsrTabsComponent } from './components/gsr-tabs/gsr-tabs.component';
 import { GsrTableLevelDeciderComponent } from './components/gsr-table-level-decider/gsr-table-level-decider.component';
 import { GsrTableHeaderComponent } from './components/gsr-table-header/gsr-table-header.component';
+import { DummyComponent } from './dummy/dummy.component';
 
 
 @NgModule({
@@ -29,6 +30,7 @@ import { GsrTableHeaderComponent } from './components/gsr-table-header/gsr-table
     GsrTabsComponent,
     GsrTableLevelDeciderComponent,
     GsrTableHeaderComponent,
+    DummyComponent,
   ],
   imports: [
     BrowserModule,

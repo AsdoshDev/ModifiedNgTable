@@ -1,39 +1,16 @@
-
-
-
-
-
-
-
 <ng-container *ngIf="columnHeaderInfo.tableType !== 'columnTable'">
 <div class="gsr-table" *ngIf="dataObj">
-    
-    <gsr-table-header [dataObj] = "dataObj" (sendFilterRecords) = "records=$event" (sendFilter)="showFilter=$event"    [columnHeaderInfo] = "columnHeaderInfo"></gsr-table-header>
-    
+    <gsr-table-header [records] = "records" [dataObj] = "dataObj" (sendFilterRecords) = "records=$event" [columns] = "columnHeaders" (sendFilter)="showFilter=$event" [columnHeaderInfo] = "columnHeaderInfo"></gsr-table-header>
     <div class="gsr-table-scroller">
-                <!-- <gsr-column-header [level] = 'level' [showFilter] ="showFilter" [dataObj] = "dataObj"  [columnHeaderInfo] = "columnHeaderInfo"> </gsr-column-header> -->
-
- <div class="gsr-row header level-{{columnHeaderInfo.level}}">
-        <div  class="gsr-column" attr.colname="{{column.attrName}}" *ngFor="let column of columnHeaderInfo.columnHeaders"> {{column.colName}} <span class="iconWrapper"><span *ngIf="column.filterBy" class="{{column.icon}}"></span></span> </div>
-      </div>
-    
-      <div class="gsr-row filter" *ngIf="showFilter">
-        <div  class="gsr-column" attr.colname="{{column.attrName}}" *ngFor="let column of columns;trackBy:column?.attrName let in = index">
-          <input *ngIf="column.inputType==='text'"  [(ngModel)]= "column.filterValue"  class="filterInput" type="text"/>
-          <input *ngIf="column.inputType==='date'"  [(ngModel)]= "column.filterValue" class="filterInput" type="date"/>
-          <select class="filterInput" *ngIf="column.inputType==='dropdown'" [(ngModel)]= "column.filterValue"><option value= "">Show All</option><option *ngFor="let value of column.dropdownValues" value="{{value}}">{{value}}</option></select>
-        </div>
-      </div>
-  
-                <gsr-table-level-decider *ngIf="columnHeaderInfo.levelDecider" (sendLevel) = "getLevel($event)" [showFilter] ="showFilter"  [dataObj] = "dataObj"  [columnHeaderInfo] = "columnHeaderInfo" ></gsr-table-level-decider>
+            <gsr-column-header [records] = "records" [showFilter] ="showFilter" [columnHeaders] = "columnHeaders" [dataObj] = "dataObj"  [columnHeaderInfo] = "columnHeaderInfo"> </gsr-column-header>
+             <gsr-table-level-decider class="level-decider" *ngIf="columnHeaderInfo.levelDecider" [records] = "records" [columnHeaders] = "columnHeaders" (sendLevel) = "getLevel($event)" [showFilter] ="showFilter"  [dataObj] = "dataObj"  [columnHeaderInfo] = "columnHeaderInfo" ></gsr-table-level-decider>
                 <ng-container *ngIf="!columnHeaderInfo.levelDecider">
-                        <gsr-row class="gsr-row gsr-record-row" *ngFor="let record of records" [record]  = "record" [columnHeaderInfo] = "columnHeaderInfo"></gsr-row>
+                        <gsr-row class="gsr-row gsr-record-row"  [columnHeaders] = "columnHeaders" *ngFor="let record of records" [record]  = "record" [columnHeaderInfo] = "columnHeaderInfo"></gsr-row>
                         <div *ngIf="records.length==0" class="noResults">No records found</div>
                 </ng-container>
             </div>
-</div>
-</ng-container>
-
+        </div>
+    </ng-container>
 
 <ng-container *ngIf="columnHeaderInfo.tableType === 'columnTable'">
     <div class="gsr-table" *ngIf="dataObj">
