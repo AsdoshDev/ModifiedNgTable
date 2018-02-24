@@ -13,9 +13,9 @@ export class DummyComponent implements OnInit {
 
   ngOnInit() {
     this.tabs = [
-      { title: 'Search 123' },
-      { title: 'Positions by Security 123' },
-      { title: 'Postings 123' }
+      { title: 'Search' },
+      { title: 'Positions by Security' },
+      { title: 'Postings' }
     ];
   }
 

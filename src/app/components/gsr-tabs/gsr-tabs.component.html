@@ -5,7 +5,7 @@
     </li>
   </ul>
   <ng-content  select=".tab-content"></ng-content>
-  <div class="tab-footer">
+  <div *ngIf="tabNavigation" class="tab-footer">
     <button (click)="navigateTab(false)">Back</button>
     <button (click)="navigateTab(true)">Next</button>
   </div>

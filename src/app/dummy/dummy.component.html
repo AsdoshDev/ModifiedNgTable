@@ -1,4 +1,4 @@
-<gsr-tabs (passTabIndex) = "selectedTab=$event" [tabs] = "tabs">
+<gsr-tabs (passTabIndex) = "selectedTab=$event" [tabNavigation] = false [tabs] = "tabs">
     <div class="tab-content">
         <ng-container *ngIf="!selectedTab || selectedTab.index==0">
         <div>1</div>
