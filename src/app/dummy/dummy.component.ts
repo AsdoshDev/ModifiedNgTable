@@ -8,18 +8,20 @@ import { Component, OnInit } from '@angular/core';
 export class DummyComponent implements OnInit {
 
   constructor() { }
-tabs:any;
-selectedTab:any;
-
-
-
+  tabs: any;
+  selectedTab: any;
 
   ngOnInit() {
     this.tabs = [
-      {title : 'Search 123'},
-      {title : 'Positions by Security 123'},
-      {title : 'Postings 123'}
+      { title: 'Search 123' },
+      { title: 'Positions by Security 123' },
+      { title: 'Postings 123' }
     ];
+  }
+
+  changeTabs() {
+    let no = this.tabs.length + 1;
+    this.tabs.push({ title: no + "th tab" });
   }
 
 

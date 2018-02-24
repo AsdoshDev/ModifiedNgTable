@@ -17,11 +17,19 @@ account:any;
 columnHeaderInfo5:any;
 level:number;
 records:any;
-@Output() sendTab = new EventEmitter();
+@Output() passTabIndex = new EventEmitter();
 
 constructor(private data: TableDataService) { }
 
-
+navigateTab(nextTab){
+  let activeTab = this.tabs.filter(function(tab ) {
+    return tab.isClicked == "active";
+  });
+  let index = nextTab ? this.tabs.indexOf(activeTab[0]) + 1 : this.tabs.indexOf(activeTab[0]) - 1;
+  let targetTab = this.tabs[index];
+  if(targetTab)
+    this.selectTab(targetTab,index);
+}
 
 ngOnInit() {
   this.tabs[0].isClicked = "active";
@@ -40,14 +48,14 @@ ngOnInit() {
 ngAfterViewInit() {
 }
 
-selectTab(tab,index){
-  if(tab.isClicked !== "active"){
+selectTab(tab,index?){
+  if(tab.isClicked !== "active" || !index){
     this.tabs.forEach(tab=> tab.isClicked = "");
     tab.isClicked = "active";
     tab.index = index;
-    this.sendTab.emit(tab);
+    //pass Tab index to change content based on clicked tab
+    this.passTabIndex.emit(tab);
   }
-  
 }
 
 

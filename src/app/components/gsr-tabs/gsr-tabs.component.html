@@ -1,9 +1,15 @@
-<ul class="nav nav-tabs">
-  <li *ngFor="let tab of tabs;let in = index;"  class="{{tab.isClicked}}" (click)="selectTab(tab,in)">
-    <a href="#">{{tab.title}}</a>
-  </li>
-</ul>
-
+<div class="tabsWrapper">
+  <ul class="nav nav-tabs">
+    <li *ngFor="let tab of tabs;let in = index;"  class="{{tab.isClicked}}" (click)="selectTab(tab,in)">
+      <a href="#">{{tab.title}}</a>
+    </li>
+  </ul>
+  <ng-content  select=".tab-content"></ng-content>
+  <div class="tab-footer">
+    <button (click)="navigateTab(false)">Back</button>
+    <button (click)="navigateTab(true)">Next</button>
+  </div>
+</div>
 <!-- <div class="tab-content">
 
 <ng-container *ngIf="tabs[0].isClicked == 'active'">
