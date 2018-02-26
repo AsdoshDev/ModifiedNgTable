@@ -1,5 +1,17 @@
 {
     "gsr": {
-        "cusipId" : "23456789"
+        "cusipId" : "23456789",
+        "table" : {
+            "columns" : {
+             "id" :   { "attrName": "id", "colName": "Account No", "filterBy": "string", "searchIcon": "true", "inputType": "text","filterValue":"" },
+             "name" :  { "attrName": "name", "colName": "Name", "filterBy": "string", "inputType": "text","filterValue":"" },
+             "username" : { "attrName": "username", "colName": "Username", "filterBy": "string", "inputType": "text","filterValue":"" },
+             "email" : { "attrName": "email", "colName": "Email", "filterBy": "string", "inputType": "text","filterValue":"" },
+             "phone" : { "attrName": "phone", "colName": "Phone", "filterBy": "number", "inputType": "dropdown", "dropdownValues": [123, 345, 999, 567],"filterValue":""},
+             "website" : { "attrName": "website", "colName": "Website", "filterBy": "string", "inputType": "text","filterValue":"" },
+             "amount" : { "attrName": "amount", "colName": "Amount", "filterBy": "number", "inputType": "text","filterValue":"" }
+            }
+
+        }
     }
 }
