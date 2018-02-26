@@ -12,6 +12,7 @@ export class GsrTableLevelDeciderComponent implements OnInit {
   @Input() records;
   @Input() columnHeaderInfo; //array of objects
   @Output() sendLevel = new EventEmitter();
+  @Output() sendFilter = new EventEmitter();
     
   recIndex:any;
   tableLevel : any;
@@ -29,15 +30,17 @@ export class GsrTableLevelDeciderComponent implements OnInit {
   }
 
   changeTable(level,index,navigateBack,cusip){
-    if(this.showFilter)
+    if(this.showFilter){
        this.showFilter = !this.showFilter;
+       this.sendFilter.emit(this.showFilter);  
+    }
     let levelInfo ={};
     if(cusip)
     levelInfo['cusip'] = cusip;
     levelInfo['navigateBack'] =navigateBack; 
     levelInfo['level'] = level;
     levelInfo['index'] = index;
-
+    
     this.sendLevel.emit(levelInfo);  
 }
 }
