@@ -21,13 +21,11 @@ export class GsrTableHeaderComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.recIndex = this.columnHeaderInfo['index'];
-    this.tableLevel = this.columnHeaderInfo['level'];
     if(this.columnHeaderInfo.levelDecider){
     if(this.tableLevel == 1)
       this.originalRecords = this.dataObj.details;
-      else  if(this.tableLevel == 3){
-        this.originalRecords = this.dataObj[this.columnHeaderInfo.cusip][this.recIndex]["records"];
+      else  if(this.columnHeaderInfo['level'] == 3){
+        this.originalRecords = this.dataObj[this.columnHeaderInfo.cusip][this.columnHeaderInfo['index']]["records"];
       }}
       else{
         this.originalRecords = this.dataObj;

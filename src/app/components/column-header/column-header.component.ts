@@ -18,13 +18,11 @@ export class ColumnHeaderComponent implements OnInit {
   columns:any;
   recIndex:any;
   ngOnInit() {
-    
-    this.recIndex = this.columnHeaderInfo['index'];
     if(this.columnHeaderInfo.levelDecider){
     if(this.columnHeaderInfo.level == 1)
      this.originalRecords = this.dataObj.details;
      else  if(this.columnHeaderInfo.level == 3){
-     this.originalRecords = this.dataObj[this.columnHeaderInfo.cusip][this.recIndex]["records"];
+     this.originalRecords = this.dataObj[this.columnHeaderInfo.cusip][this.columnHeaderInfo['index']]["records"];
    }
   }else{
     this.originalRecords = this.dataObj;

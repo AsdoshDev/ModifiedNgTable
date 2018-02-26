@@ -13,16 +13,12 @@ export class GsrTableLevelDeciderComponent implements OnInit {
   @Input() columnHeaderInfo; //array of objects
   @Output() sendLevel = new EventEmitter();
   @Output() sendFilter = new EventEmitter();
-    
-  recIndex:any;
-  tableLevel : any;
+
 
  
   constructor() { }
 
   ngOnInit() {
-    this.recIndex = this.columnHeaderInfo['index'];
-    this.tableLevel = this.columnHeaderInfo['level'];
   }
 
   passLevel(levelDtls){

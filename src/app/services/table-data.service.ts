@@ -5,7 +5,7 @@ import { HttpClient } from '@angular/common/http';
 @Injectable()
 export class TableDataService{
 
-  tableInfo  = {tableType:'levelDecider','needFilter' : true,cusip:'1234567','needPrint' : true, levelDecider : true,'level' : 3, 'index':1};
+  tableInfo  = {tableType:'levelDecider','needFilter' : true,cusip:'1234567','needPrint' : true, levelDecider : true,'level' : 3, 'index':0};
   tableInfo5  =  {tableType:'columnTable',tableTitle:"Account Details",needFilter : false,needPrint : true, levelDecider : false};
   columnHeaderInfoLevel5 =  {tableType:'columnTable',tableTitle:"Account Details",needFilter : false,needPrint : true, levelDecider : false};
   columnHeaders4 =  [
@@ -79,7 +79,7 @@ dataLevel3 =
    "1234567" : [{"company":"CG-MARKETING", "records" : [
     {
       "id": "10291287",
-      "name": "Martin Graham",
+      "name": "Martin Graham m1",
       "username": "Bret",
       "email": "Sincere@april.biz",
       "amount"  : "500,000,000",
@@ -111,7 +111,7 @@ dataLevel3 =
     
     {
       "id": "10191287",
-      "name": "Chelsey Dietrich",
+      "name": "Chelsey Dietrich m2",
       "username": "Kamren",
       "amount"  : "700,000,000",
       "email": "Lucio_Hettinger@annie.ca",
@@ -136,7 +136,7 @@ dataLevel3 =
    
     {
       "id": "10293871",
-      "name": "Leanne Graham",
+      "name": "Leanne Graham m3",
       "username": "Bret",
       "email": "Sincere@april.biz",
       "address": {
@@ -163,7 +163,7 @@ dataLevel3 =
   {"company":"CG-DEVELOPMENT", "records" : [
     {
       "id": "10291287",
-      "name": "Brendon McCullum",
+      "name": "Brendon McCullum d1",
       "username": "Bret",
       "email": "Sincere@april.biz",
       "amount"  : "500,000,000",
@@ -190,7 +190,7 @@ dataLevel3 =
       }
     }, {
       "id": "10291287",
-      "name": "Martin Graham",
+      "name": "Martin Graham d2",
       "username": "Bret",
       "email": "Sincere@april.biz",
       "amount"  : "500,000,000",
@@ -219,7 +219,7 @@ dataLevel3 =
    
     {
       "id": "10191287",
-      "name": "Chelsey Dietrich",
+      "name": "Chelsey Dietrich d3",
       "username": "Kamren",
       "amount"  : "700,000,000",
       "email": "Lucio_Hettinger@annie.ca",
@@ -243,7 +243,7 @@ dataLevel3 =
     },
     {
       "id": "10291280",
-      "name": "Mrs. Dennis Schulist",
+      "name": "Mrs. Dennis Schulist d4",
       "username": "Leopoldo_Corkery",
       "email": "Karley_Dach@jasper.info",
       "address": {
@@ -267,7 +267,7 @@ dataLevel3 =
  
     {
       "id": "10293871",
-      "name": "Leanne Graham",
+      "name": "Leanne Graham d5",
       "username": "Bret",
       "email": "Sincere@april.biz",
       "address": {
