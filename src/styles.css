@@ -30,7 +30,7 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  padding: 0px 25px;
+  /* padding: 0px 25px; */
   display: inline-flex;
   box-sizing: border-box;
   width:100%;
@@ -43,22 +43,13 @@
 .gsr-row.dynamicHeader {
   background-color: #030464;
   color: white;
-  padding: 0px 5px;
+  /* padding: 0px 5px; */
   width: 100%;
   box-sizing: border-box;
 }
 
 .gsr-row.dynamicHeader .gsr-column {
   flex: 1;
-}
-
-.gsr-column {
-  /* flex: 1;  */
-  width: 200px;
-  word-wrap: break-word;
-  padding: 5px;
-  flex-shrink: 0;
-  box-sizing: border-box;
 }
 
 .arrow-up {
@@ -107,11 +98,30 @@
   justify-content: flex-end;
 }
 
-.gsr-row>.gsr-column {
+.gsr-column {
+  /* flex: 1;  */
+  width: 200px;
+  word-wrap: break-word;
+  padding: 5px;
+  flex-shrink: 0;
+  box-sizing: border-box;
+}
+
+
+.gsr-row>.gsr-column:not(.gsr-icon-column) {
   padding: 5px 5px;
-  width: 25%;
+  width: 15%;
   border-bottom: 1px solid #e4e4e4;
   min-height: 30px;
+}
+
+
+.gsr-row>.gsr-column.companyColumns {
+  padding-left:20px;
+}
+
+.level-2 .gsr-column{
+  flex:1;
 }
 
 .gsr-row:before {
@@ -159,6 +169,15 @@
 }
 
 
+.gsr-row.header.level-2 {
+  width: 100%;
+}
+
+.gsr-row.header.level-2>.gsr-column {
+  width: 100%;
+  text-align: center;
+}
+
 /* 
   .gsr-row.header .gsr-column {
     text-align:center;
@@ -203,18 +222,6 @@ gsr-row:hover {
 
 /*scrollbar*/
 
-.gsr-row.header.level-2 {
-  width: 100%;
-}
-
-.gsr-row.header.level-2>.gsr-column {
-  width: 100%;
-  text-align: center;
-}
-
-.gsr-column.companyColumns {
-  margin-left: 10px;
-}
 
 button {
   border: none;

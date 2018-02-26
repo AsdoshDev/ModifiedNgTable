@@ -7,7 +7,7 @@
     <div class="gsr-row gsr-accordionHeader level-{{columnHeaderInfo.level}}" (click) = "changeTable(columnHeaderInfo.level,'',true)">
         <div  class="gsr-column"><span attr.level="{{columnHeaderInfo.level}}"  class="iconStyle collapse"></span><span>{{dataObj.id}}</span></div>
     </div>
-    <div class="gsr-row gsr-accordionHeader" (click) = "changeTable(columnHeaderInfo.level,in,false,columnHeaderInfo.cusip)" *ngFor="let record of records;let in = index;">
+    <div class="gsr-row gsr-accordionHeader level-{{columnHeaderInfo.level}}" (click) = "changeTable(columnHeaderInfo.level,in,false,columnHeaderInfo.cusip)" *ngFor="let record of records;let in = index;">
         <div  class="gsr-column companyColumns"><span attr.level="{{columnHeaderInfo.level}}" attr.index="{{in}}" class="iconStyle expand"></span><span>{{record.company}}</span></div>
     </div>
 </ng-container> 

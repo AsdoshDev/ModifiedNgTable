@@ -36,7 +36,7 @@ export class GsrTabsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.tabs[0].isClicked = "active";
+    this.tabs[1].isClicked = "active";
     this.columnHeaders = this.data.getLevel3Columns();
     this.tableInfo = this.data.getTableInfo();
     this.icData = this.data.getLevel3();
