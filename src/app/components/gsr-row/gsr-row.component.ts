@@ -31,19 +31,19 @@ export class GsrRowComponent implements OnInit {
     this.sendLevel.emit(levelInfo);  
 }
   openModal() {
-   
+   debugger;
     //opwenModal will receive an argument based on which, 
     // we would know the service that needs to be hit.
     // currently hardoded to one service 
-    // this.showModal = !this.showModal;
-    // this.account = this.data.getAccount();
-    // this.chi = this.data.getLevel5Columns();
+    this.showModal = !this.showModal;
+    this.account = this.data.getAccount();
+    this.chi = this.data.getTableInfo5();
 
-    let template = "<div>Dynamic data to be inserted here</div>";
+    // let template = "<div>Dynamic data to be inserted here</div>";
     
-    var win = window.open("", "Global Stock Records", "toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=yes,width=780,height=200,top="+(screen.height-400)+",left="+(screen.width-840));
-    win.document.body.innerHTML = template;
-    win.document.title = "Global Stock Records";
+    // var win = window.open("", "Global Stock Records", "toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=yes,resizable=yes,width=780,height=200,top="+(screen.height-400)+",left="+(screen.width-840));
+    // win.document.body.innerHTML = template;
+    // win.document.title = "Global Stock Records";
   }
 
   onCloseHandled() {

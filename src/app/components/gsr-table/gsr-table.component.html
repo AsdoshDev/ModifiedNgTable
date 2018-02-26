@@ -2,7 +2,7 @@
 <div class="gsr-table" *ngIf="dataObj">
     <gsr-table-header [records] = "records" [dataObj] = "dataObj" (sendFilterRecords) = "records=$event" [columns] = "columnHeaders" (sendFilter)="showFilter=$event" [columnHeaderInfo] = "columnHeaderInfo"></gsr-table-header>
     <div class="gsr-table-scroller">
-            <gsr-column-header [records] = "records" [showFilter] ="showFilter" [columnHeaders] = "columnHeaders" [dataObj] = "dataObj"  [columnHeaderInfo] = "columnHeaderInfo"> </gsr-column-header>
+            <gsr-column-header class="column-header" [records] = "records" [showFilter] ="showFilter" [columnHeaders] = "columnHeaders" [dataObj] = "dataObj"  [columnHeaderInfo] = "columnHeaderInfo"> </gsr-column-header>
              <gsr-table-level-decider class="level-decider" *ngIf="columnHeaderInfo.levelDecider" [records] = "records" [columnHeaders] = "columnHeaders" (sendLevel) = "getLevel($event)" [showFilter] ="showFilter"  [dataObj] = "dataObj"  [columnHeaderInfo] = "columnHeaderInfo" ></gsr-table-level-decider>
                 <ng-container *ngIf="!columnHeaderInfo.levelDecider">
                         <gsr-row class="gsr-row gsr-record-row"  [columnHeaders] = "columnHeaders" *ngFor="let record of records" [record]  = "record" [columnHeaderInfo] = "columnHeaderInfo"></gsr-row>

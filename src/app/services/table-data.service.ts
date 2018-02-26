@@ -5,8 +5,10 @@ import { HttpClient } from '@angular/common/http';
 @Injectable()
 export class TableDataService{
 
+  tableInfo  = {tableType:'levelDecider','needFilter' : true,cusip:'1234567','needPrint' : true, levelDecider : true,'level' : 3, 'index':1};
+  tableInfo5  =  {tableType:'columnTable',tableTitle:"Account Details",needFilter : false,needPrint : true, levelDecider : false};
   columnHeaderInfoLevel5 =  {tableType:'columnTable',tableTitle:"Account Details",needFilter : false,needPrint : true, levelDecider : false};
-  columnHeaderInfoLevel4 =  {tableType:'default','tableTitle':"My Table Title",'needFilter' : true,'needPrint' : true, levelDecider : false,'columnHeaders' : [
+  columnHeaders4 =  [
     { attrName: "id", colName: "Firm", filterBy: 'string', searchIcon: false, inputType: "text",filterValue:"" }, 
     { attrName: "name", colName: "Check", filterBy: 'string', searchIcon: false, inputType: "text",filterValue:"" }, 
     { attrName: "username", colName: "Ending List" , filterBy: 'string', searchIcon: false, inputType: "text",filterValue:"" }, 
@@ -19,10 +21,9 @@ export class TableDataService{
     { attrName: "id", colName: "Firm", filterBy: 'string', searchIcon: false, inputType: "text",filterValue:"" }, 
     { attrName: "name", colName: "Check", filterBy: 'string', searchIcon: false, inputType: "text",filterValue:"" }, 
     { attrName: "username", colName: "Ending List" , filterBy: 'string', searchIcon: false, inputType: "text",filterValue:"" }, 
-  
-  ]};
+  ];
  
-  columnHeaderInfoLevel3 = {tableType:'levelDecider','needFilter' : true,cusip:'1234567','needPrint' : true, levelDecider : true,'level' : 3, 'index':1,'columnHeaders' : [
+  columnHeaders3 =  [
     { attrName: "id", colName: "Account No", filterBy: 'string', searchIcon: 'true', inputType: "text",filterValue:"" },
     { attrName: "name", colName: "Name", filterBy: 'string', inputType: "text",filterValue:"" },
     { attrName: "username", colName: "Username", filterBy: 'string', inputType: "text",filterValue:"" },
@@ -34,13 +35,17 @@ export class TableDataService{
     {attrName:"test3",colName:"Website",filterBy:'string', inputType: "text",filterValue:"" },
     {attrName:"test4",colName:"Website",filterBy:'string', inputType: "text",filterValue:"" },
     {attrName:"test5",colName:"Website",filterBy:'string', inputType: "text",filterValue:"" },
-  ]};
+  ];
 
-  columnHeaderInfoLevel2 =  {tableType:'levelDecider','needFilter' : false,'needPrint' : false, levelDecider : true,'level' : 2, 'index':0,'columnHeaders' : [
+
+tableInfo2 = {tableType:'levelDecider','needFilter' : false,'needPrint' : false, levelDecider : true,'level' : 2, 'index':0}
+columnHeaders2 =  [
     { attrName: "firm", colName: "Firm" },
-  ]};
+  ];
 
-  columnHeaderInfoLevel1 =  { tableType:'levelDecider','needFilter' : false,'needPrint' : true, levelDecider : true,'level' : 1, 'index':0,'columnHeaders' : [
+tableInfo1 = { tableType:'levelDecider','needFilter' : false,'needPrint' : true, levelDecider : true,'level' : 1, 'index':0}
+
+columnHeaders1 =  [
     { attrName: "accordion", colName: "",accordion: 'true'},
     { attrName: "cusip", colName: "CUSIP",searchIcon: 'true'},
     { attrName: "isin", colName: "ISIN"},
@@ -50,8 +55,8 @@ export class TableDataService{
     { attrName: "ipt", colName: "International Product Type"},
     { attrName: "cr", colName: "Coupon Rate" },
     { attrName: "md", colName: "Maturity Date"},
-    { attrName: "ic", colName: "Issue Currency"},
-]};
+    { attrName: "ic", colName: "Issue Currency"}
+];
 
 dataLevel4 =  [
     {
@@ -703,22 +708,22 @@ account = {
   constructor(private http:HttpClient){}
 
   getLevel5Columns(){
-    return this.columnHeaderInfoLevel5;
+    return this.account;
   }
   
 
   getLevel4Columns(){
-    return this.columnHeaderInfoLevel4;
+    return this.columnHeaders4;
   }
   
   getLevel3Columns(){
-    return this.columnHeaderInfoLevel3;
+    return this.columnHeaders3;
   }
   getLevel1Columns(){
-    return this.columnHeaderInfoLevel1;
+    return this.columnHeaders1;
   }
   getLevel2Columns(){
-    return this.columnHeaderInfoLevel2;
+    return this.columnHeaders2;
   }
   getLevel3(){
     return this.dataLevel3;
@@ -730,6 +735,21 @@ account = {
   getLevel4(){
     return this.dataLevel4;
   } 
+
+  getTableInfo(){
+    return this.tableInfo;
+  }
+  getTableInfo5(){
+    return this.tableInfo5;
+  }
+
+
+  getTableInfo1(){
+    return this.tableInfo1;
+  }
+  getTableInfo2(){
+    return this.tableInfo2;
+  }
 
   getCusipId(){
     return "23456789";

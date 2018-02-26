@@ -1,5 +1,5 @@
 <ng-container *ngIf="columnHeaderInfo.level == 1">
-    <gsr-row class="gsr-row" (sendLevel) = "passLevel($event)" [columnHeaders] = "columnHeaders"  *ngFor="let record of records;let in = index;" attr.id="{{record.cusip}}" attr.index = "{{in}}" [record]  = "record" [columnHeaderInfo] = "columnHeaderInfo"></gsr-row>
+    <gsr-row class="gsr-row gsr-record-row" (sendLevel) = "passLevel($event)" [columnHeaders] = "columnHeaders"  *ngFor="let record of records;let in = index;" attr.id="{{record.cusip}}" attr.index = "{{in}}" [record]  = "record" [columnHeaderInfo] = "columnHeaderInfo"></gsr-row>
     <div *ngIf="records.length==0" class="noResults">No records found</div>
 </ng-container> 
 

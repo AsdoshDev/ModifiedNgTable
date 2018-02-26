@@ -2,7 +2,7 @@
     <ng-container *ngIf="columnHeaderInfo.levelDecider">
       <div class="gsr-column" *ngIf="columnHeaderInfo.level == 1"></div> 
       <div class="gsr-column" *ngIf="columnHeaderInfo.level == 2">{{dataObj.id}}-{{columnHeaderInfo.cusip}} -></div> 
-      <div class="gsr-column" *ngIf="columnHeaderInfo.level == 3">{{dataObj.id}}-{{columnHeaderInfo.cusip}} -> {{dataObj[columnHeaderInfo.cusip][recIndex].company}}</div> 
+      <div class="gsr-column" *ngIf="columnHeaderInfo.level == 3">{{dataObj.id}}-{{columnHeaderInfo.cusip}} -> {{dataObj[columnHeaderInfo.cusip][columnHeaderInfo.index].company}}</div> 
     </ng-container>
     <ng-container *ngIf="!columnHeaderInfo.levelDecider">
         <div class="gsr-column">{{columnHeaderInfo.tableTitle}}</div> 

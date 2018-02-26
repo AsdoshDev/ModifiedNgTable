@@ -13,7 +13,7 @@ export class ModalComponent implements OnInit {
 
   @Input() account:any; 
   @Input() columnHeaderInfo:any; 
-  @Input() chi:any;
+  // @Input() chi:any;
   
   @Input() showModal:any;
   @Output() sendValue = new EventEmitter();
@@ -23,10 +23,10 @@ export class ModalComponent implements OnInit {
     console.log(this.columnHeaderInfo);
   }
     printDiv(divName) {
-    var printContents = document.getElementById(divName).innerHTML;
-    var originalContents = document.body.innerHTML;
+    // var printContents = document.getElementById(divName).innerHTML;
+    // var originalContents = document.body.innerHTML;
 
-    document.body.innerHTML = printContents;
+    // document.body.innerHTML = printContents;
 
     window.print();
 

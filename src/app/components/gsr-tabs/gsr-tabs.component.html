@@ -18,16 +18,16 @@
 </ng-container>
 
 <ng-container *ngIf="tabs[1].isClicked == 'active'">
-  <div class="details-pane" *ngIf="columnHeaderInfo.level === 1">Level 1 details</div>
-  <div class="details-pane" *ngIf="columnHeaderInfo.level === 2">Level 2 details of {{icData.id}} No. {{columnHeaderInfo.index}} </div>
-  <div class="details-pane" *ngIf="columnHeaderInfo.level === 3">
-    Level 3 details  of Company No {{columnHeaderInfo.index + 1}}
+  <div class="details-pane" *ngIf="tableInfo.level === 1">Level 1 details</div>
+  <div class="details-pane" *ngIf="tableInfo.level === 2">Level 2 details of {{icData.id}} No. {{tableInfo.index}} </div>
+  <div class="details-pane" *ngIf="tableInfo.level === 3">
+    Level 3 details  of Company No {{tableInfo.index + 1}}
   </div>
-    <gsr-table *ngIf="!columnHeaderInfo.levelDecider" [columnHeaders] = "columnHeaderInfo.columnHeaders" [dataObj] = "icData" [columnHeaderInfo] = "columnHeaderInfo"></gsr-table>
-    <gsr-table *ngIf="columnHeaderInfo.levelDecider" [records] = "records" [columnHeaders] = "columnHeaderInfo.columnHeaders"  (sendLevel)="getLevel(levelDtls=$event)"  [dataObj] = "icData" [columnHeaderInfo] = "columnHeaderInfo"></gsr-table>
+    <gsr-table *ngIf="!tableInfo.levelDecider" [columnHeaders] = "columnHeaders" [dataObj] = "icData" [columnHeaderInfo] = "tableInfo"></gsr-table>
+    <gsr-table *ngIf="tableInfo.levelDecider" [records] = "records" [columnHeaders] = "columnHeaders"  (sendLevel)="getLevel(levelDtls=$event)"  [dataObj] = "icData" [columnHeaderInfo] = "tableInfo"></gsr-table>
 </ng-container>
 <ng-container *ngIf="tabs[2].isClicked == 'active'">
-  <gsr-table [dataObj] = "icData5" [columnHeaderInfo] = "columnHeaderInfo5"></gsr-table>
+  <gsr-table [dataObj] = "icData5" [columnHeaderInfo] = "tableInfo5" [columnHeaders] = "columnHeaders5"></gsr-table>
 </ng-container>
 
 </div>
