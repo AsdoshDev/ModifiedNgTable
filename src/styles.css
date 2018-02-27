@@ -113,6 +113,8 @@
   min-height: 30px;
   align-items: center;
   display: flex;
+  /* border-right: 1px solid #c5c5c5; */
+  
 }
 
 .gsr-row:last-child>.gsr-column{
@@ -185,7 +187,8 @@
 
 .gsr-row.header.level-2>.gsr-column {
   width: 100%;
-  text-align: center;
+  /* text-align: center; */
+  justify-content: center;
 }
 
 /* 
@@ -314,4 +317,9 @@ button:active {
 fieldset{
   border-style: solid;
   border-width: 1px;
+}
+
+
+.gsr-modal-content .gsr-table{
+  box-shadow: none;
 }

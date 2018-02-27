@@ -25,7 +25,8 @@ export class GsrTabsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.tabs[1].isClicked = "active";
+    // this.tabs.forEach(tab => tab.isClicked = "");
+    this.tabs[0].isClicked = "active";
   }
 
   ngAfterViewInit() {
