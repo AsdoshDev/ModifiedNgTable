@@ -1,4 +1,4 @@
-import { Component, OnInit,Input,Output } from '@angular/core';
+import { Component, OnInit,Input,Output,ViewChild,ElementRef } from '@angular/core';
 import { ChangeDetectorRef } from '@angular/core';
 import { EventEmitter } from '@angular/core';
 import {TableDataService} from './../../services/table-data.service';
@@ -19,6 +19,7 @@ export class GsrTableComponent implements OnInit {
   showFilter: boolean;
   recIndex:any;
   tableLevel : any;
+  @ViewChild('tableScroller') tableScroller: ElementRef;
   cusipId:any;
   constructor(private data: TableDataService) { }
 
@@ -27,8 +28,34 @@ export class GsrTableComponent implements OnInit {
     this.sendLevel.emit(levelDtls);
   }
   
-  ngOnInit() {
 
+  ngAfterViewInit() {
+    
+    if(this.columnHeaderInfo.columnWidth){
+      let targetTable =  document.getElementById(this.tableScroller.nativeElement.id);
+      let columns = targetTable.getElementsByClassName('gsr-column');
+      let size = columns.length;
+      for (var i = 0; i < size; i++) { 
+        let box = <HTMLElement> columns[i];
+        box.style.width=this.columnHeaderInfo.columnWidth;
+      }
+    }
+   
+    //set width for the level decider as its scrollwidth cannot be determined unitl rendered
+    
+    // if(this.columnHeaderInfo['level'] == 3){
+    //   let targetTable =  document.getElementById(this.tableScroller.nativeElement.id);
+    //   let width = document.getElementById('tableScroller').scrollWidth;
+    //   let header =  <HTMLElement> (targetTable.getElementsByClassName('gsr-accordionHeader')[0]);
+    //   header.style.width = width+"px";
+    // }
+
+  }
+
+
+  ngOnInit() {
+    console.log("INCOMING RECORDS");
+    console.log(this.records);
     if(this.columnHeaderInfo.tableType !== "columnTable"){
       if(this.columnHeaderInfo.levelDecider){
       if(this.columnHeaderInfo['level'] == 1)

@@ -1,4 +1,4 @@
-import { Component, OnInit,Input,Output,EventEmitter } from '@angular/core';
+import { Component, OnInit,Input,Output,EventEmitter, ViewChild, ElementRef } from '@angular/core';
 import { ModalComponent } from '../../components/modal/modal.component';
 import { TableDataService } from '../../services/table-data.service';
 
@@ -13,9 +13,16 @@ export class GsrRowComponent implements OnInit {
   @Input() record;
   @Input() columnHeaderInfo; //array of objects
   @Input() columnHeaders; 
+
   public showModal = false;
   chi:any;
+  
   @Output() sendLevel = new EventEmitter();
+
+  ngOnInit() {
+ 
+   
+  }
 
   changeTable(level,index,navigateBack,cusip){
     
@@ -49,8 +56,7 @@ export class GsrRowComponent implements OnInit {
   onCloseHandled() {
     this.showModal = !this.showModal;
   }
+  
 
-
-  ngOnInit() {
-  }
+  
 }

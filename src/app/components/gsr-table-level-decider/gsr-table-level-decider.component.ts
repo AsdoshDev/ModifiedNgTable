@@ -39,4 +39,7 @@ export class GsrTableLevelDeciderComponent implements OnInit {
     
     this.sendLevel.emit(levelInfo);  
 }
+
+
+
 }

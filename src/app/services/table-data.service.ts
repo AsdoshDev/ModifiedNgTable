@@ -5,7 +5,9 @@ import { HttpClient } from '@angular/common/http';
 @Injectable()
 export class TableDataService{
 
-  tableInfo  = {tableType:'levelDecider','needFilter' : true,cusip:'1234567','needPrint' : true, levelDecider : true,'level' : 3, 'index':0};
+  tableInfo  = {tableType:'levelDecider','needFilter' : true,cusip:'1234567','needPrint' : true, levelDecider : true,'level' : 3, 'index':0,columnWidth:"15%"};
+  tableInfo6  = {tableType:'default','needFilter' : false, tableHeader : false,columnWidth:'20%'};
+
   tableInfo5  =  {tableType:'columnTable',tableTitle:"Account Details",needFilter : false,needPrint : true, levelDecider : false};
   columnHeaderInfoLevel5 =  {tableType:'columnTable',tableTitle:"Account Details",needFilter : false,needPrint : true, levelDecider : false};
   columnHeaders4 =  [
@@ -46,7 +48,7 @@ columnHeaders2 =  [
 tableInfo1 = { tableType:'levelDecider','needFilter' : false,'needPrint' : true, levelDecider : true,'level' : 1, 'index':0}
 
 columnHeaders1 =  [
-    { attrName: "accordion", colName: "",accordion: 'true'},
+    { attrName: "accordion", colName: "23r",accordion: 'true'},
     { attrName: "cusip", colName: "CUSIP",searchIcon: 'true'},
     { attrName: "isin", colName: "ISIN"},
     { attrName: "sedol", colName: "SEDOL"},
@@ -57,6 +59,40 @@ columnHeaders1 =  [
     { attrName: "md", colName: "Maturity Date"},
     { attrName: "ic", colName: "Issue Currency"}
 ];
+
+columnHeadersAcct =  [
+  { attrName: "acctno", colName: "Account Number",searchIcon: 'true'},
+  { attrName: "asn", colName: "Account Short Name"},
+  { attrName: "mnm", colName: "Mnemonic"},
+  { attrName: "ai", colName: "Account Indicator"},
+  { attrName: "ctg", colName: "Category"},
+  { attrName: "fc", colName: "Firm Code"}
+];
+
+
+dataLevelAcct ={ id : "ACCTDTLS",
+details :[
+ {"acctno": "1234567",
+"asn" :   "05543765",
+  "mnm" :  "11563778",
+  "ai" :  "Security Short Name",
+  "ctg" : "Global Collateral Type",
+  "fc" :  "International Product Type",
+  },
+  {"acctno": "1234567",
+  "asn" :   "05543765",
+    "mnm" :  "11563778",
+    "ai" :  "Security Short Name",
+    "ctg" : "Global Collateral Type",
+    "fc" :  "International Product Type",
+    },
+    {"acctno": "1234567",
+    "asn" :   "05543765",
+      "mnm" :  "11563778",
+      "ai" :  "Security Short Name",
+      "ctg" : "Global Collateral Type",
+      "fc" :  "International Product Type",
+      }]}
 
 dataLevel4 =  [
     {
@@ -684,6 +720,10 @@ details :[
     "md" : "Maturity Date",
     "ic" :  "Issue Currency"}]}
 
+
+
+
+
 account = {
  "id": "10291287",
  "name": "Ervin Howell",
@@ -736,6 +776,9 @@ account = {
     return this.dataLevel4;
   } 
 
+  getTableInfo6(){
+    return this.tableInfo6;
+  }
   getTableInfo(){
     return this.tableInfo;
   }
@@ -754,7 +797,16 @@ account = {
   getCusipId(){
     return "23456789";
   }
+  getAcctData(){
+    return this.dataLevelAcct;
+  }
+
+  getAcctColumns(){
+    return this.columnHeadersAcct;
+  }
   
+  
+
 
   getAccount(){
     return this.account;

@@ -10,20 +10,9 @@ export class GsrTabsComponent implements OnInit {
   //@ViewChild('li') el:ElementRef;
   @Input() tabs;
   @Input() tabNavigation;
-  columnHeaders: any;
-  icData: any;
-  icData5: any;
-  account: any;
-  tableInfo:any;
-  columnHeaders5: any;
-  level: number;
-  records: any;
-  tableInfo5:any;
   @Output() passTabIndex = new EventEmitter();
 
-  constructor(private data: TableDataService) {
-
-  }
+  constructor(private data: TableDataService) { }
 
   navigateTab(nextTab) {
     let activeTab = this.tabs.filter(function (tab) {
@@ -37,15 +26,6 @@ export class GsrTabsComponent implements OnInit {
 
   ngOnInit() {
     this.tabs[1].isClicked = "active";
-    this.columnHeaders = this.data.getLevel3Columns();
-    this.tableInfo = this.data.getTableInfo();
-    this.icData = this.data.getLevel3();
-    this.records = this.icData[this.tableInfo.cusip][0]["records"];
-   
-    // this.icData = this.data.getLevel1();
-    // this.records = this.icData.details;
-    this.tableInfo5 = this.data.getTableInfo5();
-    this.icData5 = this.data.getAccount();
   }
 
   ngAfterViewInit() {
@@ -59,46 +39,6 @@ export class GsrTabsComponent implements OnInit {
       //pass Tab index to change content based on clicked tab
       this.passTabIndex.emit(tab);
     }
-  }
-
-
-  getLevel(a) {
-    let levelVar, indexVar;
-    if (a.index !== undefined && a.index !== "") {
-      indexVar = a.index;
-    }
-    if (a.level !== 2) {
-      levelVar = (a.level !== 1) ? (a.level - 1) : (a.level + 1);
-    } else {
-      levelVar = (a.navigateBack) ? (a.level - 1) : (a.level + 1);
-    }
-
-    if (levelVar == 1) {
-      this.tableInfo = this.data.getTableInfo1();
-      this.columnHeaders = this.data.getLevel1Columns();
-      this.icData = this.data.getLevel1();
-      this.records = this.icData.details;
-    }
-    else if (levelVar == 2) {
-      this.tableInfo = this.data.getTableInfo2();
-      this.columnHeaders = this.data.getLevel2Columns();
-      this.icData = this.data.getLevel3();
-      this.records = this.icData[a.cusip];
-    }
-    else if (levelVar == 3) {
-      this.tableInfo = this.data.getTableInfo();
-      this.columnHeaders = this.data.getLevel3Columns();
-      this.icData = this.data.getLevel3();
-      this.records = this.icData[a.cusip][indexVar]["records"];
-    }
-    this.tableInfo.index = indexVar;
-    this.tableInfo.level = levelVar;
-
-    if (a.cusip)
-      this.tableInfo.cusip = a.cusip;
-
-
-
   }
 
 }

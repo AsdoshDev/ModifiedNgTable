@@ -1,5 +1,5 @@
-import { Component, OnInit,Input } from '@angular/core';
-	import { ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, ElementRef } from '@angular/core';
+import { ChangeDetectorRef } from '@angular/core';
 
 @Component({
   selector: 'gsr-column-header',
@@ -8,42 +8,45 @@ import { Component, OnInit,Input } from '@angular/core';
 })
 export class ColumnHeaderComponent implements OnInit {
 
-  constructor(private cdr:ChangeDetectorRef) { }
-  @Input() columnHeaders; 
+  constructor(private cdr: ChangeDetectorRef) { }
+  @Input() columnHeaders;
   @Input() dataObj;
   @Input() columnHeaderInfo; //array of objects
   @Input() showFilter: boolean;
-  @Input() records:any[]; //if records:[] is given, for some reason , typescript thinks its tuple and not an array, then any[] is given.
-  originalRecords:any[];
-  columns:any;
-  recIndex:any;
-  ngOnInit() {
-    if(this.columnHeaderInfo.levelDecider){
-    if(this.columnHeaderInfo.level == 1)
-     this.originalRecords = this.dataObj.details;
-     else  if(this.columnHeaderInfo.level == 3){
-     this.originalRecords = this.dataObj[this.columnHeaderInfo.cusip][this.columnHeaderInfo['index']]["records"];
-   }
-  }else{
-    this.originalRecords = this.dataObj;
-  }
-}
+  @Input() records: any[]; //if records:[] is given, for some reason , typescript thinks its tuple and not an array, then any[] is given.
+  originalRecords: any[];
+  columns: any;
+  recIndex: any;
 
-    filterColumn() {
-    
+  ngOnInit() {
+    if (this.columnHeaderInfo.levelDecider) {
+      if (this.columnHeaderInfo.level == 1)
+        this.originalRecords = this.dataObj.details;
+      else if (this.columnHeaderInfo.level == 3) {
+        this.originalRecords = this.dataObj[this.columnHeaderInfo.cusip][this.columnHeaderInfo['index']]["records"];
+      }
+    } else {
+      this.originalRecords = this.dataObj;
+    }
+  }
+
+  
+
+  filterColumn() {
+
     this.records = this.originalRecords;
     let filterColumn = [];
-   // this.cdr.detectChanges();
-    for(let i=0;i<this.columns.length;i++){
-      if(this.columns[i].filterValue !== "" && this.columns[i].filterValue !== "Show All"){
+    // this.cdr.detectChanges();
+    for (let i = 0; i < this.columns.length; i++) {
+      if (this.columns[i].filterValue !== "" && this.columns[i].filterValue !== "Show All") {
         this.records = this.records.filter(record => {
-          if(record[this.columns[i].attrName]){
-          if(this.columns[i].filterBy === "string")
-            return (record[this.columns[i].attrName]).toLowerCase().indexOf(this.columns[i].filterValue.toLowerCase()) >= 0;
-          else if(this.columns[i].filterBy === "number")
-            return (record[this.columns[i].attrName]).replace(/[,]/g, "").indexOf(this.columns[i].filterValue) >= 0;
+          if (record[this.columns[i].attrName]) {
+            if (this.columns[i].filterBy === "string")
+              return (record[this.columns[i].attrName]).toLowerCase().indexOf(this.columns[i].filterValue.toLowerCase()) >= 0;
+            else if (this.columns[i].filterBy === "number")
+              return (record[this.columns[i].attrName]).replace(/[,]/g, "").indexOf(this.columns[i].filterValue) >= 0;
           }
-          else{
+          else {
             return -1;
           }
         });
@@ -57,29 +60,29 @@ export class ColumnHeaderComponent implements OnInit {
   sortColumn(column) {
     if (column.isAscending !== undefined) {
       column.isAscending = !column.isAscending;
-    
+
     }
     else {
       column.isAscending = false;
     }
-  
+
     if (column.filterBy === 'number') {
       this.filterByValue(column);
     }
     else if (column.filterBy === 'string') {
       this.filterByName(column);
     }
-  
-  
+
+
     if (!column.isAscending) {
       column.icon = "arrow-up";
     }
     else {
       column.icon = "arrow-down";
-  
+
     }
   }
-  
+
   filterByValue(column) {
     // sort by value
     if (!column.isAscending) {
@@ -103,7 +106,7 @@ export class ColumnHeaderComponent implements OnInit {
       });
     }
   }
-  
+
   filterByName(column) {
     // sort by name
     if (!column.isAscending) {
@@ -116,7 +119,7 @@ export class ColumnHeaderComponent implements OnInit {
         if (nameA > nameB) {
           return 1;
         }
-  
+
         // names must be equal
         return 0;
       });
@@ -131,11 +134,11 @@ export class ColumnHeaderComponent implements OnInit {
         if (nameA > nameB) {
           return -1;
         }
-  
+
         // names must be equal
         return 0;
       });
     }
   }
-  
+
 }

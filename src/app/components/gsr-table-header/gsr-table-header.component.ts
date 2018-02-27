@@ -7,7 +7,7 @@ import { EventEmitter } from '@angular/core';
   styleUrls: ['./gsr-table-header.component.css']
 })
 export class GsrTableHeaderComponent implements OnInit {
-  @Input() showFilter: boolean;;
+  @Input() showFilter: boolean;
   @Input() dataObj;
   @Input() columns; 
   @Input() records;
