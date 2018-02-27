@@ -48,7 +48,7 @@ columnHeaders2 =  [
 tableInfo1 = { tableType:'levelDecider','needFilter' : false,'needPrint' : true, levelDecider : true,'level' : 1, 'index':0}
 
 columnHeaders1 =  [
-    { attrName: "accordion", colName: "23r",accordion: 'true'},
+    { attrName: "accordion", colName: "",accordion: 'true'},
     { attrName: "cusip", colName: "CUSIP",searchIcon: 'true'},
     { attrName: "isin", colName: "ISIN"},
     { attrName: "sedol", colName: "SEDOL"},
