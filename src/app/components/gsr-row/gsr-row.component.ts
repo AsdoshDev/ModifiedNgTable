@@ -38,7 +38,6 @@ export class GsrRowComponent implements OnInit {
     this.sendLevel.emit(levelInfo);  
 }
   openModal() {
-   debugger;
     //opwenModal will receive an argument based on which, 
     // we would know the service that needs to be hit.
     // currently hardoded to one service 

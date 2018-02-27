@@ -29,6 +29,7 @@ export class DummyComponent implements OnInit {
   tableInfo6:any;
   records1:any;
   records2:any;
+  records5:any;
   ngOnInit() {
     this.tabs = [
       { title: 'Search' },
@@ -50,9 +51,11 @@ export class DummyComponent implements OnInit {
     this.records = this.icData[this.tableInfo.cusip][0]["records"];
     // this.icData = this.data.getLevel1();
     // this.records = this.icData.details;
-    // search icon click / postings screen (As of now)
-    this.tableInfo5 = this.data.getTableInfo5();
-    this.icData5 = this.data.getAccount();
+
+    // postings screen (As of now)
+    this.tableInfo5 = this.data.getTableInfo7();
+    this.icData5 = this.records5 = this.data.getLevel4();
+    this.columnHeaders5 = this.data.getLevel3Columns();
 
     // advanced search - preview security
     this.icData1 = this.data.getLevel1();

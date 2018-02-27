@@ -18,10 +18,9 @@
 .gsr-table-scroller {
   overflow: auto;
   max-height: 800px;
-  height: 480px;
+  min-height: 480px;
   display:flex;
   flex-direction: column;
-
 }
 
 

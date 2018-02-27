@@ -6,7 +6,8 @@ import { HttpClient } from '@angular/common/http';
 export class TableDataService{
 
   tableInfo  = {tableType:'levelDecider','needFilter' : true,cusip:'1234567','needPrint' : true, levelDecider : true,'level' : 3, 'index':0,columnWidth:"15%"};
-  tableInfo6  = {tableType:'default','needFilter' : false, tableHeader : false,columnWidth:'20%'};
+  tableInfo6  = {tableType:'default','needFilter' : false, tableHeader : false,columnWidth:'10%'};
+  tableInfo7  = {tableType:'default','needFilter' : false, tableTitle:"Transactions" ,tableHeader : true,columnWidth:'10%',needPrint:true};
 
   tableInfo5  =  {tableType:'columnTable',tableTitle:"Account Details",needFilter : false,needPrint : true, levelDecider : false};
   columnHeaderInfoLevel5 =  {tableType:'columnTable',tableTitle:"Account Details",needFilter : false,needPrint : true, levelDecider : false};
@@ -33,10 +34,10 @@ export class TableDataService{
     { attrName: "phone", colName: "Phone", filterBy: 'number', inputType: "dropdown", dropdownValues: [123, 345, 999, 567],filterValue:""},
     { attrName: "website", colName: "Website", filterBy: 'string', inputType: "text",filterValue:"" },
     { attrName: "amount", colName: "Amount", filterBy: 'number', inputType: "text",filterValue:"" },
-    {attrName:"test2",colName:"Website",filterBy:'string', inputType: "text",filterValue:"" },
-    {attrName:"test3",colName:"Website",filterBy:'string', inputType: "text",filterValue:"" },
-    {attrName:"test4",colName:"Website",filterBy:'string', inputType: "text",filterValue:"" },
-    {attrName:"test5",colName:"Website",filterBy:'string', inputType: "text",filterValue:"" },
+    {attrName:"test2",colName:"Employed",filterBy:'string', inputType: "text",filterValue:"" },
+    {attrName:"test3",colName:"Address",filterBy:'string', inputType: "text",filterValue:"" },
+    {attrName:"test4",colName:"Nationality",filterBy:'string', inputType: "text",filterValue:"" },
+    {attrName:"test5",colName:"License",filterBy:'string', inputType: "text",filterValue:"" },
   ];
 
 
@@ -99,12 +100,378 @@ dataLevel4 =  [
       "id": "10291287",
       "name": "Martin Graham",
       "username": "Bret",
+      "phone": "123",
+      "website": "hildegard.org",
+      "email": "Sincere@april.biz",
+      "amount"  : "500,000,000",
+      "test2" : "234234",
+      "test3" : "234234",
+      "test4" : "234234",
+      "test5" : "234234"
       
     },
     {
       "id": "10191287",
       "name": "Chelsey Dietrich",
       "username": "Kamren",
+      "phone": "123",
+      "website": "hildegard.org",
+      "email": "Sincere@april.biz",
+      "amount"  : "500,000,000",
+      "test2" : "234234",
+      "test3" : "234234",
+      "test4" : "234234",
+      "test5" : "234234"
+      
+    },
+    {
+      "id": "10191287",
+      "name": "Chelsey Dietrich",
+      "username": "Kamren",
+      "phone": "123",
+      "website": "hildegard.org",
+      "email": "Sincere@april.biz",
+      "amount"  : "500,000,000",
+      "test2" : "234234",
+      "test3" : "234234",
+      "test4" : "234234",
+      "test5" : "234234"
+      
+    },
+    {
+      "id": "10191287",
+      "name": "Chelsey Dietrich",
+      "username": "Kamren",
+      "phone": "123",
+      "website": "hildegard.org",
+      "email": "Sincere@april.biz",
+      "amount"  : "500,000,000",
+      "test2" : "234234",
+      "test3" : "234234",
+      "test4" : "234234",
+      "test5" : "234234"
+      
+    },
+    {
+      "id": "10191287",
+      "name": "Chelsey Dietrich",
+      "username": "Kamren",
+      "phone": "123",
+      "website": "hildegard.org",
+      "email": "Sincere@april.biz",
+      "amount"  : "500,000,000",
+      "test2" : "234234",
+      "test3" : "234234",
+      "test4" : "234234",
+      "test5" : "234234"
+      
+    },
+    {
+      "id": "10191287",
+      "name": "Chelsey Dietrich",
+      "username": "Kamren",
+      "phone": "123",
+      "website": "hildegard.org",
+      "email": "Sincere@april.biz",
+      "amount"  : "500,000,000",
+      "test2" : "234234",
+      "test3" : "234234",
+      "test4" : "234234",
+      "test5" : "234234"
+      
+    },
+    {
+      "id": "10191287",
+      "name": "Chelsey Dietrich",
+      "username": "Kamren",
+      "phone": "123",
+      "website": "hildegard.org",
+      "email": "Sincere@april.biz",
+      "amount"  : "500,000,000",
+      "test2" : "234234",
+      "test3" : "234234",
+      "test4" : "234234",
+      "test5" : "234234"
+      
+    },
+    {
+      "id": "10191287",
+      "name": "Chelsey Dietrich",
+      "username": "Kamren",
+      "phone": "123",
+      "website": "hildegard.org",
+      "email": "Sincere@april.biz",
+      "amount"  : "500,000,000",
+      "test2" : "234234",
+      "test3" : "234234",
+      "test4" : "234234",
+      "test5" : "234234"
+      
+    },
+    {
+      "id": "10191287",
+      "name": "Chelsey Dietrich",
+      "username": "Kamren",
+      "phone": "123",
+      "website": "hildegard.org",
+      "email": "Sincere@april.biz",
+      "amount"  : "500,000,000",
+      "test2" : "234234",
+      "test3" : "234234",
+      "test4" : "234234",
+      "test5" : "234234"
+      
+    },
+    {
+      "id": "10291287",
+      "name": "Martin Graham",
+      "username": "Bret",
+      "phone": "123",
+      "website": "hildegard.org",
+      "email": "Sincere@april.biz",
+      "amount"  : "500,000,000",
+      "test2" : "234234",
+      "test3" : "234234",
+      "test4" : "234234",
+      "test5" : "234234"
+      
+    },
+    {
+      "id": "10191287",
+      "name": "Chelsey Dietrich",
+      "username": "Kamren",
+      "phone": "123",
+      "website": "hildegard.org",
+      "email": "Sincere@april.biz",
+      "amount"  : "500,000,000",
+      "test2" : "234234",
+      "test3" : "234234",
+      "test4" : "234234",
+      "test5" : "234234"
+      
+    },
+    {
+      "id": "10191287",
+      "name": "Chelsey Dietrich",
+      "username": "Kamren",
+      "phone": "123",
+      "website": "hildegard.org",
+      "email": "Sincere@april.biz",
+      "amount"  : "500,000,000",
+      "test2" : "234234",
+      "test3" : "234234",
+      "test4" : "234234",
+      "test5" : "234234"
+      
+    },
+    {
+      "id": "10191287",
+      "name": "Chelsey Dietrich",
+      "username": "Kamren",
+      "phone": "123",
+      "website": "hildegard.org",
+      "email": "Sincere@april.biz",
+      "amount"  : "500,000,000",
+      "test2" : "234234",
+      "test3" : "234234",
+      "test4" : "234234",
+      "test5" : "234234"
+      
+    },
+    {
+      "id": "10191287",
+      "name": "Chelsey Dietrich",
+      "username": "Kamren",
+      "phone": "123",
+      "website": "hildegard.org",
+      "email": "Sincere@april.biz",
+      "amount"  : "500,000,000",
+      "test2" : "234234",
+      "test3" : "234234",
+      "test4" : "234234",
+      "test5" : "234234"
+      
+    },
+    {
+      "id": "10191287",
+      "name": "Chelsey Dietrich",
+      "username": "Kamren",
+      "phone": "123",
+      "website": "hildegard.org",
+      "email": "Sincere@april.biz",
+      "amount"  : "500,000,000",
+      "test2" : "234234",
+      "test3" : "234234",
+      "test4" : "234234",
+      "test5" : "234234"
+      
+    },
+    {
+      "id": "10191287",
+      "name": "Chelsey Dietrich",
+      "username": "Kamren",
+      "phone": "123",
+      "website": "hildegard.org",
+      "email": "Sincere@april.biz",
+      "amount"  : "500,000,000",
+      "test2" : "234234",
+      "test3" : "234234",
+      "test4" : "234234",
+      "test5" : "234234"
+      
+    },
+    {
+      "id": "10191287",
+      "name": "Chelsey Dietrich",
+      "username": "Kamren",
+      "phone": "123",
+      "website": "hildegard.org",
+      "email": "Sincere@april.biz",
+      "amount"  : "500,000,000",
+      "test2" : "234234",
+      "test3" : "234234",
+      "test4" : "234234",
+      "test5" : "234234"
+      
+    },
+    {
+      "id": "10191287",
+      "name": "Chelsey Dietrich",
+      "username": "Kamren",
+      "phone": "123",
+      "website": "hildegard.org",
+      "email": "Sincere@april.biz",
+      "amount"  : "500,000,000",
+      "test2" : "234234",
+      "test3" : "234234",
+      "test4" : "234234",
+      "test5" : "234234"
+      
+    },
+    {
+      "id": "10291287",
+      "name": "Martin Graham",
+      "username": "Bret",
+      "phone": "123",
+      "website": "hildegard.org",
+      "email": "Sincere@april.biz",
+      "amount"  : "500,000,000",
+      "test2" : "234234",
+      "test3" : "234234",
+      "test4" : "234234",
+      "test5" : "234234"
+      
+    },
+    {
+      "id": "10191287",
+      "name": "Chelsey Dietrich",
+      "username": "Kamren",
+      "phone": "123",
+      "website": "hildegard.org",
+      "email": "Sincere@april.biz",
+      "amount"  : "500,000,000",
+      "test2" : "234234",
+      "test3" : "234234",
+      "test4" : "234234",
+      "test5" : "234234"
+      
+    },
+    {
+      "id": "10191287",
+      "name": "Chelsey Dietrich",
+      "username": "Kamren",
+      "phone": "123",
+      "website": "hildegard.org",
+      "email": "Sincere@april.biz",
+      "amount"  : "500,000,000",
+      "test2" : "234234",
+      "test3" : "234234",
+      "test4" : "234234",
+      "test5" : "234234"
+      
+    },
+    {
+      "id": "10191287",
+      "name": "Chelsey Dietrich",
+      "username": "Kamren",
+      "phone": "123",
+      "website": "hildegard.org",
+      "email": "Sincere@april.biz",
+      "amount"  : "500,000,000",
+      "test2" : "234234",
+      "test3" : "234234",
+      "test4" : "234234",
+      "test5" : "234234"
+      
+    },
+    {
+      "id": "10191287",
+      "name": "Chelsey Dietrich",
+      "username": "Kamren",
+      "phone": "123",
+      "website": "hildegard.org",
+      "email": "Sincere@april.biz",
+      "amount"  : "500,000,000",
+      "test2" : "234234",
+      "test3" : "234234",
+      "test4" : "234234",
+      "test5" : "234234"
+      
+    },
+    {
+      "id": "10191287",
+      "name": "Chelsey Dietrich",
+      "username": "Kamren",
+      "phone": "123",
+      "website": "hildegard.org",
+      "email": "Sincere@april.biz",
+      "amount"  : "500,000,000",
+      "test2" : "234234",
+      "test3" : "234234",
+      "test4" : "234234",
+      "test5" : "234234"
+      
+    },
+    {
+      "id": "10191287",
+      "name": "Chelsey Dietrich",
+      "username": "Kamren",
+      "phone": "123",
+      "website": "hildegard.org",
+      "email": "Sincere@april.biz",
+      "amount"  : "500,000,000",
+      "test2" : "234234",
+      "test3" : "234234",
+      "test4" : "234234",
+      "test5" : "234234"
+      
+    },
+    {
+      "id": "10191287",
+      "name": "Chelsey Dietrich",
+      "username": "Kamren",
+      "phone": "123",
+      "website": "hildegard.org",
+      "email": "Sincere@april.biz",
+      "amount"  : "500,000,000",
+      "test2" : "234234",
+      "test3" : "234234",
+      "test4" : "234234",
+      "test5" : "234234"
+      
+    },
+    {
+      "id": "10191287",
+      "name": "Chelsey Dietrich",
+      "username": "Kamren",
+      "phone": "123",
+      "website": "hildegard.org",
+      "email": "Sincere@april.biz",
+      "amount"  : "500,000,000",
+      "test2" : "234234",
+      "test3" : "234234",
+      "test4" : "234234",
+      "test5" : "234234"
       
     }
   ];
@@ -793,6 +1160,12 @@ account = {
   getTableInfo2(){
     return this.tableInfo2;
   }
+
+  getTableInfo7(){
+    return this.tableInfo7;
+  }
+
+  
 
   getCusipId(){
     return "23456789";
