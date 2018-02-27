@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 export class TableDataService{
 
   tableInfo  = {tableType:'levelDecider','needFilter' : true,cusip:'1234567','needPrint' : true, levelDecider : true,'level' : 3, 'index':0,columnWidth:"15%"};
-  tableInfo6  = {tableType:'default','needFilter' : false, tableHeader : false,columnWidth:'10%'};
+  tableInfo6  = {tableType:'default','needFilter' : false, tableHeader : false,columnWidth:'20%'};
   tableInfo7  = {tableType:'default','needFilter' : false, tableTitle:"Transactions" ,tableHeader : true,columnWidth:'10%',needPrint:true};
 
   tableInfo5  =  {tableType:'columnTable',tableTitle:"Account Details",needFilter : false,needPrint : true, levelDecider : false};

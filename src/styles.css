@@ -1,5 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
 
+body{
+  font-size:13px;
+}
+
 .level-decider {
   width: 100%;
 }
@@ -12,7 +16,8 @@
 .gsr-table {
   border: 1px solid rgba(0, 0, 0, .12);
   box-shadow: 0 5px 5px -3px rgba(0, 0, 0, .2), 0 8px 10px 1px rgba(0, 0, 0, .14), 0 3px 14px 2px rgba(0, 0, 0, .12);
-  font-size: 14px;
+  /* font-size: 12px; */
+  margin-top: 10px;
 }
 
 .gsr-table-scroller {
@@ -324,4 +329,12 @@ fieldset{
 
 .gsr-modal-content .gsr-table{
   box-shadow: none;
+}
+
+
+.details-pane{
+  border:1px solid #e4e4e4;
+  border-radius:10px;
+  min-height:250px;
+  padding:10px;
 }
