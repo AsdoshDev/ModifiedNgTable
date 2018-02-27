@@ -291,7 +291,9 @@ button:active {
   position: relative;
   min-height:300px;
   max-height:700px;
-  height:600px;
+  /* height:600px; */
+  display: flex;
+  flex-direction: column;
 }
 
 .tab-content {
@@ -301,8 +303,9 @@ button:active {
 }
 
 .tab-footer {
-  position: absolute;
-  right:0px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
 }
 
 .tab-footer>button {

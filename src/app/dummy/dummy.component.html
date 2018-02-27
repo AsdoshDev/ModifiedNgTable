@@ -5,7 +5,7 @@
 
       <fieldset>
         <legend>Advanced Search</legend>
-        <gsr-tabs (passTabIndex)="selectedSearchTab=$event" [tabNavigation]=t rue [tabs]="searchTabs">
+        <gsr-tabs (passTabIndex)="selectedSearchTab=$event" [tabNavigation]=true [tabs]="searchTabs">
           <div class="tab-content">
             <ng-container *ngIf="!selectedSearchTab || (selectedSearchTab && selectedSearchTab.index == 0)">
               <div>1st tab of adv search</div>
@@ -22,10 +22,14 @@
     </ng-container>
 
     <ng-container *ngIf="selectedTab && selectedTab.index == 1">
-      <div class="details-pane" *ngIf="tableInfo.level === 1">Level 1 details</div>
-      <div class="details-pane" *ngIf="tableInfo.level === 2">Level 2 details of {{icData.id}} No. {{tableInfo.index}} </div>
+      <div class="details-pane" *ngIf="tableInfo.level === 1">
+          <ng-container *ngTemplateOutlet="level1DetailsPane" ></ng-container>
+      </div>
+      <div class="details-pane" *ngIf="tableInfo.level === 2">
+          <ng-container *ngTemplateOutlet="level2DetailsPane"></ng-container>  
+      </div>
       <div class="details-pane" *ngIf="tableInfo.level === 3">
-        Level 3 details of Company No {{tableInfo.index + 1}}
+          <ng-container *ngTemplateOutlet="level3DetailsPane"></ng-container>
       </div>
       <gsr-table *ngIf="!tableInfo.levelDecider" [columnHeaders]="columnHeaders" [dataObj]="icData" [columnHeaderInfo]="tableInfo"></gsr-table>
       <gsr-table *ngIf="tableInfo.levelDecider" [records]="records" [columnHeaders]="columnHeaders" (sendLevel)="getLevel(levelDtls=$event)"
@@ -38,3 +42,10 @@
 
   </div>
 </gsr-tabs>
+
+
+<ng-template #level1DetailsPane><div>This is level 1 details pane</div></ng-template>
+
+<ng-template #level2DetailsPane><div>This is level 2 details pane</div></ng-template>
+
+<ng-template #level3DetailsPane><div>This is level 3 details pane</div></ng-template>
