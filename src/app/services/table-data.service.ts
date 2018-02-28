@@ -9,6 +9,8 @@ export class TableDataService{
   tableInfo6  = {tableType:'default','needFilter' : false, tableHeader : false,columnWidth:'20%'};
   tableInfo7  = {tableType:'default','needFilter' : false, tableTitle:"Transactions" ,tableHeader : true,columnWidth:'10%',needPrint:true};
 
+  tableInfo8  =  {tableType:'columnTable',tableHeader:false,needFilter : false,needPrint : true, levelDecider : false};
+
   tableInfo5  =  {tableType:'columnTable',tableTitle:"Account Details",needFilter : false,needPrint : true, levelDecider : false};
   columnHeaderInfoLevel5 =  {tableType:'columnTable',tableTitle:"Account Details",needFilter : false,needPrint : true, levelDecider : false};
   columnHeaders4 =  [
@@ -30,6 +32,7 @@ export class TableDataService{
     { attrName: "id", colName: "Account No", filterBy: 'string', searchIcon: 'true', inputType: "text",filterValue:"" },
     { attrName: "name", colName: "Name", filterBy: 'string', inputType: "text",filterValue:"" },
     { attrName: "username", colName: "Username", filterBy: 'string', inputType: "text",filterValue:"" },
+    { attrName: "ob", colName: "Opening Balance", filterBy: 'number', inputType: "text",filterValue:"",openItem:true },
     { attrName: "email", colName: "Email", filterBy: 'string', inputType: "text",filterValue:"" },
     { attrName: "phone", colName: "Phone", filterBy: 'number', inputType: "dropdown", dropdownValues: [123, 345, 999, 567],filterValue:""},
     { attrName: "website", colName: "Website", filterBy: 'string', inputType: "text",filterValue:"" },
@@ -584,6 +587,7 @@ dataLevel3 =
       "id": "10291287",
       "name": "Martin Graham m1",
       "username": "Bret",
+      "ob"  :"50000",
       "email": "Sincere@april.biz",
       "amount"  : "500,000,000",
       "test2"  : "Aeifjwef owe fjoewfj ewo fjoewfj oew fjoewfj oewfj oew joewf",
@@ -616,6 +620,7 @@ dataLevel3 =
       "id": "10191287",
       "name": "Chelsey Dietrich m2",
       "username": "Kamren",
+      "ob"  :"1234567",
       "amount"  : "700,000,000",
       "email": "Lucio_Hettinger@annie.ca",
       "address": {
@@ -642,6 +647,7 @@ dataLevel3 =
       "name": "Leanne Graham m3",
       "username": "Bret",
       "email": "Sincere@april.biz",
+      "ob" :"12355",
       "address": {
         "street": "Kulas Light",
         "suite": "Apt. 556",
@@ -668,6 +674,7 @@ dataLevel3 =
       "id": "10291287",
       "name": "Brendon McCullum d1",
       "username": "Bret",
+      "ob"  :"90000",
       "email": "Sincere@april.biz",
       "amount"  : "500,000,000",
       "test2"  : "Aeifjwef owe fjoewfj ewo fjoewfj oew fjoewfj oewfj oew joewf",
@@ -695,6 +702,7 @@ dataLevel3 =
       "id": "10291287",
       "name": "Martin Graham d2",
       "username": "Bret",
+      "ob"  :"98753",
       "email": "Sincere@april.biz",
       "amount"  : "500,000,000",
       "test2"  : "Aeifjwef owe fjoewfj ewo fjoewfj oew fjoewfj oewfj oew joewf",
@@ -724,6 +732,7 @@ dataLevel3 =
       "id": "10191287",
       "name": "Chelsey Dietrich d3",
       "username": "Kamren",
+      "ob"  :"56722",
       "amount"  : "700,000,000",
       "email": "Lucio_Hettinger@annie.ca",
       "address": {
@@ -855,6 +864,7 @@ dataLevel3 =
     "name": "Leanne Graham",
     "username": "Bret",
     "email": "Sincere@april.biz",
+    "ob" : "123123123",
     "address": {
       "street": "Kulas Light",
       "suite": "Apt. 556",
@@ -1193,19 +1203,19 @@ details :[
 
 account = {
  "id": "10291287",
- "name": "Ervin Howell",
- "username": "Antonette",
- "amount"  : "600,000,000",
- "email": "Shanna@melissa.tv",
- "phone": "493-170-9623 x156",
- "website": "kale.biz",
- "street": "Hoeger Mall",
- "suite": "Apt. 692",
- "city": "South Elvis",
- "zipcode": "53919-4257",
- "catchPhrase": "Multi-tiered zero tolerance productivity",
- "bs": "transition cutting-edge web services",
- "blockchain" : "propels java"
+ "Security Short Name": "Shanna@melissa.tv",
+ "Coupon Rate": "493-170-9623 x156",
+ "Instrument Type": "kale.biz",
+ "Maturity Date": "18-Feb-2018",
+ "Closing Price": "12,000,000",
+ "Ticker Symbol": "Hoeger Mall",
+ "Current Balance": "Apt. 692",
+ "Total Breaks": "53919-4257",
+ "Total Fails": "Multi-tiered zero tolerance productivity",
+ "Long Break Quantity": "600,000,000",
+ "Long Fail Quantity": "600,000,000",
+ "Short break Quantity"  : "600,000,000",
+ "Short fail Quantity"  : "600,000,000",
 };
 
   rooturl:string = "https://jsonplaceholder.typicode.com/users";
@@ -1263,6 +1273,10 @@ account = {
 
   getTableInfo7(){
     return this.tableInfo7;
+  }
+
+  getTableInfo8(){
+    return this.tableInfo8;
   }
 
   

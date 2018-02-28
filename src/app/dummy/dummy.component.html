@@ -22,9 +22,9 @@
     </ng-container>
 
     <ng-container *ngIf="selectedTab && selectedTab.index == 1">
-      <div class="details-pane" *ngIf="tableInfo.level === 1">
+      <!-- <div class="details-pane" *ngIf="tableInfo.level === 1">
           <ng-container *ngTemplateOutlet="level1DetailsPane" ></ng-container>
-      </div>
+      </div> -->
       <div class="details-pane" *ngIf="tableInfo.level === 2">
           <ng-container *ngTemplateOutlet="level2DetailsPane"></ng-container>  
       </div>
@@ -44,8 +44,21 @@
 </gsr-tabs>
 
 
-<ng-template #level1DetailsPane><div>This is level 1 details pane</div></ng-template>
 
-<ng-template #level2DetailsPane><div>This is level 2 details pane</div></ng-template>
+<ng-template #level2DetailsPane>
+    <div class="fieldWrapper" *ngFor="let rec of table.generateArray(account)">
+        <ng-container *ngIf="rec.key == 'Total Breaks'"><gsr-icon [type] ="'break'"></gsr-icon></ng-container>
+        <ng-container *ngIf="rec.key == 'Total Fails'"><gsr-icon [type] ="'fail'"></gsr-icon></ng-container>
+        <div class="field-label">{{rec.key}}:</div>
+        <div class="field-value"> {{rec.value}}</div>
+    </div>
+</ng-template>
 
-<ng-template #level3DetailsPane><div>This is level 3 details pane</div></ng-template>
+<ng-template #level3DetailsPane>
+    <div class="fieldWrapper" *ngFor="let rec of table.generateArray(account)">
+        <ng-container *ngIf="rec.key == 'Total Breaks'"><gsr-icon [type] ="'break'"></gsr-icon></ng-container>
+        <ng-container *ngIf="rec.key == 'Total Fails'"><gsr-icon [type] ="'fail'"></gsr-icon></ng-container>
+        <div class="field-label">{{rec.key}}:</div>
+        <div class="field-value"> {{rec.value}}</div>
+    </div>
+</ng-template>

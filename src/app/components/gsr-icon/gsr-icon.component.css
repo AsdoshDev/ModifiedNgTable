@@ -1,0 +1,49 @@
+.circle {
+    width: 30px;
+    height: 30px;
+    border-radius: 30px;
+    width: 15px;
+    height: 15px;
+    border-radius: 30px;
+    color: white;
+    font-size: 11px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .fail:before {
+    content: "F"
+  }
+  
+  .open:before {
+    content: "O"
+  }
+  
+  .circle.fail {
+    background-color: red;
+  }
+  
+  .circle.open {
+    background-color: blue;
+    margin-right: 10px;
+  }
+  
+  .break:before {
+    content: "!";
+    position: relative;
+    top: 2px;
+  }
+  
+  .arrow-up.break {
+    width: 0;
+    height: 0;
+    border-left: 9px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 13px solid #ffe000;
+    display: flex;
+    font-size: 11px;
+    justify-content: center;
+    font-weight: bold;
+  }
+  

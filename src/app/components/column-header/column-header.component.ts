@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ViewChild, ElementRef } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, ElementRef,Output,EventEmitter } from '@angular/core';
 import { ChangeDetectorRef } from '@angular/core';
 
 @Component({
@@ -17,6 +17,8 @@ export class ColumnHeaderComponent implements OnInit {
   originalRecords: any[];
   columns: any;
   recIndex: any;
+  sort = "sort-default";
+  @Output() sortIcon = new EventEmitter();
 
   ngOnInit() {
     if (this.columnHeaderInfo.levelDecider) {
@@ -72,15 +74,10 @@ export class ColumnHeaderComponent implements OnInit {
     else if (column.filterBy === 'string') {
       this.filterByName(column);
     }
-
-
-    if (!column.isAscending) {
-      column.icon = "arrow-up";
-    }
-    else {
-      column.icon = "arrow-down";
-
-    }
+    debugger;
+  this.sort = (!column.isAscending) ? "sort-asc" : "sort-des";
+  this.sortIcon.emit(this.sort);
+    
   }
 
   filterByValue(column) {

@@ -18,6 +18,9 @@ import { GsrTabsComponent } from './components/gsr-tabs/gsr-tabs.component';
 import { GsrTableLevelDeciderComponent } from './components/gsr-table-level-decider/gsr-table-level-decider.component';
 import { GsrTableHeaderComponent } from './components/gsr-table-header/gsr-table-header.component';
 import { DummyComponent } from './dummy/dummy.component';
+import { GsrIconComponent } from './components/gsr-icon/gsr-icon.component';
+
+
 
 
 @NgModule({
@@ -31,13 +34,16 @@ import { DummyComponent } from './dummy/dummy.component';
     GsrTableLevelDeciderComponent,
     GsrTableHeaderComponent,
     DummyComponent,
+    GsrIconComponent,
+    
+    
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     FormsModule
 ],
-  providers: [TableDataService],
+  providers: [TableDataService,GsrTableComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

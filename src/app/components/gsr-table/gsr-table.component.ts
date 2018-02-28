@@ -53,6 +53,7 @@ export class GsrTableComponent implements OnInit {
   }
 
   ngAfterContentChecked(){
+    debugger;
     if(this.columnHeaderInfo.tableType !== "columnTable"){
       if(this.columnHeaderInfo.levelDecider){
       if(this.columnHeaderInfo['level'] == 1)

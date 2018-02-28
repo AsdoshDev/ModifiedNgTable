@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { TableDataService } from './../services/table-data.service';
 import { EventEmitter } from '@angular/core';
+import {GsrTableComponent} from './../components/gsr-table/gsr-table.component';
 
 @Component({
   selector: 'app-dummy',
@@ -8,7 +9,7 @@ import { EventEmitter } from '@angular/core';
   styleUrls: ['./dummy.component.css']
 })
 export class DummyComponent implements OnInit {
-  constructor(private data:TableDataService) { }
+  constructor(private data:TableDataService,public table:GsrTableComponent) { }
   tabs: any;
   searchTabs:any;
   selectedTab: any;
@@ -30,6 +31,7 @@ export class DummyComponent implements OnInit {
   records1:any;
   records2:any;
   records5:any;
+  tableInfo1:any;
   ngOnInit() {
     this.tabs = [
       { title: 'Search' },
@@ -56,6 +58,10 @@ export class DummyComponent implements OnInit {
     this.tableInfo5 = this.data.getTableInfo7();
     this.icData5 = this.records5 = this.data.getLevel4();
     this.columnHeaders5 = this.data.getLevel3Columns();
+
+    // modal window table
+    this.account = this.data.getAccount();
+    this.tableInfo1 = this.data.getTableInfo8();
 
     // advanced search - preview security
     this.icData1 = this.data.getLevel1();

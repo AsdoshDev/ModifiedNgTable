@@ -41,9 +41,10 @@ export class GsrRowComponent implements OnInit {
     //opwenModal will receive an argument based on which, 
     // we would know the service that needs to be hit.
     // currently hardoded to one service 
-    this.showModal = !this.showModal;
-    this.account = this.data.getAccount();
+   this.account = this.data.getAccount();
     this.chi = this.data.getTableInfo5();
+     this.showModal = !this.showModal;
+    
 
     // let template = "<div>Dynamic data to be inserted here</div>";
     

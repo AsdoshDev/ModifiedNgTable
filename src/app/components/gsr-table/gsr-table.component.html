@@ -24,7 +24,7 @@
 
 <ng-container *ngIf="columnHeaderInfo.tableType === 'columnTable'">
   <div class="gsr-table" *ngIf="dataObj">
-    <gsr-table-header [columnHeaderInfo]="columnHeaderInfo"></gsr-table-header>
+    <gsr-table-header *ngIf="columnHeaderInfo.tableHeader !== false" [columnHeaderInfo]="columnHeaderInfo"></gsr-table-header>
     <div class="columnWrapper">
       <div class="columnGroup" *ngFor="let rec of generateArray(dataObj)">
         <div class="gsr-modal-content-column column-label">{{rec.key}}</div>
