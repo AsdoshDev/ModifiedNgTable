@@ -92,6 +92,7 @@ input, textarea, select, button {
   padding: 5px;
   flex-shrink: 0;
   box-sizing: border-box;
+  transition:0.3s;
 }
 .gsr-row>.gsr-column{
   border-top: 1px solid #e4e4e4;
@@ -164,7 +165,7 @@ input, textarea, select, button {
   /* padding:5px; */
 }
 .gsr-row.header>div{
-  background-color: #505050;
+  background-color: #909090;
 }
 
 

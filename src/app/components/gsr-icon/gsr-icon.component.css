@@ -47,3 +47,12 @@
     font-weight: bold;
   }
   
+ 
+  .arrow-up.selected {
+    border-bottom: 5px solid #030464;
+  }
+  
+  .arrow-down.selected {
+    border-top: 5px solid #030464;
+  }
+ 

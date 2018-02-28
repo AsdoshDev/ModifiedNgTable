@@ -2,16 +2,20 @@
 <div class="circle fail" *ngIf="type === 'fail'"></div>
 <div class="arrow-up break" *ngIf="type === 'break'"></div>
 
+<!-- -------SORT ICON ------- -->
 
-<span class="iconWrapper" *ngIf="type === 'sort-default'">
+<span class="iconWrapper" *ngIf="!type">
     <span class="arrow-up"></span>
     <span class="arrow-down"></span>
 </span>
-
+<!-- -------SORT ICON ------- -->
 <span class="iconWrapper" *ngIf="type === 'sort-des'">
-    <span class="arrow-up"></span>
+    <span class="arrow-up selected"></span>
+    <span class="arrow-down"></span>
 </span>
 <span class="iconWrapper" *ngIf="type === 'sort-asc'">
-    <span class="arrow-down"></span>
+    <span class="arrow-up"></span>
+    <span class="arrow-down selected"></span>
+    
 </span>
 <!-- <div class="arrow-up arrow-down" ></div> -->

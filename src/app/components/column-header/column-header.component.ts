@@ -74,9 +74,10 @@ export class ColumnHeaderComponent implements OnInit {
     else if (column.filterBy === 'string') {
       this.filterByName(column);
     }
-    debugger;
-  this.sort = (!column.isAscending) ? "sort-asc" : "sort-des";
-  this.sortIcon.emit(this.sort);
+    this.columnHeaders.forEach(column => column.sort = "");
+    column.sort = (!column.isAscending) ? "sort-asc" : "sort-des";
+    this.sortIcon.emit(column.sort);
+    
     
   }
 
