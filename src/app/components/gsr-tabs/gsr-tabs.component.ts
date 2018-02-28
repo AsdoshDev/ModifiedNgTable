@@ -23,9 +23,12 @@ export class GsrTabsComponent implements OnInit {
     if (targetTab)
       this.selectTab(targetTab, index);
   }
+  ngAfterContentChecked(){
+    
+  }
 
   ngOnInit() {
-    // this.tabs.forEach(tab => tab.isClicked = "");
+    this.tabs.forEach(tab => tab.isClicked = "");
     this.tabs[0].isClicked = "active";
   }
 

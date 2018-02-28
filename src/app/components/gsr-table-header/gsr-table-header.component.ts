@@ -20,17 +20,21 @@ export class GsrTableHeaderComponent implements OnInit {
   originalRecords:any;
   constructor() { }
 
-  ngOnInit() {
+
+  ngAfterContentChecked(){
     if(this.columnHeaderInfo.levelDecider){
-    if(this.tableLevel == 1)
-      this.originalRecords = this.dataObj.details;
-      else  if(this.columnHeaderInfo['level'] == 3){
-        this.originalRecords = this.dataObj[this.columnHeaderInfo.cusip][this.columnHeaderInfo['index']]["records"];
-      }}
-      else{
-        this.originalRecords = this.dataObj;
-      }
-}
+      if(this.tableLevel == 1)
+        this.originalRecords = this.dataObj.details;
+        else  if(this.columnHeaderInfo['level'] == 3){
+          this.originalRecords = this.dataObj[this.columnHeaderInfo.cusip][this.columnHeaderInfo['index']]["records"];
+        }}
+        else{
+          this.originalRecords = this.dataObj;
+        }
+  } 
+  
+  ngOnInit() {
+  }
 
   clearInputValues(){
     for(let i=0;i<this.columns.length;i++){
@@ -40,6 +44,7 @@ export class GsrTableHeaderComponent implements OnInit {
     this.sendFilterRecords.emit(this.records);
   }
   filterColumn() {
+    debugger;
     this.records = this.originalRecords;
     for(let i=0;i<this.columns.length;i++){
       if(this.columns[i].filterValue !== "" && this.columns[i].filterValue !== "Show All"){

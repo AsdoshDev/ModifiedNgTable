@@ -52,10 +52,7 @@ export class GsrTableComponent implements OnInit {
 
   }
 
-
-  ngOnInit() {
-    console.log("INCOMING RECORDS");
-    console.log(this.records);
+  ngAfterContentChecked(){
     if(this.columnHeaderInfo.tableType !== "columnTable"){
       if(this.columnHeaderInfo.levelDecider){
       if(this.columnHeaderInfo['level'] == 1)
@@ -68,8 +65,8 @@ export class GsrTableComponent implements OnInit {
       this.originalRecords = this.dataObj;
     }
     }
-    
- }
+  }
+  ngOnInit() {}
  generateArray(obj) {
   let bla = Object.keys(obj).map((key) => {return {key: key, value: obj[key]}});
   return bla;
