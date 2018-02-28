@@ -1,5 +1,5 @@
 <ng-container *ngIf="columnHeaderInfo.level == 1">
-    <gsr-row class="gsr-row gsr-record-row" (sendLevel) = "passLevel($event)" [columnHeaders] = "columnHeaders"  *ngFor="let record of records;let in = index;" attr.id="{{record.cusip}}" attr.index = "{{in}}" [record]  = "record" [columnHeaderInfo] = "columnHeaderInfo"></gsr-row>
+    <gsr-row class="gsr-row gsr-record-row" [isAccordion] = true (sendLevel) = "passLevel($event)" [columnHeaders] = "columnHeaders"  *ngFor="let record of records;let in = index;" attr.id="{{record.cusip}}" attr.index = "{{in}}" [record]  = "record" [columnHeaderInfo] = "columnHeaderInfo"></gsr-row>
     <div *ngIf="records.length==0" class="noResults">No records found</div>
 </ng-container> 
 
@@ -13,9 +13,26 @@
 </ng-container> 
 
  <ng-container *ngIf="columnHeaderInfo.level == 3">
-    <div class="gsr-row gsr-accordionHeader" (click) = "changeTable(columnHeaderInfo.level,'',false,columnHeaderInfo.cusip)">
-         <div  class="gsr-column"><span attr.level="{{columnHeaderInfo.level}}" class="iconStyle collapse"></span><span>{{dataObj[columnHeaderInfo.cusip][columnHeaderInfo.index].company}}</span></div>
-    </div>
-    <gsr-row class="gsr-row gsr-record-row" *ngFor="let record of records" [record]  = "record" [columnHeaders] = "columnHeaders" [columnHeaderInfo] = "columnHeaderInfo"></gsr-row>
-    <div *ngIf="records.length==0" class="noResults">No records found</div>
+        <div class="gsr-row gsr-accordionHeader" (click) = "changeTable(columnHeaderInfo.level,'',false,columnHeaderInfo.cusip)">
+                <div  class="gsr-column"><span attr.level="{{columnHeaderInfo.level}}" class="iconStyle collapse"></span><span>{{dataObj[columnHeaderInfo.cusip][columnHeaderInfo.index].company}}</span></div>
+        </div>
+
+<ng-container *ngFor="let record of records">
+        <gsr-row *ngIf="!record.subRecords" class="gsr-row gsr-record-row" [record]  = "record"  [columnHeaders] = "columnHeaders" [columnHeaderInfo] = "columnHeaderInfo"> </gsr-row>
+            <ng-container *ngIf="record.subRecords && record.subRecords.length > 0">
+                    <gsr-row  class="gsr-row gsr-record-row" [record]  = "record" [isAccordion] = true [columnHeaders] = "columnHeaders" [columnHeaderInfo] = "columnHeaderInfo"> </gsr-row>
+                    <ng-container *ngFor="let rec of record.subRecords">
+                            <gsr-row  class="gsr-subrow gsr-row gsr-record-row" [record]  = "rec" [columnHeaders] = "columnHeaders" [columnHeaderInfo] = "columnHeaderInfo"> </gsr-row>
+                    </ng-container>
+            </ng-container>
+        </ng-container>
+<div *ngIf="records.length==0" class="noResults">No records found</div>
 </ng-container> 
+
+
+
+<!-- old template -->
+
+
+
+<!-- <gsr-row class="gsr-row gsr-record-row" *ngFor="let record of records" [record]  = "record" [columnHeaders] = "columnHeaders" [columnHeaderInfo] = "columnHeaderInfo"></gsr-row> -->

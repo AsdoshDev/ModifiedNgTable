@@ -29,6 +29,7 @@ export class TableDataService{
   ];
  
   columnHeaders3 =  [
+    
     { attrName: "id", colName: "Account No", filterBy: 'string', searchIcon: 'true', inputType: "text",filterValue:"" },
     { attrName: "name", colName: "Name", filterBy: 'string', inputType: "text",filterValue:"" },
     { attrName: "username", colName: "Username", filterBy: 'string', inputType: "text",filterValue:"" },
@@ -41,6 +42,7 @@ export class TableDataService{
     {attrName:"test3",colName:"Address",filterBy:'string', inputType: "text",filterValue:"" },
     {attrName:"test4",colName:"Nationality",filterBy:'string', inputType: "text",filterValue:"" },
     {attrName:"test5",colName:"License",filterBy:'string', inputType: "text",filterValue:"" },
+  
   ];
 
 
@@ -586,6 +588,28 @@ dataLevel3 =
     {
       "id": "10291287",
       "name": "Martin Graham m1",
+      "subRecords" :[
+        {"id": "10291287",
+      "name" : "Sub row 1",
+      "username": "Bret",
+      "email": "Sincere@april.biz",
+      "phone": "123",
+      "website": "hildegard.org",
+        },
+        {"id": "10291287",
+        "name" : "Sub row 2",
+        "username": "Bret",
+        "email": "Sincere@april.biz",
+        "phone": "123",
+        "website": "hildegard.org",
+          },
+          {"id": "10291287",
+          "name" : "Sub row 3",
+          "username": "Bret",
+          "email": "Sincere@april.biz",
+          "phone": "123",
+          "website": "hildegard.org",
+            }],
       "username": "Bret",
       "ob"  :"50000",
       "email": "Sincere@april.biz",
@@ -646,6 +670,28 @@ dataLevel3 =
       "id": "10293871",
       "name": "Leanne Graham m3",
       "username": "Bret",
+      "subRecords" :[
+        {"id": "10291287",
+      "name" : "Sub row 4",
+      "username": "Bret",
+      "email": "Sincere@april.biz",
+      "phone": "123",
+      "website": "hildegard.org",
+        },
+        {"id": "10291287",
+        "name" : "Sub row 5",
+        "username": "Bret",
+        "email": "Sincere@april.biz",
+        "phone": "123",
+        "website": "hildegard.org",
+          },
+          {"id": "10291287",
+          "name" : "Sub row 6",
+          "username": "Bret",
+          "email": "Sincere@april.biz",
+          "phone": "123",
+          "website": "hildegard.org",
+            }],
       "email": "Sincere@april.biz",
       "ob" :"12355",
       "address": {

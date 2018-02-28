@@ -137,7 +137,11 @@ input, textarea, select, button {
 }
 
 .gsr-icon-column {
-  width: 50px !important;
+  width: 30px !important;
+}
+.gsr-row.gsr-subrow.gsr-row.gsr-record-row > .gsr-column span {
+  /* position: relative;
+  left: 50px; */
 }
 
 .iconStyle {
@@ -165,7 +169,7 @@ input, textarea, select, button {
   /* padding:5px; */
 }
 .gsr-row.header>div{
-  background-color: #909090;
+  background-color: #757575;
 }
 
 

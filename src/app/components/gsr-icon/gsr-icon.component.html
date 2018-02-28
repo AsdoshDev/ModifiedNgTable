@@ -2,12 +2,10 @@
 <div class="circle fail" *ngIf="type === 'fail'"></div>
 <div class="arrow-up break" *ngIf="type === 'break'"></div>
 
-<!-- -------SORT ICON ------- -->
+<!-- -------EXPAND/COLLAPSE ICON ------- -->
+<span  *ngIf="type == 'accordion'" (click) = "callback()"  class="iconStyle" [ngClass] = "(showContent) ? 'collapse':'expand'"></span>
 
-<span class="iconWrapper" *ngIf="!type">
-    <span class="arrow-up"></span>
-    <span class="arrow-down"></span>
-</span>
+
 <!-- -------SORT ICON ------- -->
 <span class="iconWrapper" *ngIf="type === 'sort-des'">
     <span class="arrow-up selected"></span>
@@ -16,6 +14,16 @@
 <span class="iconWrapper" *ngIf="type === 'sort-asc'">
     <span class="arrow-up"></span>
     <span class="arrow-down selected"></span>
-    
 </span>
+
+<span class="iconWrapper" *ngIf="!type">
+        <span class="arrow-up"></span>
+        <span class="arrow-down"></span>
+</span>
+
+<!-- -------SEARCH ICON ------- -->
+<span *ngIf="type === 'search'" class="searchIcon" (click) = "callback()"><i class="material-icons md-18">search</i></span>
+
+
+
 <!-- <div class="arrow-up arrow-down" ></div> -->

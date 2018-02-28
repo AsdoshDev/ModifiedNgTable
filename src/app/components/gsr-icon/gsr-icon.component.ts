@@ -7,6 +7,8 @@ import { Component, OnInit,Input } from '@angular/core';
 })
 export class GsrIconComponent implements OnInit {
   @Input() type;
+  @Input() showContent;
+  @Input() callback:Function;
   constructor() { }
 
   ngOnInit() {

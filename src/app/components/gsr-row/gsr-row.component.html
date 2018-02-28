@@ -1,13 +1,28 @@
-<div  class="gsr-column"  [ngClass]="(column.accordion) ? 'gsr-icon-column':''"  attr.colname="{{column.attrName}}" *ngFor="let column of columnHeaders" >
+<div  class="gsr-column" [ngClass]="(column.accordion) ? 'gsr-icon-column':''"  attr.colname="{{column.attrName}}" *ngFor="let column of columnHeaders" >
       <gsr-icon *ngIf="column.openItem" type="open"></gsr-icon>
       <span *ngIf="!column.accordion">{{record[column.attrName]}}</span>
-      <span *ngIf="column.accordion"><span (click) = "changeTable(columnHeaderInfo.level,'',false,record.cusip)" class="iconStyle expand"></span>{{record[column.attrName]}}</span>
-      <span class="searchIcon" (click) = "openModal()" *ngIf="column.searchIcon"><i class="material-icons md-18">search</i></span>
-     
+      <!-- <span *ngIf="column.accordion"><span (click) = "changeTable(columnHeaderInfo.level,'',false,record.cusip)" class="iconStyle expand"></span>{{record[column.attrName]}}</span> -->
+      <gsr-icon *ngIf="column.accordion" [type]="'accordion'" [showContent]= false (click) = "changeTable(columnHeaderInfo.level,'',false,record.cusip)" ></gsr-icon>
+      <!-- <gsr-icon *ngIf="column.accordion === true && isAccordion" [type]="'accordion'" [showContent]="record[column.attrName]" (click) = "toggleAccordion()" ></gsr-icon> -->
+      <gsr-icon *ngIf="column.searchIcon" (click) = "openModal()" type="'search'"></gsr-icon>
 </div>
 
 <gsr-modal  [columnHeaderInfo] = "chi" [account] = "account" *ngIf="showModal" (sendValue)="showModal=$event"  [showModal] = 'showModal'></gsr-modal>
 
+<!-- old template -->
 
 
+<!-- 
+<div  class="gsr-column"  [ngClass]="(column.accordion) ? 'gsr-icon-column':''"  attr.colname="{{column.attrName}}" *ngFor="let column of columnHeaders" >
+            <gsr-icon *ngIf="column.openItem" type="open"></gsr-icon>
+            <span *ngIf="!column.accordion">{{record[column.attrName]}}</span>
+            <span *ngIf="column.accordion"><span (click) = "changeTable(columnHeaderInfo.level,'',false,record.cusip)" class="iconStyle expand"></span>{{record[column.attrName]}}</span>
+            <span class="searchIcon" (click) = "openModal()" *ngIf="column.searchIcon"><i class="material-icons md-18">search</i></span>
+           
+      </div>
+      
+      <gsr-modal  [columnHeaderInfo] = "chi" [account] = "account" *ngIf="showModal" (sendValue)="showModal=$event"  [showModal] = 'showModal'></gsr-modal>
+      
+      
+       -->
 

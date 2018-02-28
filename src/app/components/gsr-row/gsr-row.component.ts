@@ -13,29 +13,59 @@ export class GsrRowComponent implements OnInit {
   @Input() record;
   @Input() columnHeaderInfo; //array of objects
   @Input() columnHeaders; 
+  @Input() isAccordion:boolean;
 
   public showModal = false;
   chi:any;
   
   @Output() sendLevel = new EventEmitter();
 
-  ngOnInit() {
- 
-   
+  ngAfterContentChecked() {
+  
+  }
+
+  ngOnInit(){
+    // if(this.isAccordion){
+    //   let obj = {'attrName':'accordion',accordion : true}
+    //   this.columnHeaders.unshift(obj);
+    // }
+  }
+
+  // ngAfterContentChecked(){
+  //   debugger;
+  //   if(this.isAccordion){
+  //     let obj = {'attrName':'accordion',accordion : 'true'}
+  //     this.columnHeaders.push(obj);
+  //   }
+    
+  // }
+
+  toggleAccordion(){
+    if(this.isAccordion){
+      if(this.record.accordion === undefined)
+        this.record.accordion = true;
+      else
+        this.record.accordion = !this.record.accordion;
+    }
   }
 
   changeTable(level,index,navigateBack,cusip){
-    
+    if(this.isAccordion){
+      this.toggleAccordion();
+    }
+    else{
+      let levelInfo ={};
+      if(cusip)
+      levelInfo['cusip'] = cusip;
+      levelInfo['navigateBack'] =navigateBack; 
+      levelInfo['level'] = level;
+      levelInfo['index'] = index;
+  
+      this.sendLevel.emit(levelInfo);  
+    }
     // if(this.showFilter)
     //    this.showFilter = !this.showFilter;
-    let levelInfo ={};
-    if(cusip)
-    levelInfo['cusip'] = cusip;
-    levelInfo['navigateBack'] =navigateBack; 
-    levelInfo['level'] = level;
-    levelInfo['index'] = index;
-
-    this.sendLevel.emit(levelInfo);  
+    
 }
   openModal() {
     //opwenModal will receive an argument based on which, 
