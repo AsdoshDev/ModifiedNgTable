@@ -43,7 +43,7 @@ import { GsrIconComponent } from './components/gsr-icon/gsr-icon.component';
     HttpClientModule,
     FormsModule
 ],
-  providers: [TableDataService,GsrTableComponent],
+  providers: [TableDataService,GsrTableComponent,GsrTabsComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { TableDataService } from './../services/table-data.service';
 import { EventEmitter } from '@angular/core';
 import {GsrTableComponent} from './../components/gsr-table/gsr-table.component';
+import {GsrTabsComponent} from './../components/gsr-tabs/gsr-tabs.component';
 
 @Component({
   selector: 'app-dummy',
@@ -9,7 +10,7 @@ import {GsrTableComponent} from './../components/gsr-table/gsr-table.component';
   styleUrls: ['./dummy.component.css']
 })
 export class DummyComponent implements OnInit {
-  constructor(private data:TableDataService,public table:GsrTableComponent) { }
+  constructor(private data:TableDataService,public table:GsrTableComponent,public tabComponent:GsrTabsComponent) { }
   tabs: any;
   searchTabs:any;
   selectedTab: any;

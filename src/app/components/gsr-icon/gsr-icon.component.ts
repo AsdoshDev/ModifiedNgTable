@@ -1,5 +1,4 @@
-import { Component, OnInit,Input } from '@angular/core';
-
+import { Component, OnInit,Input,EventEmitter,Output } from '@angular/core';
 @Component({
   selector: 'gsr-icon',
   templateUrl: './gsr-icon.component.html',
@@ -8,7 +7,9 @@ import { Component, OnInit,Input } from '@angular/core';
 export class GsrIconComponent implements OnInit {
   @Input() type;
   @Input() showContent;
-  @Input() callback:Function;
+
+
+  
   constructor() { }
 
   ngOnInit() {

@@ -289,8 +289,15 @@ button:hover {
 
 .tab-content {
   padding: 10px;
-  max-height: 500px;
-  height:350px;
+  max-height: 350px;
+  height:400px;
+}
+
+.form-group{
+  height:75px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .tab-footer {

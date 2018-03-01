@@ -3,7 +3,7 @@
 <div class="arrow-up break" *ngIf="type === 'break'"></div>
 
 <!-- -------EXPAND/COLLAPSE ICON ------- -->
-<span  *ngIf="type == 'accordion'" (click) = "callback()"  class="iconStyle" [ngClass] = "(showContent) ? 'collapse':'expand'"></span>
+<span  *ngIf="type == 'accordion'"  class="iconStyle" [ngClass] = "(showContent == true) ? 'collapse':'expand'"></span>
 
 
 <!-- -------SORT ICON ------- -->
@@ -22,7 +22,7 @@
 </span>
 
 <!-- -------SEARCH ICON ------- -->
-<span *ngIf="type === 'search'" class="searchIcon" (click) = "callback()"><i class="material-icons md-18">search</i></span>
+<span *ngIf="type === 'search'" class="searchIcon"><i class="material-icons md-18">search</i></span>
 
 
 

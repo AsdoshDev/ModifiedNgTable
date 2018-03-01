@@ -2,7 +2,10 @@
   <div class="tab-content">
 
     <ng-container *ngIf="!selectedTab || (selectedTab && selectedTab.index == 0)">
-
+      
+      <!-- <div class="form-group"> 
+          <button (click)="tabComponent.selectTab(selectedTab,1)">Run</button>
+      </div> -->
       <fieldset>
         <legend>Advanced Search</legend>
         <gsr-tabs (passTabIndex)="selectedSearchTab=$event" [tabNavigation]=true [tabs]="searchTabs">
