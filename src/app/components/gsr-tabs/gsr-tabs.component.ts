@@ -9,7 +9,7 @@ import { EventEmitter } from '@angular/core';
 export class GsrTabsComponent implements OnInit {
   //@ViewChild('li') el:ElementRef;
   @Input() tabs;
-  @Input() tabNavigation;
+  @Input() tabNavigationBtns;
   @Output() passTabIndex = new EventEmitter();
 
 

@@ -1,53 +1,55 @@
-import { Component, OnInit,Output } from '@angular/core';
+import { Component, OnInit, Output, ViewChild } from '@angular/core';
 import { TableDataService } from './../services/table-data.service';
 import { EventEmitter } from '@angular/core';
-import {GsrTableComponent} from './../components/gsr-table/gsr-table.component';
-import {GsrTabsComponent} from './../components/gsr-tabs/gsr-tabs.component';
-import {Utils} from './../shared/utils';
+import { GsrTabsComponent } from './../components/gsr-tabs/gsr-tabs.component';
+import { Utils } from './../shared/utils';
+
 
 @Component({
   selector: 'app-dummy',
   templateUrl: './dummy.component.html',
   styleUrls: ['./dummy.component.css']
 })
+
+
 export class DummyComponent implements OnInit {
-  constructor(private data:TableDataService,public tabComponent:GsrTabsComponent,public utils:Utils) { }
+  @ViewChild(GsrTabsComponent) tabsComponent: GsrTabsComponent;
+  constructor(private data: TableDataService, public tabComponent: GsrTabsComponent, public utils: Utils) { }
   tabs: any;
-  searchTabs:any;
+  searchTabs: any;
   selectedTab: any;
-  advSearchTabClicked:any;
+  advSearchTabClicked: any;
   columnHeaders: any;
   icData: any;
   icData5: any;
   account: any;
-  tableInfo:any;
+  tableInfo: any;
   columnHeaders5: any;
-  columnHeaders1:any;
-  columnHeaders2:any;
+  columnHeaders1: any;
+  columnHeaders2: any;
   level: number;
   records: any;
-  icData1:any;
-  icData2:any;
-  tableInfo5:any;
-  tableInfo6:any;
-  records1:any;
-  records2:any;
-  records5:any;
-  tableInfo1:any;
-  @Output() clickTab = new EventEmitter();
+  icData1: any;
+  icData2: any;
+  tableInfo5: any;
+  tableInfo6: any;
+  records1: any;
+  records2: any;
+  records5: any;
+  tableInfo1: any;
   ngOnInit() {
     this.tabs = [
-      { title: 'Search',id:'srch' },
-      { title: 'Positions by Security',id:'pbs' },
-      { title: 'Postings',id:'pos' }
+      { title: 'Search', id: 'srch' },
+      { title: 'Positions by Security', id: 'pbs' },
+      { title: 'Postings', id: 'pos' }
     ];
     this.searchTabs = [
-      { title: 'Filter Security',id:'filterSec' },
-      { title: 'Preview Security' ,id:'precSec'},
-      { title: 'Filter Accounts' ,id:'filterAccts'},
-      { title: 'Preview Accounts',id:'prevAccts' },
-      { title: 'Content',id:'content'},
-      { title: 'String',id:'strng'},
+      { title: 'Filter Security', id: 'filterSec' },
+      { title: 'Preview Security', id: 'precSec' },
+      { title: 'Filter Accounts', id: 'filterAccts' },
+      { title: 'Preview Accounts', id: 'prevAccts' },
+      { title: 'Content', id: 'content' },
+      { title: 'String', id: 'strng' },
     ];
 
     this.columnHeaders = this.data.getLevel3Columns();
@@ -77,26 +79,21 @@ export class DummyComponent implements OnInit {
     this.records2 = this.icData2.details;
     this.tableInfo6 = this.data.getTableInfo6();
     this.columnHeaders2 = this.data.getAcctColumns();
- }
-
-  // changeTabs() {
-  //   let no = this.tabs.length + 1;
-  //   this.tabs.push({ title: no + "th tab" });
-  // }
-
-  openBreakDtls(){
-    debugger;
-    var tab =  { title: 'Breaks',id:'breaks'};
-    this.tabs.splice(2, 0, tab);
-    this.clickTab.emit(tab);
-    
   }
 
-  openFailDtls(){
-    debugger;
-    var tab =  { title: 'Fails',id:'fails'};
-    this.tabs.splice(2, 0, tab);
-    this.clickTab.emit(tab);
+  openBreakDtls() {
+    var tab = { title: 'Breaks', id: 'breaks' };
+    if (this.tabs.findIndex(tab => tab.id == 'breaks') < 0)
+      this.tabs.splice(2, 0, tab);
+    this.tabsComponent.selectTab(this.tabs[2]);
+
+  }
+
+  openFailDtls() {
+    var tab = { title: 'Fails', id: 'fails' };
+    if (this.tabs.findIndex(tab => tab.id == 'fails') < 0)
+      this.tabs.splice(2, 0, tab);
+    this.tabsComponent.selectTab(this.tabs[2]);
   }
 
   getLevel(a) {

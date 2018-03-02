@@ -1,4 +1,4 @@
-<gsr-tabs (passTabIndex)="selectedTab=$event" [tabNavigation]=false [tabs]="tabs">
+<gsr-tabs (passTabIndex)="selectedTab=$event" [tabNavigationBtns]=false [tabs]="tabs">
   <div class="tab-content">
 
     <ng-container *ngIf="!selectedTab || (selectedTab && selectedTab.id == 'srch')">
@@ -8,7 +8,7 @@
       </div> -->
       <fieldset>
         <legend>Advanced Search</legend>
-        <gsr-tabs (passTabIndex)="advSearchTabClicked=$event" [tabNavigation]=true [tabs]="searchTabs">
+        <gsr-tabs (passTabIndex)="advSearchTabClicked=$event" [tabNavigationBtns]=true [tabs]="searchTabs">
           <div class="tab-content">
             <ng-container *ngIf="!advSearchTabClicked || (advSearchTabClicked && advSearchTabClicked.index == 0)">
               <div>1st tab of adv search</div>

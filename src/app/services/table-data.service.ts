@@ -7,7 +7,7 @@ export class TableDataService{
 
   tableInfo  = {tableType:'levelDecider','needFilter' : true,cusip:'1234567','needPrint' : true, levelDecider : true,'level' : 3, 'index':0,columnWidth:'15'};
   tableInfo6  = {tableType:'default','needFilter' : false, tableHeader : false,columnWidth:'15'};
-  tableInfo7  = {tableType:'default','needFilter' : false, tableTitle:"Transactions" ,tableHeader : true,columnWidth:'20',needPrint:true};
+  tableInfo7  = {tableType:'default','needFilter' : false, tableTitle:"Transactions" ,tableHeader : true,columnWidth:'10',needPrint:true};
 
   tableInfo8  =  {tableType:'columnTable',tableHeader:false,needFilter : false,needPrint : true, levelDecider : false};
 
@@ -32,18 +32,18 @@ export class TableDataService{
  
   columnHeaders3 =  [
     
-    { attrName: "id", colName: "Account No", filterBy: 'string', searchIcon: 'true', inputType: "text",filterValue:"" },
-    { attrName: "name", colName: "Name", filterBy: 'string', inputType: "text",filterValue:"" },
-    { attrName: "username", colName: "Username", filterBy: 'string', inputType: "text",filterValue:"" },
-    { attrName: "ob", colName: "Opening Balance", filterBy: 'number', inputType: "text",filterValue:"",openItem:true },
+    { attrName: "id", colName: "Account No", filterBy: 'string', searchIcon: 'true', inputType: "text",filterValue:"",rightAlign:false },
+    { attrName: "name", colName: "Name", filterBy: 'string', inputType: "text",filterValue:"",rightAlign:false},
+    { attrName: "username", colName: "Username", filterBy: 'string', inputType: "text",filterValue:"",},
+    { attrName: "ob", colName: "Opening Balance", filterBy: 'number', inputType: "text",filterValue:"",openItem:true ,},
     { attrName: "email", colName: "Email", filterBy: 'string', inputType: "text",filterValue:"" },
     { attrName: "phone", colName: "Phone", filterBy: 'number', inputType: "dropdown", dropdownValues: [123, 345, 999, 567],filterValue:""},
     { attrName: "website", colName: "Website", filterBy: 'string', inputType: "text",filterValue:"" },
     { attrName: "amount", colName: "Amount", filterBy: 'number', inputType: "text",filterValue:"" },
     {attrName:"test2",colName:"Employed",filterBy:'string', inputType: "text",filterValue:"" },
     {attrName:"test3",colName:"Address",filterBy:'string', inputType: "text",filterValue:"" },
-    {attrName:"test4",colName:"Nationality",filterBy:'string', inputType: "text",filterValue:"" },
-    {attrName:"test5",colName:"License",filterBy:'string', inputType: "text",filterValue:"" },
+    {attrName:"test4",colName:"Nationality",filterBy:'string', inputType: "text",filterValue:"",rightAlign:false },
+    {attrName:"test5",colName:"License",filterBy:'string', inputType: "text",filterValue:"",rightAlign:false },
   
   ];
 
@@ -615,10 +615,10 @@ dataLevel3 =
       "ob"  :"50000",
       "email": "Sincere@april.biz",
       "amount"  : "500,000,000",
-      "test2"  : "Aeifjwef owe fjoewfj ewo fjoewfj oew fjoewfj oewfj oew joewf",
-      "test3"  : "Aeifjwef owe fjoewfj ewo fjoewfj oew fjoewfj oewfj oew joewf",
-      "test4"  : "Aeifjwef owe fjoewfj ewo fjoewfj oew fjoewfj oewfj oew joewf",
-      "test5"  : "Aeifjwef owe fjoewfj ewo fjoewfj oew fjoewfj oewfj oew joewf",
+      "test2"  : "Aeifjwef owe fjfj oew joewf",
+      "test3"  : "Aeifjwef owe fewfj oew joewf",
+      "test4"  : "Aeifjwef owe fjfj oew joewf",
+      "test5"  : "Aeifjwef owe j oew joewf",
       "address": {
         "street": "Kulas Light",
         "suite": "Apt. 556",
