@@ -3,6 +3,7 @@ import { TableDataService } from './../services/table-data.service';
 import { EventEmitter } from '@angular/core';
 import {GsrTableComponent} from './../components/gsr-table/gsr-table.component';
 import {GsrTabsComponent} from './../components/gsr-tabs/gsr-tabs.component';
+import {Utils} from './../shared/utils';
 
 @Component({
   selector: 'app-dummy',
@@ -10,11 +11,11 @@ import {GsrTabsComponent} from './../components/gsr-tabs/gsr-tabs.component';
   styleUrls: ['./dummy.component.css']
 })
 export class DummyComponent implements OnInit {
-  constructor(private data:TableDataService,public table:GsrTableComponent,public tabComponent:GsrTabsComponent) { }
+  constructor(private data:TableDataService,public tabComponent:GsrTabsComponent,public utils:Utils) { }
   tabs: any;
   searchTabs:any;
   selectedTab: any;
-  selectedSearchTab:any;
+  advSearchTabClicked:any;
   columnHeaders: any;
   icData: any;
   icData5: any;
@@ -35,17 +36,17 @@ export class DummyComponent implements OnInit {
   tableInfo1:any;
   ngOnInit() {
     this.tabs = [
-      { title: 'Search' },
-      { title: 'Positions by Security' },
-      { title: 'Postings' }
+      { title: 'Search',id:'srch' },
+      { title: 'Positions by Security',id:'pbs' },
+      { title: 'Postings',id:'pos' }
     ];
     this.searchTabs = [
-      { title: 'Filter Security' },
-      { title: 'Preview Security' },
-      { title: 'Filter Accounts' },
-      { title: 'Preview Accounts' },
-      { title: 'Content' },
-      { title: 'String' },
+      { title: 'Filter Security',id:'filterSec' },
+      { title: 'Preview Security' ,id:'precSec'},
+      { title: 'Filter Accounts' ,id:'filterAccts'},
+      { title: 'Preview Accounts',id:'prevAccts' },
+      { title: 'Content',id:'content'},
+      { title: 'String',id:'strng'},
     ];
 
     this.columnHeaders = this.data.getLevel3Columns();
@@ -81,6 +82,19 @@ export class DummyComponent implements OnInit {
   //   let no = this.tabs.length + 1;
   //   this.tabs.push({ title: no + "th tab" });
   // }
+
+  openBreakDtls(){
+    debugger;
+    var tab =  { title: 'Breaks',id:'breaks'};
+    this.tabs.splice(2, 0, tab);
+    
+  }
+
+  openFailDtls(){
+    debugger;
+    var tab =  { title: 'Fails',id:'fails'};
+    this.tabs.splice(2, 0, tab);
+  }
 
   getLevel(a) {
     let levelVar, indexVar;

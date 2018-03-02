@@ -1,23 +1,28 @@
-<div  class="gsr-column" [ngClass]="(column.accordion) ? 'gsr-icon-column':''"  attr.colname="{{column.attrName}}" *ngFor="let column of columnHeaders" >
-      <ng-container *ngIf="(columnHeaderInfo.level == 1 && columnHeaderInfo.tableType == 'levelDecider')else alternateRow;">
-            <gsr-icon *ngIf="column.accordion && isAccordion && !isSubRow" [type]="'accordion'" [showContent]="record.showRow"  (click) = "changeTable(columnHeaderInfo.level,'',false,record.cusip)" ></gsr-icon>
-      </ng-container>
+<div class="gsr-column" [style.width.px]= "columnHeaderInfo.columnWidth" [ngClass]="(isAccordion) ? 'gsr-icon-column':''" *ngIf="isAccordion && !isSubRow">
+  <ng-container *ngIf="(columnHeaderInfo.level == 1 && columnHeaderInfo.tableType == 'levelDecider') else alternateRow;">
+    <gsr-icon  [type]="'accordion'" [showContent]="record.showRow" (click)="changeTable(columnHeaderInfo.level,'',false,record.cusip)"></gsr-icon>
+  </ng-container>
+  <ng-template #alternateRow>
+    <gsr-icon [type]="'accordion'" [showContent]="record.showRow" (click)="toggleAccordion(record)"></gsr-icon>
+  </ng-template>
+</div>
 
-      <ng-template #alternateRow    >
-            <gsr-icon *ngIf="column.accordion && isAccordion && !isSubRow" [type]="'accordion'" [showContent]="record.showRow" (click) = "toggleAccordion(record)" ></gsr-icon>
-      </ng-template>
-      
-      <gsr-icon *ngIf="column.openItem" type="open"></gsr-icon>
-      <span *ngIf="!column.accordion">{{record[column.attrName]}}</span>
-      <!-- <span *ngIf="column.accordion"><span (click) = "changeTable(columnHeaderInfo.level,'',false,record.cusip)" class="iconStyle expand"></span>{{record[column.attrName]}}</span> -->
-      <!-- <gsr-icon *ngIf="column.accordion" [type]="'accordion'" [showContent]= false (click) = "changeTable(columnHeaderInfo.level,'',false,record.cusip)" ></gsr-icon> -->
-      
-      <!-- <gsr-icon *ngIf="column.searchIcon" [callback] = "openModal()" type="'search'"></gsr-icon> -->
-      <span class="searchIcon" (click) = "openModal()" *ngIf="column.searchIcon"><i class="material-icons md-18">search</i></span>
+<div class="gsr-column"  attr.colname="{{column.attrName}}" *ngFor="let column of columnHeaders">
+
+
+  <gsr-icon *ngIf="column.openItem" type="open"></gsr-icon>
+  <span *ngIf="!column.accordion">{{record[column.attrName]}}</span>
+  <!-- <span *ngIf="column.accordion"><span (click) = "changeTable(columnHeaderInfo.level,'',false,record.cusip)" class="iconStyle expand"></span>{{record[column.attrName]}}</span> -->
+  <!-- <gsr-icon *ngIf="column.accordion" [type]="'accordion'" [showContent]= false (click) = "changeTable(columnHeaderInfo.level,'',false,record.cusip)" ></gsr-icon> -->
+
+  <!-- <gsr-icon *ngIf="column.searchIcon" [callback] = "openModal()" type="'search'"></gsr-icon> -->
+  <span class="searchIcon" (click)="openModal()" *ngIf="column.searchIcon">
+    <i class="material-icons md-18">search</i>
+  </span>
 
 </div>
 
-<gsr-modal  [columnHeaderInfo] = "chi" [account] = "account" *ngIf="showModal" (sendValue)="showModal=$event"  [showModal] = 'showModal'></gsr-modal>
+<gsr-modal [columnHeaderInfo]="chi" [account]="account" *ngIf="showModal" (sendValue)="showModal=$event" [showModal]='showModal'></gsr-modal>
 
 <!-- old template -->
 
@@ -35,4 +40,3 @@
       
       
        -->
-

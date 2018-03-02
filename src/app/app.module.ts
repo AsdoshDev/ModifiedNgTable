@@ -19,6 +19,7 @@ import { GsrTableLevelDeciderComponent } from './components/gsr-table-level-deci
 import { GsrTableHeaderComponent } from './components/gsr-table-header/gsr-table-header.component';
 import { DummyComponent } from './dummy/dummy.component';
 import { GsrIconComponent } from './components/gsr-icon/gsr-icon.component';
+import { Utils } from './shared/utils';
 
 
 
@@ -43,7 +44,7 @@ import { GsrIconComponent } from './components/gsr-icon/gsr-icon.component';
     HttpClientModule,
     FormsModule
 ],
-  providers: [TableDataService,GsrTableComponent,GsrTabsComponent],
+  providers: [TableDataService,Utils,GsrTabsComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

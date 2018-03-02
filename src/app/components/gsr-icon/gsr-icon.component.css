@@ -10,10 +10,12 @@
     display: inline-flex;
     justify-content: center;
     align-items: center;
+    
   }
   
   .fail:before {
-    content: "F"
+    content: "F";
+    
   }
   
   .open:before {
@@ -21,10 +23,12 @@
   }
   
   .circle.fail {
+    cursor:pointer;
     background-color: red;
   }
   
   .circle.open {
+    cursor:pointer;
     background-color: blue;
     margin-right: 10px;
   }
@@ -45,6 +49,7 @@
     font-size: 11px;
     justify-content: center;
     font-weight: bold;
+    CURSOR:POINTER;
   }
   
  

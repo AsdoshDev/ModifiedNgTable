@@ -5,14 +5,16 @@ import { HttpClient } from '@angular/common/http';
 @Injectable()
 export class TableDataService{
 
-  tableInfo  = {tableType:'levelDecider','needFilter' : true,cusip:'1234567','needPrint' : true, levelDecider : true,'level' : 3, 'index':0,columnWidth:"15%"};
-  tableInfo6  = {tableType:'default','needFilter' : false, tableHeader : false,columnWidth:'20%'};
+  tableInfo  = {tableType:'levelDecider','needFilter' : true,cusip:'1234567','needPrint' : true, levelDecider : true,'level' : 3, 'index':0};
+  tableInfo6  = {tableType:'default','needFilter' : false, tableHeader : false,columnWidth:'10%'};
   tableInfo7  = {tableType:'default','needFilter' : false, tableTitle:"Transactions" ,tableHeader : true,columnWidth:'10%',needPrint:true};
 
   tableInfo8  =  {tableType:'columnTable',tableHeader:false,needFilter : false,needPrint : true, levelDecider : false};
 
   tableInfo5  =  {tableType:'columnTable',tableTitle:"Account Details",needFilter : false,needPrint : true, levelDecider : false};
   columnHeaderInfoLevel5 =  {tableType:'columnTable',tableTitle:"Account Details",needFilter : false,needPrint : true, levelDecider : false};
+  
+  
   columnHeaders4 =  [
     { attrName: "id", colName: "Firm", filterBy: 'string', searchIcon: false, inputType: "text",filterValue:"" }, 
     { attrName: "name", colName: "Check", filterBy: 'string', searchIcon: false, inputType: "text",filterValue:"" }, 
@@ -54,7 +56,6 @@ columnHeaders2 =  [
 tableInfo1 = { tableType:'levelDecider','needFilter' : false,'needPrint' : true, levelDecider : true,'level' : 1, 'index':0}
 
 columnHeaders1 =  [
-    { attrName: "accordion", colName: "",accordion: 'true'},
     { attrName: "cusip", colName: "CUSIP",searchIcon: 'true'},
     { attrName: "isin", colName: "ISIN"},
     { attrName: "sedol", colName: "SEDOL"},

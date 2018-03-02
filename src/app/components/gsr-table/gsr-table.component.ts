@@ -2,6 +2,7 @@ import { Component, OnInit,Input,Output,ViewChild,ElementRef } from '@angular/co
 import { ChangeDetectorRef } from '@angular/core';
 import { EventEmitter } from '@angular/core';
 import {TableDataService} from './../../services/table-data.service';
+import {Utils} from './../../shared/utils';
 
 @Component({
   selector: 'gsr-table',
@@ -21,7 +22,7 @@ export class GsrTableComponent implements OnInit {
   tableLevel : any;
   @ViewChild('tableScroller') tableScroller: ElementRef;
   cusipId:any;
-  constructor(private data: TableDataService) { }
+  constructor(private data: TableDataService,public utils:Utils) { }
 
 
   getLevel(levelDtls){
@@ -31,15 +32,15 @@ export class GsrTableComponent implements OnInit {
 
   ngAfterViewInit() {
     
-    if(this.columnHeaderInfo.columnWidth){
-      let targetTable =  document.getElementById(this.tableScroller.nativeElement.id);
-      let columns = targetTable.getElementsByClassName('gsr-column');
-      let size = columns.length;
-      for (var i = 0; i < size; i++) { 
-        let box = <HTMLElement> columns[i];
-        box.style.width=this.columnHeaderInfo.columnWidth;
-      }
-    }
+    // if(this.columnHeaderInfo.columnWidth){
+    //   let targetTable =  document.getElementById(this.tableScroller.nativeElement.id);
+    //   let columns = targetTable.getElementsByClassName('gsr-column');
+    //   let size = columns.length;
+    //   for (var i = 0; i < size; i++) { 
+    //     let box = <HTMLElement> columns[i];
+    //     box.style.width=this.columnHeaderInfo.columnWidth;
+    //   }
+    // }
    
     //set width for the level decider as its scrollwidth cannot be determined unitl rendered
     
@@ -67,10 +68,7 @@ export class GsrTableComponent implements OnInit {
     }
   }
   ngOnInit() {}
- generateArray(obj) {
-  let bla = Object.keys(obj).map((key) => {return {key: key, value: obj[key]}});
-  return bla;
-}
+
 
  /* FUNCTIONS FOR GSR-TABLE-HEADER STARTS HERE */
 
