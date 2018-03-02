@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ViewChild, ElementRef,Output,EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, ElementRef, Output, EventEmitter } from '@angular/core';
 import { ChangeDetectorRef } from '@angular/core';
 
 @Component({
@@ -32,13 +32,11 @@ export class ColumnHeaderComponent implements OnInit {
     }
   }
 
-  
+
 
   filterColumn() {
-
     this.records = this.originalRecords;
     let filterColumn = [];
-    // this.cdr.detectChanges();
     for (let i = 0; i < this.columns.length; i++) {
       if (this.columns[i].filterValue !== "" && this.columns[i].filterValue !== "Show All") {
         this.records = this.records.filter(record => {
@@ -54,9 +52,6 @@ export class ColumnHeaderComponent implements OnInit {
         });
       }
     }
-    console.log("AFTER");
-    console.log(this.records);
-    //this.cdr.detectChanges();
   }
 
   sortColumn(column) {
@@ -77,8 +72,6 @@ export class ColumnHeaderComponent implements OnInit {
     this.columnHeaders.forEach(column => column.sort = "");
     column.sort = (!column.isAscending) ? "sort-asc" : "sort-des";
     this.sortIcon.emit(column.sort);
-    
-    
   }
 
   filterByValue(column) {

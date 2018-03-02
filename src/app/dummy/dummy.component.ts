@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Output } from '@angular/core';
 import { TableDataService } from './../services/table-data.service';
 import { EventEmitter } from '@angular/core';
 import {GsrTableComponent} from './../components/gsr-table/gsr-table.component';
@@ -34,6 +34,7 @@ export class DummyComponent implements OnInit {
   records2:any;
   records5:any;
   tableInfo1:any;
+  @Output() clickTab = new EventEmitter();
   ngOnInit() {
     this.tabs = [
       { title: 'Search',id:'srch' },
@@ -87,6 +88,7 @@ export class DummyComponent implements OnInit {
     debugger;
     var tab =  { title: 'Breaks',id:'breaks'};
     this.tabs.splice(2, 0, tab);
+    this.clickTab.emit(tab);
     
   }
 
@@ -94,6 +96,7 @@ export class DummyComponent implements OnInit {
     debugger;
     var tab =  { title: 'Fails',id:'fails'};
     this.tabs.splice(2, 0, tab);
+    this.clickTab.emit(tab);
   }
 
   getLevel(a) {

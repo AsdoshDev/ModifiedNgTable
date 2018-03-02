@@ -12,6 +12,7 @@ export class GsrTabsComponent implements OnInit {
   @Input() tabNavigation;
   @Output() passTabIndex = new EventEmitter();
 
+
   constructor(private data: TableDataService) { }
 
   navigateTab(nextTab) {

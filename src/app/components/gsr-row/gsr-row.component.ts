@@ -8,11 +8,7 @@ import { TableDataService } from '../../services/table-data.service';
   styleUrls: ['./gsr-row.component.css']
 })
 export class GsrRowComponent implements OnInit {
-  constructor(private data: TableDataService) {
-
-    //this.toggleAccordionFn = this.toggleAccordion.bind(this);
-
-  }
+  constructor(private data: TableDataService) {}
   account: any;
   toggleAccordionFn: Function;
   @Input() record;
