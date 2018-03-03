@@ -14,6 +14,6 @@
             <span class="gsr-link" (click) = "clearInputValues()">Clear</span>
             <span class="gsr-link" (click) = "toggleFilterColumn()">Close</span>
       </ng-container>
-      <span class="gsr-link" *ngIf="columnHeaderInfo.needPrint">Print</span>
+      <span class="gsr-link" (click) = "print()" *ngIf="columnHeaderInfo.needPrint">Print</span>
     </div> 
 </div>
