@@ -92,7 +92,6 @@ input, textarea, select, button {
   display: flex;
   flex-shrink: 0;
   box-sizing: border-box;
-  transition: 0.3s;
   align-items: center;
   word-wrap: break-word;
 }
