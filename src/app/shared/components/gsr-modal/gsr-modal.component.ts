@@ -1,15 +1,13 @@
-import { Component, OnInit, Input, Output } from '@angular/core';
-import { EventEmitter } from '@angular/core';
-import {GsrTableComponent} from '../gsr-table/gsr-table.component';
+import { Component, OnInit,Input,Output,EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'gsr-modal',
-  templateUrl: './modal.component.html',
-  styleUrls: ['./modal.component.css']
+  templateUrl: './gsr-modal.component.html',
+  styleUrls: ['./gsr-modal.component.css']
 })
-export class ModalComponent implements OnInit {
+export class GsrModalComponent implements OnInit {
 
-  constructor(private table:GsrTableComponent) { }
+  constructor() { }
 
   @Input() account:any; 
   @Input() columnHeaderInfo:any; 

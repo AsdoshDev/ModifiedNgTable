@@ -218,23 +218,7 @@ gsr-row:hover>.gsr-column {
 
 /*scrollbar*/
 
-button {
-  border: none;
-  padding: 5px;
-  cursor: pointer;
-  border: 1px solid rgb(150, 150, 150);
-  color: black;
-  background-color: white;
-  transition: 0.1s;
-  min-width: 70px;
-}
 
-button:hover {
-  background-color: #3d3e79;
-  color: white;
-  border: 1px solid white;
-  outline: 1px solid #3d3e79;
-}
 
 /* modal table details */
 
@@ -298,8 +282,7 @@ button:hover {
   justify-content: flex-end;
 }
 
-.tab-footer>button {
-  display: inline-block;
+.tab-footer button {
   margin: 10px;
 }
 

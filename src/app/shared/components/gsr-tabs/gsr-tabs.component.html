@@ -6,8 +6,8 @@
   </ul>
   <ng-content  select=".tab-content"></ng-content>
   <div *ngIf="tabNavigationBtns" class="tab-footer">
-    <button (click)="navigateTab(false)">Back</button>
-    <button (click)="navigateTab(true)">Next</button>
+    <gsr-button [label] = "'Back'" (click)="navigateTab(false)" ></gsr-button>
+    <gsr-button [label] = "'Next'" (click)="navigateTab(true)"></gsr-button>
   </div>
 </div>
 

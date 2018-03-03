@@ -1,6 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter, ViewChild, ElementRef } from '@angular/core';
-import { ModalComponent } from '../../components/modal/modal.component';
-import { TableDataService } from '../../services/table-data.service';
+import { TableDataService } from '../../../../services/table-data.service';
 
 @Component({
   selector: 'gsr-row',

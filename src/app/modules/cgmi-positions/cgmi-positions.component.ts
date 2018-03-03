@@ -1,20 +1,17 @@
-import { Component, OnInit, Output, ViewChild } from '@angular/core';
-import { TableDataService } from './../services/table-data.service';
-import { EventEmitter } from '@angular/core';
-import { GsrTabsComponent } from './../components/gsr-tabs/gsr-tabs.component';
-import { Utils } from './../shared/utils';
-
+import { Component, OnInit, Output, ViewChild,EventEmitter } from '@angular/core';
+import { TableDataService } from './../../services/table-data.service';
+import { GsrTabsComponent } from './../../shared/components/gsr-tabs/gsr-tabs.component';
+import { Utils } from './../../shared/utils';
 
 @Component({
-  selector: 'app-dummy',
-  templateUrl: './dummy.component.html',
-  styleUrls: ['./dummy.component.css']
+  selector: 'cgmi-positions',
+  templateUrl: './cgmi-positions.component.html',
+  styleUrls: ['./cgmi-positions.component.css']
 })
+export class CgmiPositionsComponent implements OnInit {
 
-
-export class DummyComponent implements OnInit {
   @ViewChild(GsrTabsComponent) tabsComponent: GsrTabsComponent;
-  constructor(private data: TableDataService, public tabComponent: GsrTabsComponent, public utils: Utils) { }
+  constructor(private data: TableDataService, public utils: Utils) { }
   tabs: any;
   searchTabs: any;
   selectedTab: any;

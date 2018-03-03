@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output } from '@angular/core';
-import { TableDataService } from './../../services/table-data.service';
+import { TableDataService } from './../../../services/table-data.service';
 import { EventEmitter } from '@angular/core';
 @Component({
   selector: 'gsr-tabs',

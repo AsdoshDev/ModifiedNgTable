@@ -1,14 +1,13 @@
 import { Component, OnInit, Input, ViewChild, ElementRef, Output, EventEmitter } from '@angular/core';
-import { ChangeDetectorRef } from '@angular/core';
 
 @Component({
   selector: 'gsr-column-header',
-  templateUrl: './column-header.component.html',
-  styleUrls: ['./column-header.component.css']
+  templateUrl: './gsr-column-header.component.html',
+  styleUrls: ['./gsr-column-header.component.css']
 })
-export class ColumnHeaderComponent implements OnInit {
+export class GsrColumnHeaderComponent implements OnInit {
 
-  constructor(private cdr: ChangeDetectorRef) { }
+  constructor() { }
   @Input() columnHeaders;
   @Input() dataObj;
   @Input() columnHeaderInfo; //array of objects

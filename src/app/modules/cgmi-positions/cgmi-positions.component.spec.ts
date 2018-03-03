@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ModalComponent } from './modal.component';
+import { CgmiPositionsComponent } from './cgmi-positions.component';
 
-describe('ModalComponent', () => {
-  let component: ModalComponent;
-  let fixture: ComponentFixture<ModalComponent>;
+describe('CgmiPositionsComponent', () => {
+  let component: CgmiPositionsComponent;
+  let fixture: ComponentFixture<CgmiPositionsComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ModalComponent ]
+      declarations: [ CgmiPositionsComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ModalComponent);
+    fixture = TestBed.createComponent(CgmiPositionsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

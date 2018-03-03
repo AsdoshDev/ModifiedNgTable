@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ColumnHeaderComponent } from './column-header.component';
+import { GsrModalComponent } from './gsr-modal.component';
 
-describe('ColumnHeaderComponent', () => {
-  let component: ColumnHeaderComponent;
-  let fixture: ComponentFixture<ColumnHeaderComponent>;
+describe('GsrModalComponent', () => {
+  let component: GsrModalComponent;
+  let fixture: ComponentFixture<GsrModalComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ColumnHeaderComponent ]
+      declarations: [ GsrModalComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ColumnHeaderComponent);
+    fixture = TestBed.createComponent(GsrModalComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

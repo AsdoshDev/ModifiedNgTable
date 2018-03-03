@@ -1,8 +1,7 @@
 import { Component, OnInit,Input,Output,ViewChild,ElementRef } from '@angular/core';
 import { ChangeDetectorRef } from '@angular/core';
 import { EventEmitter } from '@angular/core';
-import {TableDataService} from './../../services/table-data.service';
-import {Utils} from './../../shared/utils';
+import {Utils} from './../../../../shared/utils';
 
 @Component({
   selector: 'gsr-table',
@@ -22,7 +21,7 @@ export class GsrTableComponent implements OnInit {
   tableLevel : any;
   @ViewChild('tableScroller') tableScroller: ElementRef;
   cusipId:any;
-  constructor(private data: TableDataService,public utils:Utils) { }
+  constructor(public utils:Utils) { }
 
 
   getLevel(levelDtls){
@@ -30,28 +29,7 @@ export class GsrTableComponent implements OnInit {
   }
   
 
-  ngAfterViewInit() {
-    
-    // if(this.columnHeaderInfo.columnWidth){
-    //   let targetTable =  document.getElementById(this.tableScroller.nativeElement.id);
-    //   let columns = targetTable.getElementsByClassName('gsr-column');
-    //   let size = columns.length;
-    //   for (var i = 0; i < size; i++) { 
-    //     let box = <HTMLElement> columns[i];
-    //     box.style.width=this.columnHeaderInfo.columnWidth;
-    //   }
-    // }
-   
-    //set width for the level decider as its scrollwidth cannot be determined unitl rendered
-    
-    // if(this.columnHeaderInfo['level'] == 3){
-    //   let targetTable =  document.getElementById(this.tableScroller.nativeElement.id);
-    //   let width = document.getElementById('tableScroller').scrollWidth;
-    //   let header =  <HTMLElement> (targetTable.getElementsByClassName('gsr-accordionHeader')[0]);
-    //   header.style.width = width+"px";
-    // }
-
-  }
+  ngAfterViewInit() {  }
 
   ngAfterContentChecked(){
     if(this.columnHeaderInfo.tableType !== "columnTable"){
@@ -61,7 +39,7 @@ export class GsrTableComponent implements OnInit {
      else  if(this.columnHeaderInfo['level'] == 3){
         this.originalRecords = this.dataObj[this.columnHeaderInfo.cusip][this.columnHeaderInfo['index']]["records"];
      }
-        this.cusipId = this.data.getCusipId();
+        //this.cusipId = this.data.getCusipId();
     }else{
       this.originalRecords = this.dataObj;
     }
