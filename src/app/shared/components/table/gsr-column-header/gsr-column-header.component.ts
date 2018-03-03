@@ -33,25 +33,25 @@ export class GsrColumnHeaderComponent implements OnInit {
 
 
 
-  filterColumn() {
-    this.records = this.originalRecords;
-    let filterColumn = [];
-    for (let i = 0; i < this.columns.length; i++) {
-      if (this.columns[i].filterValue !== "" && this.columns[i].filterValue !== "Show All") {
-        this.records = this.records.filter(record => {
-          if (record[this.columns[i].attrName]) {
-            if (this.columns[i].filterBy === "string")
-              return (record[this.columns[i].attrName]).toLowerCase().indexOf(this.columns[i].filterValue.toLowerCase()) >= 0;
-            else if (this.columns[i].filterBy === "number")
-              return (record[this.columns[i].attrName]).replace(/[,]/g, "").indexOf(this.columns[i].filterValue) >= 0;
-          }
-          else {
-            return -1;
-          }
-        });
-      }
-    }
-  }
+  // filterColumn() {
+  //   this.records = this.originalRecords;
+  //   let filterColumn = [];
+  //   for (let i = 0; i < this.columns.length; i++) {
+  //     if (this.columns[i].filterValue !== "" && this.columns[i].filterValue !== "Show All") {
+  //       this.records = this.records.filter(record => {
+  //         if (record[this.columns[i].attrName]) {
+  //           if (this.columns[i].filterBy === "string")
+  //             return (record[this.columns[i].attrName]).toLowerCase().indexOf(this.columns[i].filterValue.toLowerCase()) >= 0;
+  //           else if (this.columns[i].filterBy === "number")
+  //             return (record[this.columns[i].attrName]).replace(/[,]/g, "").indexOf(this.columns[i].filterValue) >= 0;
+  //         }
+  //         else {
+  //           return -1;
+  //         }
+  //       });
+  //     }
+  //   }
+  // }
 
   sortColumn(column) {
     if (column.isAscending !== undefined) {

@@ -44,7 +44,6 @@ export class GsrTableHeaderComponent implements OnInit {
     this.sendFilterRecords.emit(this.records);
   }
   filterColumn() {
-    debugger;
     this.records = this.originalRecords;
     for(let i=0;i<this.columns.length;i++){
       if(this.columns[i].filterValue !== "" && this.columns[i].filterValue !== "Show All"){
@@ -70,6 +69,7 @@ export class GsrTableHeaderComponent implements OnInit {
     this.records = this.originalRecords;
     this.showFilter = !this.showFilter;
     this.sendFilter.emit(this.showFilter);
+    this.sendFilterRecords.emit(this.records);
   }
 
 }

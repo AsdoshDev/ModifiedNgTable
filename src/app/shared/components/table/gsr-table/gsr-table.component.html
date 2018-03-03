@@ -3,7 +3,7 @@
     <gsr-table-header *ngIf="columnHeaderInfo.tableHeader !== false" [records]="records" [dataObj]="dataObj" (sendFilterRecords)="records=$event"
       [columns]="columnHeaders" (sendFilter)="showFilter=$event" [showFilter]="showFilter" [columnHeaderInfo]="columnHeaderInfo">
     </gsr-table-header>
-    <div #tableScroller id="table-scroller" class="gsr-table-scroller">
+    <div #tableScroller id="table-scroller" class="gsr-table-scroller dragscroll">
 
       <gsr-column-header class="column-header" [records]="records" [showFilter]="showFilter" [columnHeaders]="columnHeaders" [dataObj]="dataObj"
         [columnHeaderInfo]="columnHeaderInfo"> </gsr-column-header>
