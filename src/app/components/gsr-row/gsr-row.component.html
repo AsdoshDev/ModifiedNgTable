@@ -1,17 +1,19 @@
-<div class="gsr-column" [ngClass]="(isAccordion) ? 'gsr-icon-column':''" *ngIf="isAccordion && !isSubRow">
-  <ng-container *ngIf="(columnHeaderInfo.level == 1 && columnHeaderInfo.tableType == 'levelDecider') else alternateRow;">
-    <gsr-icon  [type]="'accordion'" [showContent]="record.showRow" (click)="changeTable(columnHeaderInfo.level,'',false,record.cusip)"></gsr-icon>
+<div class="gsr-column gsr-icon-colmWidth">
+  <ng-container   *ngIf="isAccordion && !isSubRow">
+    <ng-container *ngIf="(columnHeaderInfo.level == 1 && columnHeaderInfo.tableType == 'levelDecider') else alternateRow;">
+      <gsr-icon  [type]="'accordion'" [showContent]="record.showRow" (click)="changeTable(columnHeaderInfo.level,'',false,record.cusip)"></gsr-icon>
+    </ng-container>
+    <ng-template #alternateRow>
+      <gsr-icon [type]="'accordion'" [showContent]="record.showRow" (click)="toggleAccordion(record)"></gsr-icon>
+    </ng-template>
   </ng-container>
-  <ng-template #alternateRow>
-    <gsr-icon [type]="'accordion'" [showContent]="record.showRow" (click)="toggleAccordion(record)"></gsr-icon>
-  </ng-template>
 </div>
 
 <div class="gsr-column" [style.width.%]="columnHeaderInfo.columnWidth" [ngClass]="(column.rightAlign) ? 'gsr-column-rightAlign':''" attr.colname="{{column.attrName}}" *ngFor="let column of columnHeaders">
 
 
   <gsr-icon *ngIf="column.openItem" type="open"></gsr-icon>
-  <span *ngIf="!column.accordion">{{record[column.attrName]}}</span>
+  <div [ngClass] = "(column.rightAlign) ? 'gsr-column-rightAlign' :''" *ngIf="!column.accordion">{{record[column.attrName]}}</div>
   <!-- <span *ngIf="column.accordion"><span (click) = "changeTable(columnHeaderInfo.level,'',false,record.cusip)" class="iconStyle expand"></span>{{record[column.attrName]}}</span> -->
   <!-- <gsr-icon *ngIf="column.accordion" [type]="'accordion'" [showContent]= false (click) = "changeTable(columnHeaderInfo.level,'',false,record.cusip)" ></gsr-icon> -->
 
