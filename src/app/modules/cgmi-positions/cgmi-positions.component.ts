@@ -34,6 +34,13 @@ export class CgmiPositionsComponent implements OnInit {
   records2: any;
   records5: any;
   tableInfo1: any;
+  failRecords:any;
+  columnHeadersFails:any;
+  tableInfoFail:any;
+  breakRecords:any;
+  tableInfoBreak:any;
+  columnHeadersBreak:any;
+  
   ngOnInit() {
     this.tabs = [
       { title: 'Search', id: 'srch' },
@@ -48,7 +55,7 @@ export class CgmiPositionsComponent implements OnInit {
       { title: 'String', id: 'strng' },
     ];
 
-
+  
     this.columnHeaders = this.data.getLevel3Columns();
     this.tableInfo = this.data.getTableInfo();
     this.icData = this.data.getLevel3();
@@ -76,6 +83,17 @@ export class CgmiPositionsComponent implements OnInit {
     this.records2 = this.icData2.details;
     this.tableInfo6 = this.data.getTableInfo6();
     this.columnHeaders2 = this.data.getAcctColumns();
+
+
+    //fails data
+    this.failRecords = this.data.getFailsData();
+    this.tableInfoFail = this.data.getTableInfoFail();
+    this.columnHeadersFails = this.data.getFailsColumnHeaders();
+
+    //breaks data
+    this.breakRecords = this.data.getBreaksData();
+    this.tableInfoBreak = this.data.getTableInfoBreak();
+    this.columnHeadersBreak = this.data.getBreaksColumnHeaders();
   }
 
   onTabChanges(tab) {

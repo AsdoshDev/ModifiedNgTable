@@ -45,12 +45,15 @@
     </ng-container>
 
     <ng-container *ngIf="selectedTab && selectedTab.id == 'breaks'">
-      <div>BREAKS TAB</div>
+        <div class="details-pane">
+            <ng-container *ngTemplateOutlet="level3DetailsPane"></ng-container>
+          </div>
+      <gsr-table [records]="breakRecords" [dataObj]="icData5" [columnHeaderInfo]="tableInfoBreak" [columnHeaders]="columnHeadersBreak"></gsr-table>
     </ng-container>
 
     <ng-container *ngIf="selectedTab && selectedTab.id == 'fails'">
-        <div>FAILS TAB </div>
-      </ng-container>
+        <gsr-table [records]="failRecords" [dataObj]="icData5" [columnHeaderInfo]="tableInfoFail" [columnHeaders]="columnHeadersFails"></gsr-table>
+    </ng-container>
 
       <ng-container *ngIf="selectedTab && selectedTab.id == 'open'">
           <div>OPEN ITEMS TAB </div>

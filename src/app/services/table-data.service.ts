@@ -4,9 +4,11 @@ import { HttpClient } from '@angular/common/http';
 
 @Injectable()
 export class TableDataService {
+  tableInfoFail = { tableType: 'default', 'needFilter': true, tableTitle: "Fails", tableHeader: true, columnWidth: '10', needPrint: true };
+  tableInfoBreak = { tableType: 'default', 'needFilter': false, tableTitle: "Breaks", tableHeader: true, columnWidth: '25', needPrint: false };
 
   tableInfo = { tableType: 'levelDecider', 'needFilter': true, cusip: '1234567', 'needPrint': true, levelDecider: true, 'level': 3, 'index': 0, columnWidth: '15' };
-  tableInfo6 = { tableType: 'default', 'needFilter': false, tableHeader: false, columnWidth: '20' };
+  tableInfo6 = { tableType: 'default', 'needFilter': false, tableHeader: false, columnWidth: '25' };
   tableInfo7 = { tableType: 'default', 'needFilter': false, tableTitle: "Transactions", tableHeader: true, columnWidth: '10', needPrint: true };
 
   tableInfo8 = { tableType: 'columnTable', tableHeader: false, needFilter: false, needPrint: true, levelDecider: false };
@@ -29,6 +31,113 @@ export class TableDataService {
     { attrName: "name", colName: "Check", filterBy: 'string', searchIcon: false, inputType: "text", filterValue: "" },
     { attrName: "username", colName: "Ending List", filterBy: 'string', searchIcon: false, inputType: "text", filterValue: "" },
   ];
+
+
+
+  columnHeadersFails = [
+    { attrName: "srn", colName: "Stock Record Number", filterBy: 'string', searchIcon: false, inputType: "text", filterValue: "" },
+    { attrName: "tradeRefNo", colName: "Trade Reference Number", filterBy: 'string', searchIcon: false, inputType: "text", filterValue: "" },
+    { attrName: "actType", colName: "Activity Type", filterBy: 'string', searchIcon: false, inputType: "text", filterValue: "" },
+    { attrName: "accNo", colName: "Account Number", filterBy: 'string', searchIcon: false, inputType: "text", filterValue: "" },
+    { attrName: "offAcct", colName: "Offset Account", filterBy: 'string', searchIcon: false, inputType: "text", filterValue: "" },
+    { attrName: "clearLoc", colName: "Clearing Location", filterBy: 'string', searchIcon: false, inputType: "text", filterValue: "" },
+    { attrName: "quantity", colName: "Quantity", filterBy: 'string', searchIcon: false, inputType: "text", filterValue: "" },
+    { attrName: "debit", colName: "Debit/Credit", filterBy: 'string', searchIcon: false, inputType: "text", filterValue: "" },
+    { attrName: "amount", colName: "Amount", filterBy: 'string', searchIcon: false, inputType: "text", filterValue: "" },
+    { attrName: "currState", colName: "Current State", filterBy: 'string', searchIcon: false, inputType: "text", filterValue: "" },
+    { attrName: "postDate", colName: "Posting Date", filterBy: 'string', searchIcon: false, inputType: "text", filterValue: "" },
+    { attrName: "tradeDate", colName: "Trade Date", filterBy: 'string', searchIcon: false, inputType: "text", filterValue: "" },
+    { attrName: "valueDate", colName: "Value Date", filterBy: 'string', searchIcon: false, inputType: "text", filterValue: "" },
+    { attrName: "currencyInd", colName: "Currency Indicator", filterBy: 'string', searchIcon: false, inputType: "text", filterValue: "" },
+    { attrName: "timestamp", colName: "Timestamp", filterBy: 'string', searchIcon: false, inputType: "text", filterValue: "" },
+  ];
+
+
+  
+  columnHeadersBreaks = [
+    { attrName: "acctNo", colName: "Account Number", filterBy: 'string', searchIcon: false, inputType: "text", filterValue: "" },
+    { attrName: "breakDate", colName: "Break Date", filterBy: 'string', searchIcon: false, inputType: "text", filterValue: "" },
+    { attrName: "longs", colName: "Longs", filterBy: 'string', searchIcon: false, inputType: "text", filterValue: "" },
+    { attrName: "shorts", colName: "Shorts", filterBy: 'string', searchIcon: false, inputType: "text", filterValue: "" },
+  ];
+
+  breaksData = 
+    [
+      {
+        "acctNo": "1234567",
+        "breakDate": "05543765",
+        "longs": "11563778",
+        "shorts": "Security Short Name",
+      },
+      {
+        "acctNo": "1234567",
+        "breakDate": "05543765",
+        "longs": "11563778",
+        "shorts": "Security Short Name",
+      },
+      {
+        "acctNo": "1234567",
+        "breakDate": "05543765",
+        "longs": "11563778",
+        "shorts": "Security Short Name",
+      },
+      {
+        "acctNo": "1234567",
+        "breakDate": "05543765",
+        "longs": "11563778",
+        "shorts": "Security Short Name",
+      },
+      {
+        "acctNo": "1234567",
+        "breakDate": "05543765",
+        "longs": "11563778",
+        "shorts": "Security Short Name",
+      },
+      {
+        "acctNo": "1234567",
+        "breakDate": "05543765",
+        "longs": "11563778",
+        "shorts": "Security Short Name",
+      },
+    ];
+  
+  failsData = 
+    [
+      {
+        "srn": "1234567",
+        "tradeRefNo": "05543765",
+        "actType": "11563778",
+        "accNo": "Security Short Name",
+        "offAcct": "Global Collateral Type",
+        "clearLoc": "International Product Type",
+        "quantity": "Security Short Name",
+        "debit": "Global Collateral Type",
+        "amount": "International Product Type",
+        "currState": "International Product Type",
+        "postDate": "Security Short Name",
+        "tradeDate": "Global Collateral Type",
+        "valueDate": "International Product Type",
+        "currencyInd": "Global Collateral Type",
+        "timestamp": "International Product Type",
+      },
+      {
+        "srn": "567567",
+        "tradeRefNo": "9877897",
+        "actType": "11563778",
+        "accNo": "Security Short Name",
+        "offAcct": "Global Collateral Type",
+        "clearLoc": "International Product Type",
+        "quantity": "Security Short Name",
+        "debit": "Global Collateral Type",
+        "amount": "International Product Type",
+        "currState": "International Product Type",
+        "postDate": "Security Short Name",
+        "tradeDate": "Global Collateral Type",
+        "valueDate": "International Product Type",
+        "currencyInd": "Global Collateral Type",
+        "timestamp": "International Product Type",
+      }];
+
 
   columnHeaders3 = [
 
@@ -1310,10 +1419,28 @@ export class TableDataService {
   getLevel5Columns() {
     return this.account;
   }
-
+  
 
   getLevel4Columns() {
     return this.columnHeaders4;
+  }
+
+
+  getFailsColumnHeaders() {
+    return this.columnHeadersFails;
+  }
+
+  getFailsData(){
+    return this.failsData;
+  }
+
+
+  getBreaksColumnHeaders() {
+    return this.columnHeadersBreaks;
+  }
+
+  getBreaksData(){
+    return this.breaksData;
   }
 
   getLevel3Columns() {
@@ -1331,6 +1458,8 @@ export class TableDataService {
   getLevel1() {
     return this.dataLevel1;
   }
+
+
 
   getLevel4() {
     return this.dataLevel4;
@@ -1362,6 +1491,17 @@ export class TableDataService {
     return this.tableInfo8;
   }
 
+  
+  getTableInfoFail() {
+    return this.tableInfoFail;
+  }
+
+  getTableInfoBreak() {
+    return this.tableInfoBreak;
+  }
+
+  
+  
 
 
   getCusipId() {
