@@ -20,8 +20,14 @@ export class GsrRowComponent implements OnInit {
   chi: any;
 
   @Output() sendLevel = new EventEmitter();
+  @Output() clickTableColumn = new EventEmitter();
 
-
+  showOpenItems(rec){
+    var obj = {};
+    obj['clickedRec'] = rec;
+    obj['type'] ='open';
+    this.clickTableColumn.emit(obj);
+  }
 
   ngOnInit() { }
 

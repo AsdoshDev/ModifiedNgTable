@@ -10,7 +10,7 @@
 </div>
 
 <div class="gsr-column" [style.width.%]="columnHeaderInfo.columnWidth" attr.colname="{{column.attrName}}" *ngFor="let column of columnHeaders">
-  <gsr-icon *ngIf="column.openItem" type="open"></gsr-icon>
+  <gsr-icon *ngIf="column.openItem" type="open" (click) = "showOpenItems(record)"></gsr-icon>
   <div [ngClass]="(column.rightAlign) ? 'gsr-column-rightAlign' :''" *ngIf="!column.accordion">{{record[column.attrName]}}</div>
   <gsr-icon *ngIf="column.searchIcon" (click)="openModal()" type="search"></gsr-icon>
 </div>

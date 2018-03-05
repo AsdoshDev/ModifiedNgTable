@@ -8,7 +8,7 @@
       <gsr-column-header class="column-header" [records]="records" [showFilter]="showFilter" [columnHeaders]="columnHeaders" [dataObj]="dataObj"
         [columnHeaderInfo]="columnHeaderInfo"> </gsr-column-header>
 
-      <gsr-table-level-decider class="level-decider" *ngIf="columnHeaderInfo.levelDecider" [records]="records" [columnHeaders]="columnHeaders"
+      <gsr-table-level-decider (passClickedColumn) = "passClickedColumn($event)"  class="level-decider" *ngIf="columnHeaderInfo.levelDecider" [records]="records" [columnHeaders]="columnHeaders"
         (sendLevel)="getLevel($event)" (sendFilter)="showFilter=$event" [showFilter]="showFilter" [dataObj]="dataObj" [columnHeaderInfo]="columnHeaderInfo">
       </gsr-table-level-decider>
 

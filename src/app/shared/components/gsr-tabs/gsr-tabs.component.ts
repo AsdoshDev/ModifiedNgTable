@@ -7,7 +7,7 @@ import { EventEmitter } from '@angular/core';
   styleUrls: ['./gsr-tabs.component.css']
 })
 export class GsrTabsComponent implements OnInit {
-  //@ViewChild('li') el:ElementRef;
+
   @Input() tabs;
   @Input() tabNavigationBtns;
   @Output() passTabIndex = new EventEmitter();
@@ -30,13 +30,14 @@ export class GsrTabsComponent implements OnInit {
 
   ngOnInit() {
     this.tabs.forEach(tab => tab.isClicked = "");
-    this.tabs[0].isClicked = "active";
+    this.selectTab(this.tabs[0]);
   }
 
   ngAfterViewInit() {
   }
 
   selectTab(tab, index?) {
+    debugger;
     if (tab.isClicked !== "active" || !index) {
       this.tabs.forEach(tab => tab.isClicked = "");
       tab.isClicked = "active";

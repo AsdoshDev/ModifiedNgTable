@@ -15,6 +15,11 @@ export class GsrTableComponent implements OnInit {
   @Input() columnHeaders;
   @Input() records;
   @Output() sendLevel = new EventEmitter();
+  @Output() sendClickedColumn = new EventEmitter();
+
+  passClickedColumn(data){
+    this.sendClickedColumn.emit(data);
+  }
   originalRecords:any;
   showFilter: boolean;
   recIndex:any;

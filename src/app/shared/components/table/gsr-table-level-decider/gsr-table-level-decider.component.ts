@@ -13,7 +13,11 @@ export class GsrTableLevelDeciderComponent implements OnInit {
   @Input() columnHeaderInfo; //array of objects
   @Output() sendLevel = new EventEmitter();
   @Output() sendFilter = new EventEmitter();
+  @Output() passClickedColumn = new EventEmitter();
 
+  columnClickAction(data){
+    this.passClickedColumn.emit(data);
+  }
 
  
   constructor() { }

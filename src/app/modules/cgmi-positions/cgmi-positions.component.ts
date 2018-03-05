@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, ViewChild,EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, ViewChild, EventEmitter } from '@angular/core';
 import { TableDataService } from './../../services/table-data.service';
 import { GsrTabsComponent } from './../../shared/components/gsr-tabs/gsr-tabs.component';
 import { Utils } from './../../shared/utils';
@@ -37,8 +37,7 @@ export class CgmiPositionsComponent implements OnInit {
   ngOnInit() {
     this.tabs = [
       { title: 'Search', id: 'srch' },
-      { title: 'Positions by Security', id: 'pbs' },
-      { title: 'Postings', id: 'pos' }
+      { title: 'Positions by Security', id: 'pbs' }
     ];
     this.searchTabs = [
       { title: 'Filter Security', id: 'filterSec' },
@@ -48,6 +47,7 @@ export class CgmiPositionsComponent implements OnInit {
       { title: 'Content', id: 'content' },
       { title: 'String', id: 'strng' },
     ];
+
 
     this.columnHeaders = this.data.getLevel3Columns();
     this.tableInfo = this.data.getTableInfo();
@@ -78,7 +78,32 @@ export class CgmiPositionsComponent implements OnInit {
     this.columnHeaders2 = this.data.getAcctColumns();
   }
 
-  openBreakDtls() {
+  onTabChanges(tab) {
+    this.selectedTab = tab;
+
+    if (tab.id == 'pbs') {
+      let arr = ['breaks', 'fails', 'open'];
+      let modifiedTabs = this.tabs.filter(function (tab) {
+        return (arr.indexOf(tab.id) < 0)
+      });
+      this.tabs = modifiedTabs;
+
+
+      if (this.tabs.findIndex(tab => tab.id == 'pos') < 0) {
+        let posTab = { title: 'Postings', id: 'pos' };
+        this.tabs.splice(2, 0, posTab);
+      }
+    }
+  }
+
+
+  columnClickAction(data) {
+    console.log("column clicked");
+    console.log(data);
+    this.showOpenDtls();
+  }
+
+  showBreakDtls() {
     var tab = { title: 'Breaks', id: 'breaks' };
     if (this.tabs.findIndex(tab => tab.id == 'breaks') < 0)
       this.tabs.splice(2, 0, tab);
@@ -86,12 +111,23 @@ export class CgmiPositionsComponent implements OnInit {
 
   }
 
-  openFailDtls() {
+  showFailDtls() {
+    this.tabs.splice((this.tabs.findIndex(tab => tab.id == 'pos')), 1);
     var tab = { title: 'Fails', id: 'fails' };
     if (this.tabs.findIndex(tab => tab.id == 'fails') < 0)
       this.tabs.splice(2, 0, tab);
     this.tabsComponent.selectTab(this.tabs[2]);
+
   }
+
+  showOpenDtls() {
+    var tab = { title: 'Open Items', id: 'open' };
+    if (this.tabs.findIndex(tab => tab.id == 'open') < 0)
+      this.tabs.splice(2, 0, tab);
+    this.tabsComponent.selectTab(this.tabs[2]);
+    this.tabs.splice((this.tabs.findIndex(tab => tab.id == 'pos')), 1);
+  }
+
 
   getLevel(a) {
     let levelVar, indexVar;

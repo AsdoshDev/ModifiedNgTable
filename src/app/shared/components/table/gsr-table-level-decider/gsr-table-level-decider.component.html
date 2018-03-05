@@ -18,11 +18,11 @@
         </div>
 
 <ng-container *ngFor="let record of records">
-        <gsr-row *ngIf="!record.subRecords" class="gsr-row gsr-record-row" [record]  = "record"  [columnHeaders] = "columnHeaders" [columnHeaderInfo] = "columnHeaderInfo"> </gsr-row>
+        <gsr-row (clickTableColumn) = "columnClickAction($event)" *ngIf="!record.subRecords" class="gsr-row gsr-record-row" [record]  = "record"  [columnHeaders] = "columnHeaders" [columnHeaderInfo] = "columnHeaderInfo"> </gsr-row>
             <ng-container *ngIf="record.subRecords && record.subRecords.length > 0">
-                    <gsr-row  class="gsr-row gsr-record-row" [record]  = "record" [isAccordion] = true [columnHeaders] = "columnHeaders" [columnHeaderInfo] = "columnHeaderInfo"> </gsr-row>
+                    <gsr-row  (clickTableColumn) = "columnClickAction($event)" class="gsr-row gsr-record-row" [record]  = "record" [isAccordion] = true [columnHeaders] = "columnHeaders" [columnHeaderInfo] = "columnHeaderInfo"> </gsr-row>
                     <ng-container *ngFor="let rec of record.subRecords">
-                            <gsr-row *ngIf="rec.showRow == true"  class="gsr-subrow gsr-row gsr-record-row" [isSubRow] = true [record]  = "rec" [columnHeaders] = "columnHeaders" [columnHeaderInfo] = "columnHeaderInfo"> </gsr-row>
+                            <gsr-row (clickTableColumn) = "columnClickAction($event)" *ngIf="rec.showRow == true"  class="gsr-subrow gsr-row gsr-record-row" [isSubRow] = true [record]  = "rec" [columnHeaders] = "columnHeaders" [columnHeaderInfo] = "columnHeaderInfo"> </gsr-row>
                     </ng-container>
             </ng-container>
         </ng-container>
