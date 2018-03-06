@@ -1,12 +1,22 @@
-
 <div class="pagination-wrapper">
-<div class="pagination">
-  <div><gsr-icon [type] ="'first-page'"></gsr-icon></div>
-  <div> <gsr-icon [type] ="'left-arrow'"></gsr-icon></div>
-  <div></div>
-  <div tabindex="{{number}}" *ngFor="let number of numbers">{{number}}</div>
-  <div></div>
-  <div> <gsr-icon [type] ="'right-arrow'"></gsr-icon> </div>
-  <div><gsr-icon [type] ="'last-page'"></gsr-icon> </div>
-</div>
+  <div class="pagination-container">
+    <div class="pagination">
+      <div>
+        <gsr-icon [type]="'first-page'"></gsr-icon>
+      </div>
+      <div>
+        <gsr-icon [type]="'left-arrow'"></gsr-icon>
+      </div>
+      <div></div>
+      <div tabindex="{{number}}" *ngFor="let number of numbers">{{number}}</div>
+      <div></div>
+      <div>
+        <gsr-icon [type]="'right-arrow'"></gsr-icon>
+      </div>
+      <div>
+        <gsr-icon [type]="'last-page'"></gsr-icon>
+      </div>
+    </div>
+    <div class="totalPages">Pages : {{pages}}</div>
+  </div>
 </div>
