@@ -8,11 +8,18 @@ import { Component, OnInit,Input } from '@angular/core';
 export class GsrTablePaginationComponent implements OnInit {
 
 
-  @Input() totalPages;
+  @Input() totalRecords;
   @Input() recordsPerPage;
+  numbers:any;
   constructor() { }
 
   ngOnInit() {
+   
+    this.numbers =  Array.from(new Array(Math.ceil(this.totalRecords/this.recordsPerPage)), (x,i) => i+1)
+
+    console.log(this.totalRecords);
+    console.log(this.recordsPerPage);
+
   }
 
 }

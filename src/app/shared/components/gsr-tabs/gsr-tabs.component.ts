@@ -37,7 +37,6 @@ export class GsrTabsComponent implements OnInit {
   }
 
   selectTab(tab, index?) {
-    debugger;
     if (tab.isClicked !== "active" || !index) {
       this.tabs.forEach(tab => tab.isClicked = "");
       tab.isClicked = "active";
