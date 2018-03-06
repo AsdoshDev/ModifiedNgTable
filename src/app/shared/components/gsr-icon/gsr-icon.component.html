@@ -2,6 +2,9 @@
 <div class="circle fail" *ngIf="type === 'fail'"></div>
 <div class="arrow-up break" *ngIf="type === 'break'"></div>
 
+
+
+
 <!-- -------EXPAND/COLLAPSE ICON ------- -->
 <span  *ngIf="type == 'accordion'"  class="iconStyle" [ngClass] = "(showContent == true) ? 'collapse':'expand'"></span>
 
@@ -23,4 +26,11 @@
 
 <!-- -------SEARCH ICON ------- -->
 <span *ngIf="type === 'search'" class="searchIcon"><i class="material-icons md-18">search</i></span>
+
+
+
 <!-- <div class="arrow-up arrow-down" ></div> -->
+
+<span *ngIf="type === 'left-arrow'"><i class="material-icons">keyboard_arrow_left</i></span>
+<span *ngIf="type === 'right-arrow'"><i class="material-icons">keyboard_arrow_right</i></span>
+

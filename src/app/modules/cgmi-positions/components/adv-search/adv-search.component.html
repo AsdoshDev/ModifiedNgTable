@@ -1,0 +1,17 @@
+
+      <fieldset>
+        <legend>Advanced Search</legend>
+        <gsr-tabs (passTabIndex)="advSearchTabClicked=$event" [tabNavigationBtns]=true [tabs]="searchTabs">
+          <div class="tab-content">
+            <ng-container *ngIf="!advSearchTabClicked || (advSearchTabClicked && advSearchTabClicked.index == 0)">
+              <div>1st tab of adv search</div>
+            </ng-container>
+            <ng-container *ngIf="advSearchTabClicked && advSearchTabClicked.index == 1">
+              <gsr-table [records]="records" [columnHeaders]="columnHeaders" [dataObj]="dataObj" [columnHeaderInfo]="columnHeaderInfo"></gsr-table>
+            </ng-container>
+            <ng-container *ngIf="advSearchTabClicked && advSearchTabClicked.index == 3">
+              <gsr-table [records]="records" [columnHeaders]="columnHeaders" [dataObj]="dataObj" [columnHeaderInfo]="columnHeaderInfo"></gsr-table>
+            </ng-container>
+          </div>
+        </gsr-tabs>
+      </fieldset>

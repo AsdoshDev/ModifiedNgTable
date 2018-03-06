@@ -346,6 +346,7 @@ fieldset {
 gsr-icon {
   display: flex;
   align-items: center;
+  cursor:pointer;
 }
 
 span.iconWrapper>span {

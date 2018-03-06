@@ -1,0 +1,70 @@
+<gsr-tabs (passTabIndex)="onTabChanges($event)" [tabNavigationBtns]=false [tabs]="tabs">
+  <div class="tab-content">
+
+    <ng-container *ngIf="!selectedTab || (selectedTab && selectedTab.id == 'srch')">
+      <div class="form-group"> 
+        <gsr-button [label] = "'Run'" (click)="tabsComponent.selectTab(tabs[1],1)"></gsr-button>
+      </div>
+    </ng-container>
+
+    <ng-container *ngIf="selectedTab && selectedTab.id == 'pbl'">
+      <!-- <div class="details-pane" *ngIf="tableInfo.level === 1">
+          <ng-container *ngTemplateOutlet="level1DetailsPane" ></ng-container>
+      </div> -->
+      <div class="details-pane" *ngIf="tableInfo.level === 2">
+        <ng-container *ngTemplateOutlet="level2DetailsPane"></ng-container>
+      </div>
+      <div class="details-pane" *ngIf="tableInfo.level === 3">
+        <ng-container *ngTemplateOutlet="level3DetailsPane"></ng-container>
+      </div>
+      <gsr-table *ngIf="!tableInfo.levelDecider" [columnHeaders]="columnHeaders" [dataObj]="icData" [columnHeaderInfo]="tableInfo"></gsr-table>
+      <gsr-table (sendClickedColumn) = "columnClickAction($event)" *ngIf="tableInfo.levelDecider" [records]="records" [columnHeaders]="columnHeaders" (sendLevel)="getLevel(levelDtls=$event)"
+        [dataObj]="icData" [columnHeaderInfo]="tableInfo"></gsr-table>
+    </ng-container>
+
+    <ng-container *ngIf="selectedTab && selectedTab.id == 'pos'">
+      <gsr-table [records]="records5" [dataObj]="icData5" [columnHeaderInfo]="tableInfo5" [columnHeaders]="columnHeaders5"></gsr-table>
+    </ng-container>
+
+    <ng-container *ngIf="selectedTab && selectedTab.id == 'breaks'">
+        <div class="details-pane">
+            <ng-container *ngTemplateOutlet="level3DetailsPane"></ng-container>
+          </div>
+      <gsr-table [records]="breakRecords" [dataObj]="icData5" [columnHeaderInfo]="tableInfoBreak" [columnHeaders]="columnHeadersBreak"></gsr-table>
+    </ng-container>
+
+    <ng-container *ngIf="selectedTab && selectedTab.id == 'fails'">
+        <gsr-table [records]="failRecords" [dataObj]="icData5" [columnHeaderInfo]="tableInfoFail" [columnHeaders]="columnHeadersFails"></gsr-table>
+    </ng-container>
+
+      <ng-container *ngIf="selectedTab && selectedTab.id == 'open'">
+          <div>OPEN ITEMS TAB </div>
+        </ng-container>
+
+  </div>
+</gsr-tabs>
+<ng-template #level2DetailsPane>
+  <div class="fieldWrapper" *ngFor="let rec of utils.generateArray(account)">
+    <ng-container *ngIf="rec.key == 'Total Breaks'">
+      <gsr-icon [type]="'break'" (click)='showBreakDtls()'></gsr-icon>
+    </ng-container>
+    <ng-container *ngIf="rec.key == 'Total Fails'">
+      <gsr-icon [type]="'fail'" (click)='showFailDtls()'></gsr-icon>
+    </ng-container>
+    <div class="field-label">{{rec.key}}:</div>
+    <div class="field-value"> {{rec.value}}</div>
+  </div>
+</ng-template>
+
+<ng-template #level3DetailsPane>
+  <div class="fieldWrapper" *ngFor="let rec of utils.generateArray(account)">
+    <ng-container *ngIf="rec.key == 'Total Breaks'">
+      <gsr-icon [type]="'break'" (click)='showBreakDtls()'></gsr-icon>
+    </ng-container>
+    <ng-container *ngIf="rec.key == 'Total Fails'">
+      <gsr-icon [type]="'fail'" (click)='showFailDtls()'></gsr-icon>
+    </ng-container>
+    <div class="field-label">{{rec.key}}:</div>
+    <div class="field-value"> {{rec.value}}</div>
+  </div>
+</ng-template>

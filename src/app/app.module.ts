@@ -23,6 +23,11 @@ import { GsrColumnHeaderComponent } from './shared/components/table/gsr-column-h
 
 /* module components in app*/
 import { CgmiPositionsComponent } from './modules/cgmi-positions/cgmi-positions.component';
+import { SearchBySecurityComponent } from './modules/cgmi-positions/pages/search-by-security/search-by-security.component';
+import { AdvSearchComponent } from './modules/cgmi-positions/components/adv-search/adv-search.component';
+import { SearchByAccountComponent } from './modules/cgmi-positions/pages/search-by-account/search-by-account.component';
+import { SearchByLocationComponent } from './modules/cgmi-positions/pages/search-by-location/search-by-location.component';
+import { GsrTablePaginationComponent } from './shared/components/table/gsr-table-pagination/gsr-table-pagination.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +42,11 @@ import { CgmiPositionsComponent } from './modules/cgmi-positions/cgmi-positions.
     GsrIconComponent,
     GsrButtonComponent,
     CgmiPositionsComponent,
+    SearchBySecurityComponent,
+    AdvSearchComponent,
+    SearchByAccountComponent,
+    SearchByLocationComponent,
+    GsrTablePaginationComponent,
   ],
   imports: [
     BrowserModule,
