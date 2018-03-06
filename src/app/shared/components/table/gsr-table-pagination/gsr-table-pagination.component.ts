@@ -14,6 +14,10 @@ export class GsrTablePaginationComponent implements OnInit {
   pages:any;
   constructor() { }
 
+  loadRecords(e,number){
+    debugger;
+  }
+
   ngOnInit() {
     this.pages = Math.ceil(this.totalRecords/this.recordsPerPage);
     this.numbers =  Array.from(new Array(this.pages), (x,i) => i+1);

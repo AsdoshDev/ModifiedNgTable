@@ -8,7 +8,7 @@
         <gsr-icon [type]="'left-arrow'"></gsr-icon>
       </div>
       <div></div>
-      <div tabindex="{{number}}" *ngFor="let number of numbers">{{number}}</div>
+      <div tabindex="{{number}}" (click) = "loadRecords($event,number)" *ngFor="let number of numbers">{{number}}</div>
       <div></div>
       <div>
         <gsr-icon [type]="'right-arrow'"></gsr-icon>
