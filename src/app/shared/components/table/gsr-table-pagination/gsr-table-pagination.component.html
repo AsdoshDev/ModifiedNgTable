@@ -2,19 +2,19 @@
   <div class="pagination-container">
     <div class="pagination">
       <div>
-        <gsr-icon [type]="'first-page'"></gsr-icon>
+        <gsr-icon [type]="'first-page'" (click) = "loadRecords('first')"></gsr-icon>
       </div>
       <div>
-        <gsr-icon [type]="'left-arrow'"></gsr-icon>
+        <gsr-icon [type]="'left-arrow'" (click) = "loadRecords('prev')"></gsr-icon>
       </div>
       <div></div>
-      <div tabindex="{{number}}" (click) = "loadRecords($event,number)" *ngFor="let number of numbers">{{number}}</div>
+      <div tabindex="{{page.number}}" [ngClass]="page.isClicked ? page.isClicked :''" (click) = "loadRecords($event,page.number)" *ngFor="let page of pageObj">{{page.number}}</div>
       <div></div>
       <div>
-        <gsr-icon [type]="'right-arrow'"></gsr-icon>
+        <gsr-icon [type]="'right-arrow'" (click) = "loadRecords('next')"></gsr-icon>
       </div>
       <div>
-        <gsr-icon [type]="'last-page'"></gsr-icon>
+        <gsr-icon [type]="'last-page'" (click) = "loadRecords('last')"></gsr-icon>
       </div>
     </div>
     <div class="totalPages">Pages : {{pages}}</div>

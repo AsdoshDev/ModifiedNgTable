@@ -27,12 +27,13 @@ transition:0.3s;
     
 }
 
-.pagination > div:hover,.pagination > div:active,.pagination > div:focus{
+.pagination > div:hover,.pagination > div.active{
 
     background:#030464;
     outline:none;
     color:white;
 }
+
 
 .pagination > div:last-child{
     border:none;

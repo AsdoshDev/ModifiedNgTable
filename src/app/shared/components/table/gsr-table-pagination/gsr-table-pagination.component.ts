@@ -12,15 +12,40 @@ export class GsrTablePaginationComponent implements OnInit {
   @Input() recordsPerPage;
   numbers:any;
   pages:any;
-  constructor() { }
+  pageObj = [];
+  constructor() {
 
-  loadRecords(e,number){
+    
+   }
+
+  loadRecords(open,number){
     debugger;
-  }
+    let targetObj = this.pageObj.findIndex(obj => obj.isClicked == 'active');
+      if(open == 'prev'){
+        if((targetObj - 1) > -1){
+          this.loadRecords('',targetObj - 1);
+        }
+      }
+
+      else if(open == 'next'){
+        if((targetObj + 2) < this.pageObj.length){
+          this.loadRecords('',targetObj + 2);
+        }
+      }
+    this.pageObj.forEach(obj => obj.isClicked = "");
+    if(number){
+      let targetObj = this.pageObj.find(obj => obj.number == number);
+      targetObj.isClicked = 'active';
+    }
+}
 
   ngOnInit() {
     this.pages = Math.ceil(this.totalRecords/this.recordsPerPage);
-    this.numbers =  Array.from(new Array(this.pages), (x,i) => i+1);
+    this.numbers =  Array.from(new Array(this.pages), (x,i) =>i+1);
+    var ctx = this;
+    this.numbers.map(function(number){
+      ctx.pageObj.push({'number': number,isClicked:''});
+    });
   }
 
 }
