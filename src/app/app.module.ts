@@ -28,6 +28,8 @@ import { AdvSearchComponent } from './modules/cgmi-positions/components/adv-sear
 import { SearchByAccountComponent } from './modules/cgmi-positions/pages/search-by-account/search-by-account.component';
 import { SearchByLocationComponent } from './modules/cgmi-positions/pages/search-by-location/search-by-location.component';
 import { GsrTablePaginationComponent } from './shared/components/table/gsr-table-pagination/gsr-table-pagination.component';
+import { ViewPostingsComponent } from './modules/cgmi-positions/pages/view-postings/view-postings.component';
+import { DwnldOpenItemsReportComponent } from './modules/cgmi-positions/pages/dwnld-open-items-report/dwnld-open-items-report.component';
 
 @NgModule({
   declarations: [
@@ -47,6 +49,8 @@ import { GsrTablePaginationComponent } from './shared/components/table/gsr-table
     SearchByAccountComponent,
     SearchByLocationComponent,
     GsrTablePaginationComponent,
+    ViewPostingsComponent,
+    DwnldOpenItemsReportComponent,
   ],
   imports: [
     BrowserModule,

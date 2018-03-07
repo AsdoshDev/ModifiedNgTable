@@ -22,15 +22,19 @@ export class GsrTablePaginationComponent implements OnInit {
     debugger;
     let targetObj = this.pageObj.findIndex(obj => obj.isClicked == 'active');
       if(open == 'prev'){
-        if((targetObj - 1) > -1){
-          this.loadRecords('',targetObj - 1);
+        if((targetObj) > 0){
+          this.loadRecords('',targetObj);       
+          return;
+        
         }
-      }
-
+          return;
+        }
       else if(open == 'next'){
         if((targetObj + 2) < this.pageObj.length){
           this.loadRecords('',targetObj + 2);
+          return;
         }
+        return;
       }
     this.pageObj.forEach(obj => obj.isClicked = "");
     if(number){
@@ -46,6 +50,7 @@ export class GsrTablePaginationComponent implements OnInit {
     this.numbers.map(function(number){
       ctx.pageObj.push({'number': number,isClicked:''});
     });
+    this.pageObj[0].isClicked = 'active';
   }
 
 }
