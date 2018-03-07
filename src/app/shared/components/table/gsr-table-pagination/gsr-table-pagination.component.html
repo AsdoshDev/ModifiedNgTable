@@ -9,9 +9,7 @@
       </div>
       <div></div>
       <ng-container *ngFor="let page of pageObj">
-        <div tabindex="{{page.number}}" [ngClass]="page.isClicked ? page.isClicked :''" (click)="loadRecords($event,page.number)"
-          *ngIf="page.number <= recordsPerPage">
-          {{page.number}}
+        <div tabindex="{{page.number}}" [ngClass]="page.isClicked ? page.isClicked :''" (click)="loadRecords($event,page.number)">{{page.number}}
         </div>
       </ng-container>
 
