@@ -36,7 +36,7 @@ export class GsrTablePaginationComponent implements OnInit {
       return;
     }
     else if (open == 'next') {
-      if ((targetNumber + 1) < this.pageObj[this.pageObj.length - 1].number) {
+      if ((targetNumber + 1) <= this.pageObj[this.pageObj.length - 1].number) {
         this.loadRecords('', targetNumber + 1);
       }
       return;
