@@ -13,10 +13,7 @@ export class GsrTablePaginationComponent implements OnInit {
   numbers: any;
   pages: any;
   pageObj = [];
-  constructor() {
-
-
-  }
+  constructor() {}
 
   loadRecords(open, number) {
     let targetPage = this.pageObj.find(obj => obj.isClicked == 'active');
@@ -101,8 +98,6 @@ export class GsrTablePaginationComponent implements OnInit {
 
   getLastnRecords() {
     this.pageObj = [];
-    this.pages = Math.ceil(this.totalRecords / this.recordsPerPage);
-    this.numbers = Array.from(new Array(this.pages), (x, i) => i + 1);
     var ctx = this;
     let tempArr = this.numbers.slice(-(this.recordsPerPage));
     tempArr.map(function (number) {
@@ -113,9 +108,6 @@ export class GsrTablePaginationComponent implements OnInit {
 
   paginationInit() {
     this.pageObj = [];
-    this.pages = Math.ceil(this.totalRecords / this.recordsPerPage);
-    this.numbers = Array.from(new Array(this.pages), (x, i) => i + 1);
-
     var ctx = this;
     this.numbers.map(function (number) {
       if (number <= ctx.recordsPerPage)
@@ -125,6 +117,8 @@ export class GsrTablePaginationComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.pages = Math.ceil(this.totalRecords / this.recordsPerPage);
+    this.numbers = Array.from(new Array(this.pages), (x, i) => i + 1);
     this.paginationInit();
   }
 
