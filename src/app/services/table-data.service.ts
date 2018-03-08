@@ -4,12 +4,12 @@ import { HttpClient } from '@angular/common/http';
 
 @Injectable()
 export class TableDataService {
-  tableInfoFail = { tableType: 'default', 'needFilter': true, tableTitle: "Fails", tableHeader: true, columnWidth: '10', needPrint: true };
-  tableInfoBreak = { tableType: 'default', 'needFilter': false, tableTitle: "Breaks", tableHeader: true, columnWidth: '25', needPrint: false };
+  tableInfoFail = { 'needPagination': true,tableType: 'default', 'needFilter': true, tableTitle: "Fails", tableHeader: true, columnWidth: '10', needPrint: true };
+  tableInfoBreak = { 'needPagination': true,tableType: 'default', 'needFilter': false, tableTitle: "Breaks", tableHeader: true, columnWidth: '25', needPrint: false };
 
-  tableInfo = { tableType: 'levelDecider', 'needFilter': true, cusip: '1234567', 'needPrint': true, levelDecider: true, 'level': 3, 'index': 0, columnWidth: '15' };
-  tableInfo6 = { tableType: 'default', 'needFilter': false, tableHeader: false, columnWidth: '25' };
-  tableInfo7 = { tableType: 'default', 'needFilter': false, tableTitle: "Transactions", tableHeader: true, columnWidth: '10', needPrint: true };
+  tableInfo = {  'needPagination': true,tableType: 'levelDecider', 'needFilter': true, cusip: '1234567', 'needPrint': true, levelDecider: true, 'level': 3, 'index': 0, columnWidth: '15' };
+  tableInfo6 = {  'needPagination': true,tableType: 'default', 'needFilter': false, tableHeader: false, columnWidth: '25' };
+  tableInfo7 = {  'needPagination': true,tableType: 'default', 'needFilter': false, tableTitle: "Transactions", tableHeader: true, columnWidth: '10', needPrint: true };
 
   tableInfo8 = { tableType: 'columnTable', tableHeader: false, needFilter: false, needPrint: true, levelDecider: false };
 

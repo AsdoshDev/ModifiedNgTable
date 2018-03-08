@@ -1,4 +1,5 @@
 import { Component, OnInit,Input,EventEmitter,Output } from '@angular/core';
+import { NgSwitch } from  '@angular/common';
 @Component({
   selector: 'gsr-icon',
   templateUrl: './gsr-icon.component.html',

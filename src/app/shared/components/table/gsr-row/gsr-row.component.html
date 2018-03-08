@@ -15,4 +15,6 @@
   <gsr-icon *ngIf="column.searchIcon" (click)="openModal()" type="search"></gsr-icon>
 </div>
 
-<gsr-modal [columnHeaderInfo]="chi" [account]="account" *ngIf="showModal" (sendValue)="showModal=$event" [showModal]='showModal'></gsr-modal>
+<gsr-modal *ngIf="showModal" (sendValue)="showModal=$event" [showModal]='showModal'>
+  <div class="gsr-modal-content"><gsr-table  [dataObj] = "account" [columnHeaderInfo] = "chi"></gsr-table></div>   
+</gsr-modal>

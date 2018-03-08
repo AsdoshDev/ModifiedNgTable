@@ -8,11 +8,6 @@ import { Component, OnInit,Input,Output,EventEmitter } from '@angular/core';
 export class GsrModalComponent implements OnInit {
 
   constructor() { }
-
-  @Input() account:any; 
-  @Input() columnHeaderInfo:any; 
-  // @Input() chi:any;
-  
   @Input() showModal:any;
   @Output() sendValue = new EventEmitter();
  

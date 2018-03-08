@@ -1,10 +1,8 @@
 <div class="backdrop" ></div>
 <div id="printableArea" class="gsr-modal-container">
   <div class="gsr-modal-dialog">
-    <div  class="gsr-modal-content">
-        <gsr-table  [dataObj] = "account" [columnHeaderInfo] = "columnHeaderInfo"></gsr-table>
+      <ng-content select=".gsr-modal-content"></ng-content>
     </div>
-  </div>
-  <div class="gsr-modal-close" aria-label="Close" (click)="onCloseHandled()"><i class="material-icons">close</i></div>
+  <gsr-icon class="gsr-modal-close" (click)="onCloseHandled()" [type] = "'close'"></gsr-icon>
 </div>
 

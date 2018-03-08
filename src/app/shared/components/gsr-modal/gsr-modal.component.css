@@ -84,10 +84,10 @@ body, html {
 
 } */
 
-
-.gsr-modal-close .material-icons{
-	position: relative;
-	top:2px;
-}
-
+.gsr-modal-close {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+  }
+  
 

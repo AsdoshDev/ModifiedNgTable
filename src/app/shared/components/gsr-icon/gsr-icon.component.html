@@ -1,17 +1,19 @@
-<div class="circle open" *ngIf="type === 'open'"></div>
-<div class="circle fail" *ngIf="type === 'fail'"></div>
-<div class="arrow-up break" *ngIf="type === 'break'"></div>
+
+<ng-container [ngSwitch]="type">
+<div class="circle open" *ngSwitchCase="'open'"></div>
+<div class="circle fail" *ngSwitchCase="'fail'"></div>
+<div class="arrow-up break" *ngSwitchCase="'break'"></div>
 
 <!-- -------EXPAND/COLLAPSE ICON ------- -->
-<span  *ngIf="type == 'accordion'"  class="iconStyle" [ngClass] = "(showContent == true) ? 'collapse':'expand'"></span>
+<span *ngSwitchCase="'accordion'" class="iconStyle" [ngClass] = "(showContent == true) ? 'collapse':'expand'"></span>
 
 
 <!-- -------SORT ICON ------- -->
-<span class="iconWrapper" *ngIf="type === 'sort-des'">
+<span class="iconWrapper"  *ngSwitchCase="'sort-des'">
     <span class="arrow-up selected"></span>
     <span class="arrow-down"></span>
 </span>
-<span class="iconWrapper" *ngIf="type === 'sort-asc'">
+<span class="iconWrapper" *ngSwitchCase="'sort-asc'">
     <span class="arrow-up"></span>
     <span class="arrow-down selected"></span>
 </span>
@@ -22,10 +24,11 @@
 </span>
 
 <!-- -------SEARCH ICON ------- -->
-<i *ngIf="type === 'search'" class="searchIcon material-icons md-18">search</i>
+<i *ngSwitchCase="'search'" class="searchIcon material-icons md-18">search</i>
 <!-- PAGINATION ICONS  -->
-<i *ngIf="type === 'first-page'" class="material-icons">first_page</i>
-<i *ngIf="type === 'last-page'" class="material-icons">last_page</i>
-<i *ngIf="type === 'left-arrow'" class="material-icons">chevron_left</i>
-<i *ngIf="type === 'right-arrow'" class="material-icons">chevron_right</i>
-
+<i *ngSwitchCase="'first-page'" class="material-icons">first_page</i>
+<i *ngSwitchCase="'last-page'" class="material-icons">last_page</i>
+<i *ngSwitchCase="'left-arrow'" class="material-icons">chevron_left</i>
+<i *ngSwitchCase="'right-arrow'" class="material-icons">chevron_right</i>
+<i *ngSwitchCase="'close'" class="material-icons">close</i>
+</ng-container>
