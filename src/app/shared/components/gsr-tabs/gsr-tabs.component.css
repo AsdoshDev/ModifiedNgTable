@@ -65,7 +65,7 @@
   }
   a {
     /* color: #337ab7; */
-    color:#030464;
+    color:#000;
     text-decoration: none;
     background-color: transparent;
   }
@@ -87,7 +87,7 @@
 
 
   /* .nav-tabs>li.active>a, .nav-tabs>li.active>a:hover, .nav-tabs>li.active>a:focus {
-    color:#030464;
+    color:#338bba;
     background-color: #fff;
     border: 1px solid #ddd;
     border-bottom-color: transparent;
@@ -97,9 +97,9 @@
     /* color: #555; */
     
     color:#fff;
-    background-color: #030464;
+    background-color: #338bba;
     border: 1px solid #ddd;
-    border-bottom-color: #030464;
+    border-bottom-color: #338bba;
   }
 
   .nav-tabs>li.disabled,.nav-tabs>li.disabled>a, .nav-tabs>li.disabled>a:hover, .nav-tabs>li.disabled>a:focus {
