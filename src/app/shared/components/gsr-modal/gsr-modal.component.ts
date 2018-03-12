@@ -9,7 +9,7 @@ export class GsrModalComponent implements OnInit {
 
   constructor() { }
   @Input() showModal:any;
-  @Output() sendValue = new EventEmitter();
+  @Output() closeModal = new EventEmitter();
  
   ngOnInit() {}
   printDiv(divName) {
@@ -29,7 +29,7 @@ export class GsrModalComponent implements OnInit {
 
   onCloseHandled(){
     this.showModal = !this.showModal;
-    this.sendValue.emit(this.showModal);  
+    this.closeModal.emit(this.showModal);  
   }
 
 

@@ -18,7 +18,7 @@
         <ng-container *ngTemplateOutlet="level3DetailsPane"></ng-container>
       </div>
       <gsr-table *ngIf="!tableInfo.levelDecider" [columnHeaders]="columnHeaders" [dataObj]="icData" [columnHeaderInfo]="tableInfo"></gsr-table>
-      <gsr-table (sendClickedColumn) = "columnClickAction($event)" *ngIf="tableInfo.levelDecider" [records]="records" [columnHeaders]="columnHeaders" (sendLevel)="getLevel(levelDtls=$event)"
+      <gsr-table (getClickedColumn) = "columnClickAction($event)" *ngIf="tableInfo.levelDecider" [records]="records" [columnHeaders]="columnHeaders" (sendLevel)="getLevel(levelDtls=$event)"
         [dataObj]="icData" [columnHeaderInfo]="tableInfo"></gsr-table>
     </ng-container>
 

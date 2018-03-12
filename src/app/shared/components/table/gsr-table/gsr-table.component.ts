@@ -3,6 +3,7 @@ import { ChangeDetectorRef } from '@angular/core';
 import { EventEmitter } from '@angular/core';
 import {Utils} from './../../../../shared/utils';
 
+
 @Component({
   selector: 'gsr-table',
   templateUrl: './gsr-table.component.html',
@@ -15,10 +16,10 @@ export class GsrTableComponent implements OnInit {
   @Input() columnHeaders;
   @Input() records;
   @Output() sendLevel = new EventEmitter();
-  @Output() sendClickedColumn = new EventEmitter();
+  @Output() getClickedColumn = new EventEmitter();
 
   passClickedColumn(data){
-    this.sendClickedColumn.emit(data);
+    this.getClickedColumn.emit(data);
   }
   originalRecords:any;
   showFilter: boolean;
