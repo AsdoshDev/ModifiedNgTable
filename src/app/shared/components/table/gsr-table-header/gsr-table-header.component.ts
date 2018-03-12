@@ -20,6 +20,9 @@ export class GsrTableHeaderComponent implements OnInit {
   originalRecords:any;
   constructor() { }
 
+  print(){
+    
+  }
 
   ngAfterContentChecked(){
     if(this.columnHeaderInfo.levelDecider){
