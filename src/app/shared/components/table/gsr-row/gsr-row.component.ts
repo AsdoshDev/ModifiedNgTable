@@ -1,13 +1,12 @@
-import { Component, OnInit, Input, Output, EventEmitter, ViewChild, ElementRef } from '@angular/core';
-import { TableDataService } from '../../../../services/table-data.service';
+import { Component, OnInit, Input, Output, EventEmitter, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'gsr-row',
   templateUrl: './gsr-row.component.html',
-  styleUrls: ['./gsr-row.component.css']
+  styleUrls: ['./gsr-row.component.css'],
 })
 export class GsrRowComponent implements OnInit {
-  constructor(private data: TableDataService) {}
+  constructor() {}
   account: any;
   toggleAccordionFn: Function;
   @Input() record;
@@ -19,14 +18,14 @@ export class GsrRowComponent implements OnInit {
   public showModal = false;
   chi: any;
 
-  @Output() sendLevel = new EventEmitter();
-  @Output() clickTableColumn = new EventEmitter();
+  // @Output() sendLevel = new EventEmitter();
+  // @Output() clickTableColumn = new EventEmitter();
 
   showOpenItems(rec){
     var obj = {};
     obj['clickedRec'] = rec;
     obj['type'] ='open';
-    this.clickTableColumn.emit(obj);
+    //this.clickTableColumn.emit(obj);
   }
 
   ngOnInit() { }
@@ -63,14 +62,14 @@ export class GsrRowComponent implements OnInit {
     levelInfo['level'] = level;
     levelInfo['index'] = index;
 
-    this.sendLevel.emit(levelInfo);
+  //  this.sendLevel.emit(levelInfo);
   }
   openModal() {
     //openModal will receive an argument based on which, 
     // we would know the service that needs to be hit.
     // currently hardoded to one service 
-    this.account = this.data.getAccount();
-    this.chi = this.data.getTableInfo5();
+    this.account = "";
+    this.chi = "";
     this.showModal = !this.showModal;
 
 

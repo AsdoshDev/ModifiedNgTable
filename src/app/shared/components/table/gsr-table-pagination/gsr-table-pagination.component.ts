@@ -15,7 +15,7 @@ export class GsrTablePaginationComponent implements OnInit {
   pageObj = [];
   constructor() {}
 
-  loadRecords(open, number) {
+  loadRecords(open, number?) {
     let targetPage = this.pageObj.find(obj => obj.isClicked == 'active');
     let targetNumber = targetPage.number;
     if (open == 'first') {
